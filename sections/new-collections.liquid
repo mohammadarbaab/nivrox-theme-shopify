@@ -1,0 +1,366 @@
+{% assign section_id = 'new-collections-' | append: section.id %}
+
+<section id="{{ section_id }}" class="new-collections">
+  <div class="new-collections__inner">
+    <button class="new-collections__arrow new-collections__arrow--prev" aria-label="Previous">&#8592;</button>
+
+    <div class="new-collections__content">
+      <h2 class="new-collections__title">{{ section.settings.title }}</h2>
+      <p class="new-collections__description">{{ section.settings.description }}</p>
+
+      <div class="new-collections__track-wrapper">
+        <div class="new-collections__track" id="{{ section_id }}-track">
+          {% for block in section.blocks %}
+            <div class="new-collections__item" {{ block.shopify_attributes }}>
+              <div class="new-collections__image-wrap">
+                {% if block.settings.image != blank %}
+                  <img
+                    src="{{ block.settings.image | img_url: '600x800', crop: 'center' }}"
+                    alt="{{ block.settings.item_title }}"
+                    class="new-collections__image"
+                    loading="lazy"
+                    width="600"
+                    height="800"
+                  >
+                {% else %}
+                  {{ 'image' | placeholder_svg_tag: 'new-collections__placeholder' }}
+                {% endif %}
+              </div>
+              <div class="new-collections__item-body">
+                <h3 class="new-collections__item-title">{{ block.settings.item_title }}</h3>
+                <p class="new-collections__item-desc">{{ block.settings.item_description }}</p>
+                <a href="{{ block.settings.button_url }}" class="new-collections__link">{{ block.settings.button_label }}</a>
+              </div>
+            </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+
+    <button class="new-collections__arrow new-collections__arrow--next" aria-label="Next">&#8594;</button>
+  </div>
+</section>
+
+<style>
+  #{{ section_id }} {
+    background-color: #f0ede8;
+    padding: 60px 0 80px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  #{{ section_id }} .new-collections__inner {
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 0 60px;
+    display: flex;
+    align-items: flex-start;
+    gap: 0;
+    position: relative;
+  }
+
+  #{{ section_id }} .new-collections__content {
+    flex: 1;
+    min-width: 0;
+  }
+
+  #{{ section_id }} .new-collections__title {
+    font-family: 'Georgia', 'Times New Roman', serif;
+    font-size: 52px;
+    font-weight: 400;
+    color: #1a1a1a;
+    text-align: center;
+    margin: 0 0 24px;
+    line-height: 1.15;
+    letter-spacing: -0.5px;
+  }
+
+  #{{ section_id }} .new-collections__description {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    color: #888;
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto 48px;
+    line-height: 1.75;
+    font-weight: 400;
+  }
+
+  #{{ section_id }} .new-collections__track-wrapper {
+    overflow: hidden;
+  }
+
+  #{{ section_id }} .new-collections__track {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+    transition: transform 0.4s ease;
+  }
+
+  #{{ section_id }} .new-collections__item {
+    display: flex;
+    flex-direction: column;
+  }
+
+  #{{ section_id }} .new-collections__image-wrap {
+    width: 100%;
+    aspect-ratio: 3 / 4;
+    overflow: hidden;
+    margin-bottom: 20px;
+  }
+
+  #{{ section_id }} .new-collections__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  #{{ section_id }} .new-collections__placeholder {
+    width: 100%;
+    height: 100%;
+    background: #ddd;
+    display: block;
+  }
+
+  #{{ section_id }} .new-collections__item-body {
+    padding: 0 4px;
+  }
+
+  #{{ section_id }} .new-collections__item-title {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #1a1a1a;
+    margin: 0 0 10px;
+    line-height: 1.4;
+  }
+
+  #{{ section_id }} .new-collections__item-desc {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: 13px;
+    color: #888;
+    line-height: 1.65;
+    margin: 0 0 16px;
+  }
+
+  #{{ section_id }} .new-collections__link {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #1a1a1a;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    text-decoration-thickness: 1px;
+    display: inline-block;
+  }
+
+  #{{ section_id }} .new-collections__link:hover {
+    color: #555;
+  }
+
+  #{{ section_id }} .new-collections__arrow {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 20px;
+    color: #aaa;
+    padding: 0 10px;
+    flex-shrink: 0;
+    margin-top: 220px;
+    line-height: 1;
+    transition: color 0.2s;
+    width: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  #{{ section_id }} .new-collections__arrow:hover {
+    color: #333;
+  }
+
+  @media screen and (max-width: 1200px) {
+    #{{ section_id }} .new-collections__inner {
+      padding: 0 40px;
+    }
+
+    #{{ section_id }} .new-collections__title {
+      font-size: 44px;
+    }
+
+    #{{ section_id }} .new-collections__track {
+      gap: 28px;
+    }
+  }
+
+  @media screen and (max-width: 992px) {
+    #{{ section_id }} {
+      padding: 48px 0 60px;
+    }
+
+    #{{ section_id }} .new-collections__inner {
+      padding: 0 24px;
+    }
+
+    #{{ section_id }} .new-collections__title {
+      font-size: 36px;
+    }
+
+    #{{ section_id }} .new-collections__track {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+    }
+
+    #{{ section_id }} .new-collections__arrow {
+      margin-top: 180px;
+    }
+  }
+
+  @media screen and (max-width: 768px) {
+    #{{ section_id }} {
+      padding: 40px 0 56px;
+    }
+
+    #{{ section_id }} .new-collections__inner {
+      padding: 0 16px;
+    }
+
+    #{{ section_id }} .new-collections__title {
+      font-size: 28px;
+      margin-bottom: 16px;
+    }
+
+    #{{ section_id }} .new-collections__description {
+      font-size: 13px;
+      margin-bottom: 32px;
+    }
+
+    #{{ section_id }} .new-collections__track {
+      grid-template-columns: 1fr;
+      gap: 36px;
+    }
+
+    #{{ section_id }} .new-collections__arrow {
+      display: none;
+    }
+  }
+</style>
+
+<script>
+(function() {
+  var section = document.getElementById('{{ section_id }}');
+  if (!section) return;
+
+  var track = section.querySelector('.new-collections__track');
+  var prevBtn = section.querySelector('.new-collections__arrow--prev');
+  var nextBtn = section.querySelector('.new-collections__arrow--next');
+  var items = track.querySelectorAll('.new-collections__item');
+  var currentIndex = 0;
+
+  function getVisible() {
+    if (window.innerWidth <= 768) return 1;
+    if (window.innerWidth <= 992) return 2;
+    return 3;
+  }
+
+  function update() {
+    var visible = getVisible();
+    var max = Math.max(0, items.length - visible);
+    currentIndex = Math.min(currentIndex, max);
+    var itemWidth = items[0].offsetWidth;
+    var gap = parseInt(getComputedStyle(track).gap) || 0;
+    track.style.transform = 'translateX(-' + (currentIndex * (itemWidth + gap)) + 'px)';
+  }
+
+  prevBtn.addEventListener('click', function() {
+    if (currentIndex > 0) { currentIndex--; update(); }
+  });
+
+  nextBtn.addEventListener('click', function() {
+    var visible = getVisible();
+    var max = Math.max(0, items.length - visible);
+    if (currentIndex < max) { currentIndex++; update(); }
+  });
+
+  window.addEventListener('resize', update);
+})();
+</script>
+
+{% schema %}
+{
+  "name": "New Collections",
+  "tag": "section",
+  "class": "section-new-collections",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Section Title",
+      "default": "New Collections"
+    },
+    {
+      "type": "textarea",
+      "id": "description",
+      "label": "Description",
+      "default": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe voluptas ut dolorum consequuntur, adipisci repellat! Eveniet commodi voluptatem voluptate, eum minima, in suscipit explicabo voluptatibus harum, quibusdam ex repellat eaque!"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "collection_item",
+      "name": "Collection Item",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "text",
+          "id": "item_title",
+          "label": "Item Title",
+          "default": "Soft Leather Jackets"
+        },
+        {
+          "type": "textarea",
+          "id": "item_description",
+          "label": "Item Description",
+          "default": "Scelerisque duis aliquam qui lorem ipsum dolor amet, consectetur adipiscing elit."
+        },
+        {
+          "type": "text",
+          "id": "button_label",
+          "label": "Button Label",
+          "default": "Discover Now"
+        },
+        {
+          "type": "url",
+          "id": "button_url",
+          "label": "Button URL"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "New Collections",
+      "blocks": [
+        {
+          "type": "collection_item"
+        },
+        {
+          "type": "collection_item"
+        },
+        {
+          "type": "collection_item"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

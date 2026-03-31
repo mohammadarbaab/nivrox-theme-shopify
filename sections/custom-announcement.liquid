@@ -1,0 +1,35 @@
+<style>
+.custom-announcement-text {
+  font-size: 20px; /* adjust as needed */
+  margin: 0;
+  text-align: center;
+}
+.custom-announcment{
+  background: linear-gradient(135deg, #f8f6f2 0%, #ece7df 100%);
+}
+</style>
+
+<div class="custom-announcment">
+  <p class="custom-announcement-text">
+    {{ section.settings.announcement_text }}
+  </p>
+</div>
+
+{% schema %}
+{
+  "name": "Custom Announcement",
+  "settings": [
+    {
+      "type": "text",
+      "id": "announcement_text",
+      "label": "Announcement Text",
+      "default": "Free shipping on orders over £75"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Custom Announcement"
+    }
+  ]
+}
+{% endschema %}

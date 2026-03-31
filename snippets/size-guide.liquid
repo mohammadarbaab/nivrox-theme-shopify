@@ -1,0 +1,426 @@
+{% assign isMen = false %}
+{% assign isWomen = false %}
+
+{% for c in product.collections %}
+  {% assign title = c.title | downcase %}
+
+  {% if title contains "women" %}
+    {% assign isWomen = true %}
+  {% elsif title contains "men" %}
+    {% assign isMen = true %}
+  {% endif %}
+{% endfor %}
+
+<!-- MODAL -->
+<div id="sizeGuideModal" class="size-modal">
+  <div class="size-content">
+    <span class="close" onclick="closeSizeGuide()">&times;</span>
+
+    <!-- ================= MEN ================= -->
+    {% if isMen %}
+      <h2>Men Size Guide - Trousers</h2>
+
+      <div class="accordion">
+        <div class="accordion-header" onclick="toggleMeasure()">+ How to Measure</div>
+        <div id="measureContent" class="accordion-body">Measure waist, hip and inside leg using a measuring tape.</div>
+      </div>
+
+      <table>
+        <tr>
+          <th>Size</th>
+          <th>S</th>
+          <th>M</th>
+          <th>L</th>
+          <th>XL</th>
+        </tr>
+        <tr>
+          <td>Waist inch</td>
+          <td>28-30</td>
+          <td>30-32</td>
+          <td>32-34</td>
+          <td>34-36</td>
+        </tr>
+        <tr>
+          <td>Hip inch</td>
+          <td>34-36</td>
+          <td>36-38</td>
+          <td>38-40</td>
+          <td>40-42</td>
+        </tr>
+        <tr>
+          <td>Length</td>
+          <td>38</td>
+          <td>39</td>
+          <td>40</td>
+          <td>41</td>
+        </tr>
+      </table>
+
+      <!-- ================= WOMEN ================= -->
+    {% elsif isWomen %}
+      <h2>Size Guide - Trousers</h2>
+
+      <!-- Accordion -->
+      <div class="accordion">
+        <div class="accordion-header" onclick="toggleMeasure()">+ How to Measure</div>
+        <div id="measureContent" class="accordion-body">Measure waist, hip and inside leg using a measuring tape.</div>
+      </div>
+
+      <h3>Select Size Range</h3>
+
+      <div class="tabs">
+        <button onclick="showTab(event,'t1')" class="active">XXS-S</button>
+        <button onclick="showTab(event,'t2')">M-XL</button>
+        <button onclick="showTab(event,'t3')">XXL-4XL</button>
+      </div>
+
+      <!-- TAB 1 -->
+      <div id="t1" class="tab-content active">
+        <table>
+          <tr>
+            <th>Size</th>
+            <th>XXS</th>
+            <th>XS</th>
+            <th>S</th>
+          </tr>
+          <tr>
+            <td>Waist cm</td>
+            <td>62-64</td>
+            <td>64-66</td>
+            <td>66-74</td>
+          </tr>
+          <tr>
+            <td>Waist inch</td>
+            <td>24½-25</td>
+            <td>25-26</td>
+            <td>26-29</td>
+          </tr>
+          <tr>
+            <td>Hip cm</td>
+            <td>79-83</td>
+            <td>83-87</td>
+            <td>87-94.5</td>
+          </tr>
+          <tr>
+            <td>Hip inch</td>
+            <td>31-32¾</td>
+            <td>32¾-34¼</td>
+            <td>34¼-37¼</td>
+          </tr>
+          <tr>
+            <td>Length cm</td>
+            <td>71</td>
+            <td>71.5</td>
+            <td>73</td>
+          </tr>
+          <tr>
+            <td>Length inch</td>
+            <td>28</td>
+            <td>28¼</td>
+            <td>28¾</td>
+          </tr>
+        </table>
+      </div>
+
+      <!-- TAB 2 -->
+      <div id="t2" class="tab-content">
+        <table>
+          <tr>
+            <th>Size</th>
+            <th>M</th>
+            <th>L</th>
+            <th>XL</th>
+          </tr>
+          <tr>
+            <td>Waist cm</td>
+            <td>74-82.5</td>
+            <td>82.5-93</td>
+            <td>93-105</td>
+          </tr>
+          <tr>
+            <td>Waist inch</td>
+            <td>29-32½</td>
+            <td>32½-36½</td>
+            <td>36½-41¼</td>
+          </tr>
+          <tr>
+            <td>Hip cm</td>
+            <td>94.5-100.5</td>
+            <td>100.5-107.5</td>
+            <td>107.5-117.5</td>
+          </tr>
+          <tr>
+            <td>Hip inch</td>
+            <td>37¼-39½</td>
+            <td>39½-42¼</td>
+            <td>42¼-46¼</td>
+          </tr>
+          <tr>
+            <td>Length cm</td>
+            <td>72.5</td>
+            <td>72</td>
+            <td>72</td>
+          </tr>
+          <tr>
+            <td>Length inch</td>
+            <td>28½</td>
+            <td>28¼</td>
+            <td>28¼</td>
+          </tr>
+        </table>
+      </div>
+
+      <!-- TAB 3 -->
+      <div id="t3" class="tab-content">
+        <table>
+          <tr>
+            <th>Size</th>
+            <th>XXL</th>
+            <th>3XL</th>
+            <th>4XL</th>
+          </tr>
+          <tr>
+            <td>Waist cm</td>
+            <td>105-117.5</td>
+            <td>117.5-131.5</td>
+            <td>131.5-145.5</td>
+          </tr>
+          <tr>
+            <td>Waist inch</td>
+            <td>41¼-46¼</td>
+            <td>46¼-51¾</td>
+            <td>51¾-57¼</td>
+          </tr>
+          <tr>
+            <td>Hip cm</td>
+            <td>117.5-128</td>
+            <td>128-140</td>
+            <td>140-152</td>
+          </tr>
+          <tr>
+            <td>Hip inch</td>
+            <td>46¼-50½</td>
+            <td>50½-55</td>
+            <td>55-59¾</td>
+          </tr>
+          <tr>
+            <td>Length cm</td>
+            <td>71.5</td>
+            <td>71</td>
+            <td>71</td>
+          </tr>
+          <tr>
+            <td>Length inch</td>
+            <td>28¼</td>
+            <td>28</td>
+            <td>28</td>
+          </tr>
+        </table>
+      </div>
+    {% endif %}
+  </div>
+</div>
+
+<style>
+  /* Prevent background scroll */
+  body.modal-open {
+    overflow: hidden;
+    height: 100%;
+  }
+  .size-btn {
+    padding: 12px 18px;
+    background: linear-gradient(135deg, #000, #333);
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: 0.3s;
+  }
+  .size-btn:hover {
+    transform: scale(1.05);
+    background: #111;
+  }
+
+  .size-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    z-index: 9999;
+    animation: fadeIn 0.3s ease;
+  }
+  .size-content {
+    background: #fff;
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 20px;
+    border-radius: 10px;
+    max-height: 80vh; /* 👈 important */
+    overflow-y: auto; /* 👈 scroll enable */
+     border-radius:12px;
+  box-shadow:0 10px 40px rgba(0,0,0,0.2);
+  animation:slideUp 0.3s ease;
+  }
+  .close {
+    float: right;
+    font-size: 22px;
+    cursor: pointer;
+    transition:0.3s;
+  }
+  .close:hover{
+  color:#000;
+}
+.tabs{
+  margin-top:15px;
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+}
+
+.tabs button {
+  border:none;
+  padding:8px 16px;
+  cursor:pointer;
+  border-radius:20px;
+  background:#f1f1f1;
+  font-size:13px;
+  font-weight:500;
+  transition:all 0.3s ease;
+}
+
+.tabs button:hover {
+  background:#e0e0e0;
+}
+
+.tabs .active {
+  background:#000;
+  color:#fff;
+  box-shadow:0 2px 8px rgba(0,0,0,0.2);
+}
+
+/* TAB CONTENT */
+.tab-content {
+  display:none;
+  animation:fadeTab 0.3s ease;
+}
+
+.tab-content.active {
+  display:block;
+}
+
+/* SMOOTH FADE */
+@keyframes fadeTab {
+  from { opacity:0; transform:translateY(5px); }
+  to { opacity:1; transform:translateY(0); }
+}
+  .tab-content.active {
+    display: block;
+  }
+
+  table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 15px;
+  border-radius: 10px;
+  overflow: hidden;
+  background: #fff;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+}
+
+/* HEADER */
+th {
+  background: linear-gradient(135deg, #000, #333);
+  color: #fff;
+  padding: 12px;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+/* CELLS */
+td {
+  padding: 12px;
+  font-size: 13px;
+  color: #333;
+  border-bottom: 1px solid #eee;
+}
+
+/* ZEBRA STRIPES */
+tr:nth-child(even) {
+  background: #fafafa;
+}
+
+/* HOVER EFFECT */
+tr:hover {
+  background: #f1f1f1;
+  transition: 0.2s;
+}
+
+  .accordion-body {
+    display: none;
+  }
+  /* Chrome, Safari */
+  .size-content::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Firefox */
+  .size-content {
+    scrollbar-width: none;
+  }
+
+  /* IE / Edge */
+  .size-content {
+    -ms-overflow-style: none;
+  }
+  /* ANIMATIONS */
+@keyframes fadeIn{
+  from{opacity:0}
+  to{opacity:1}
+}
+@keyframes slideUp{
+  from{transform:translateY(30px);opacity:0}
+  to{transform:translateY(0);opacity:1}
+}
+</style>
+
+<script>
+  function openSizeGuide() {
+    document.getElementById('sizeGuideModal').style.display = 'block';
+  }
+
+  function closeSizeGuide() {
+    document.getElementById('sizeGuideModal').style.display = 'none';
+  }
+
+  function toggleMeasure() {
+    let el = document.getElementById('measureContent');
+    el.style.display = el.style.display === 'block' ? 'none' : 'block';
+  }
+
+  function showTab(e, tab) {
+    document.querySelectorAll('.tab-content').forEach((el) => el.classList.remove('active'));
+    document.querySelectorAll('.tabs button').forEach((btn) => btn.classList.remove('active'));
+    document.getElementById(tab).classList.add('active');
+    e.target.classList.add('active');
+  }
+  // ✅ CLOSE ON OUTSIDE CLICK
+  window.addEventListener('click', function (event) {
+    let modal = document.getElementById('sizeGuideModal');
+    if (event.target === modal) {
+      closeSizeGuide();
+    }
+  });
+  function openSizeGuide() {
+    document.getElementById('sizeGuideModal').style.display = 'block';
+    document.body.classList.add('modal-open'); // 👈 lock scroll
+  }
+
+  function closeSizeGuide() {
+    document.getElementById('sizeGuideModal').style.display = 'none';
+    document.body.classList.remove('modal-open'); // 👈 unlock scroll
+  }
+</script>

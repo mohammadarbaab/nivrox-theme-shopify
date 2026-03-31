@@ -1,0 +1,58 @@
+<div class="category-tiles">
+  {% assign collections_list = "t-shirts,pants,jackets" | split: "," %}
+  
+  {% for handle in collections_list %}
+    {% assign collection = collections[handle] %}
+    {% if collection %}
+      <div class="category-tile">
+        <a href="{{ collection.url }}">
+          <img src="{{ collection.image | img_url: '600x' }}" alt="{{ collection.title }}" />
+          <h3>{{ collection.title }}</h3>
+        </a>
+      </div>
+    {% endif %}
+  {% endfor %}
+</div>
+
+<style>
+.category-tiles {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.category-tile {
+  width: 200px;
+  text-align: center;
+  border: 1px solid #ddd;
+  padding: 10px;
+  border-radius: 8px;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+.category-tile:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+.category-tile img {
+  width: 100%;
+  border-radius: 5px;
+  object-fit: cover;
+}
+.category-tile h3 {
+  margin-top: 10px;
+  font-size: 1rem;
+  color: #333;
+}
+</style>
+
+{% schema %}
+{
+  "name": "Category Tiles",
+  "settings": [],
+  "presets": [
+    {
+      "name": "Category Tiles"
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,87 @@
+<section class="info-boxes">
+  <div class="page-width info-grid">
+
+    <div class="info-box">
+      <h3>FREE SHIPPING</h3>
+      <p>
+        Free shipping across India on orders above ₹999. 
+        Fast and secure delivery straight to your doorstep.
+      </p>
+    </div>
+
+    <div class="info-box">
+      <h3>SIGN UP FOR 15% OFF</h3>
+      <p>
+        Subscribe to our newsletter and get 15% off your first order. 
+        Stay updated with new arrivals and exclusive offers.
+      </p>
+    </div>
+
+    <div class="info-box">
+      <h3>EASY RETURNS</h3>
+      <p>
+        Not satisfied? Enjoy hassle-free returns within 7 days 
+        for a smooth and worry-free shopping experience.
+      </p>
+    </div>
+
+  </div>
+</section>
+
+<style>
+.info-boxes {
+  padding: 30px 20px;
+  background: #fff;
+  /* background: red; */
+}
+
+.page-width {
+  max-width: 1300px;
+  margin: auto;
+}
+
+.info-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.info-box {
+  /* background: #f6f6f6; */
+  background: #F7F3EE;
+  padding: 25px 30px;
+  text-align: center;
+}
+
+.info-box h3 {
+  font-size: 14px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-bottom: 15px;
+}
+
+.info-box p {
+  font-size: 14px;
+  color: #555;
+  line-height: 1.7;
+}
+
+/* Tablet */
+@media (max-width: 1024px) {
+  .info-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+</style>
+
+{% schema %}
+{
+  "name": "Info Boxes",
+  "presets": [
+    {
+      "name": "Info Boxes"
+    }
+  ]
+}
+{% endschema %}

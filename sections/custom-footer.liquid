@@ -1,0 +1,356 @@
+<div class="main-footer-container">
+
+  <!-- TOP FOOTER -->
+  <div class="footer-top-container">
+    <div class="footer-navbar">
+
+      <!-- LOGO -->
+     <div class="footer-logo">
+  {% if section.settings.logo_image != blank %}
+    <img src="{{ section.settings.logo_image | image_url }}" alt="logo">
+  {% else %}
+    <h4>{{ section.settings.logo_text }}</h4>
+  {% endif %}
+</div>
+      <!-- LINKS COLUMN 1 -->
+      <div class="links">
+        <h4>{{ section.settings.menu_1_title }}</h4>
+        {% for link in linklists[section.settings.footer_menu_1].links %}
+          <a href="{{ link.url }}">{{ link.title }}</a>
+        {% endfor %}
+      </div>
+
+      <!-- LINKS COLUMN 2 -->
+      <div class="links">
+        <h4>{{ section.settings.menu_2_title }}</h4>
+        {% for link in linklists[section.settings.footer_menu_2].links %}
+          <a href="{{ link.url }}">{{ link.title }}</a>
+        {% endfor %}
+      </div>
+
+      <!-- BRAND DESCRIPTION -->
+      <div class="brand">
+        <h4>THE BRAND</h4>
+        <p>{{ section.settings.description }}</p>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- NEWSLETTER + SOCIAL -->
+  <div class="input-main-container">
+
+    <div class="input-container">
+      <p class="newsletter-title">Sign up for 15% off</p>
+
+      <form method="post"
+            action="/contact#contact_form"
+            accept-charset="UTF-8"
+            class="newsletter-form-footer">
+
+        <input type="hidden" name="form_type" value="customer">
+        <input type="hidden" name="contact[tags]" value="newsletter">
+
+        <div class="newsletter-input-wrapper-footer">
+          <input type="email"
+                 name="contact[email]"
+                 class="newsletter-input-footer"
+                 placeholder="EMAIL"
+                 required>
+          <button type="submit" class="newsletter-button-footer">
+            →
+          </button>
+        </div>
+
+      </form>
+    </div>
+
+    <div class="social-media-container">
+
+  {% if section.settings.facebook != blank %}
+    <a href="{{ section.settings.facebook }}" target="_blank">
+      <img src="https://cdn-icons-png.flaticon.com/512/733/733547.png" alt="Facebook">
+    </a>
+  {% endif %}
+
+  {% if section.settings.instagram != blank %}
+    <a href="{{ section.settings.instagram }}" target="_blank">
+      <img src="https://cdn-icons-png.flaticon.com/512/733/733558.png" alt="Instagram">
+    </a>
+  {% endif %}
+
+  {% if section.settings.twitter != blank %}
+    <a href="{{ section.settings.twitter }}" target="_blank">
+      <img src="https://cdn-icons-png.flaticon.com/512/733/733579.png" alt="Twitter">
+    </a>
+  {% endif %}
+
+  {% if section.settings.linkedin != blank %}
+    <a href="{{ section.settings.linkedin }}" target="_blank">
+      <img src="https://cdn-icons-png.flaticon.com/512/733/733561.png" alt="LinkedIn">
+    </a>
+  {% endif %}
+
+</div>
+
+  </div>
+
+  <div class="copyright-section">
+    <p style="text-align:center;font-size:12px;color:#777;">
+      © 2026 Nivrox. Elevating everyday style. All rights reserved.
+    </p>
+  </div>
+
+</div>
+
+
+<style>
+
+/* MAIN FOOTER */
+
+.copyright-section{
+  margin-top: 40px;
+  padding-top: 20px;
+  border-top: 1px solid #e5e5e5;
+}
+.main-footer-container {
+  padding: 60px 40px 30px;
+}
+
+/* TOP SECTION */
+.footer-top-container {
+  /* max-width: 1200px; */
+  margin: auto;
+  padding-bottom: 40px;
+}
+
+.footer-navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 40px;
+}
+.footer-logo img{
+  width:120px;
+  height:auto;
+}
+
+.footer-navbar h4,
+.footer-navbar p {
+  margin: 0;
+}
+
+/* LOGO */
+.footer-logo h4 {
+  font-size: 18px;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+/* LINKS */
+.links {
+  display: flex;
+  flex-direction: column;
+  width: 200px;
+}
+
+.links h4 {
+  margin-bottom: 15px;
+  font-size: 13px;
+  letter-spacing: 1px;
+}
+
+.links a {
+  text-decoration: none;
+  color: #000;
+  font-size: 14px;
+  margin-bottom: 8px;
+  transition: 0.3s ease;
+}
+
+.links a:hover {
+  opacity: 0.6;
+}
+
+/* BRAND */
+.brand {
+  width: 300px;
+}
+
+.brand h4 {
+  margin-bottom: 15px;
+  font-size: 13px;
+  letter-spacing: 1px;
+}
+
+.brand p {
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+/* BOTTOM SECTION */
+.input-main-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  /* max-width: 1200px; */
+  margin: auto;
+  /* padding-top: 25px; */
+  /* border-top: 1px solid #e5e5e5; */
+}
+
+/* NEWSLETTER */
+.input-container {
+  max-width: 400px;
+  width: 100%;
+}
+
+.newsletter-title {
+  font-size: 13px;
+  margin-bottom: 10px;
+  letter-spacing: 1px;
+}
+
+.newsletter-input-wrapper-footer {
+  display: flex;
+  border: 1px solid #ddd;
+}
+
+.newsletter-input-footer {
+  flex: 1;
+  border: none;
+  padding: 12px 15px;
+  font-size: 12px;
+  text-transform: uppercase;
+  outline: none;
+}
+
+.newsletter-button-footer {
+  width: 55px;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  font-size: 18px;
+  transition: 0.3s;
+}
+
+.newsletter-button-footer:hover {
+  background: #f5f5f5;
+}
+
+/* SOCIAL MEDIA PERFECT SIZE */
+.social-media-container {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.social-media-container img {
+  width: 18px;     /* Perfect professional size */
+  height: 18px;
+  object-fit: contain;
+  transition: 0.3s ease;
+}
+
+.social-media-container img:hover {
+  opacity: 0.6;
+  transform: translateY(-2px);
+}
+
+/* RESPONSIVE */
+@media (max-width: 992px) {
+
+  .footer-navbar {
+    flex-wrap: wrap;
+  }
+
+  .footer-logo,
+  .links,
+  .brand {
+    width: 100%;
+  }
+
+  .input-main-container {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+  }
+
+  .social-media-container {
+    margin-top: 10px;
+  }
+}
+
+</style>
+
+{% schema %}
+{
+  "name": "Custom Footer",
+  "settings": [
+    {
+      "type": "text",
+      "id": "logo_text",
+      "label": "Brand Name",
+      "default": "Nivrox"
+    },
+    {
+      "type": "text",
+      "id": "menu_1_title",
+      "label": "Menu 1 Heading",
+      "default": "LINKS"
+    },
+    {
+  "type": "image_picker",
+  "id": "logo_image",
+  "label": "Footer Logo"
+},
+    {
+      "type": "link_list",
+      "id": "footer_menu_1",
+      "label": "Footer Menu 1"
+    },
+    {
+      "type": "text",
+      "id": "menu_2_title",
+      "label": "Menu 2 Heading",
+      "default": "LEGAL"
+    },
+    {
+      "type": "link_list",
+      "id": "footer_menu_2",
+      "label": "Footer Menu 2"
+    },
+    {
+      "type": "textarea",
+      "id": "description",
+      "label": "Brand Description",
+      "default": "Premium everyday essentials designed with comfort and modern style in mind."
+    },
+    {
+      "type": "url",
+      "id": "facebook",
+      "label": "Facebook Link"
+    },
+    {
+      "type": "url",
+      "id": "instagram",
+      "label": "Instagram Link"
+    },
+    {
+      "type": "url",
+      "id": "twitter",
+      "label": "Twitter Link"
+    },
+    {
+      "type": "url",
+      "id": "linkedin",
+      "label": "LinkedIn Link"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Custom Footer"
+    }
+  ]
+}
+{% endschema %}

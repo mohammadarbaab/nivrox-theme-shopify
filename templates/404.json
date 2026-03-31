@@ -1,0 +1,287 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "video_section_AzCBci": {
+      "type": "video-section",
+      "name": "Custom Video Hero",
+      "settings": {
+        "video": "shopify://files/videos/customvideo.mp4",
+        "video_url": "",
+        "drop_tag": "Drop 2026",
+        "title": "Live. Now.",
+        "subtext": "Limited styles. Unlimited confidence.",
+        "button_link": "shopify://collections/all",
+        "button_text": "Shop Now"
+      }
+    },
+    "main": {
+      "type": "main-404",
+      "blocks": {
+        "text_GqmVFf": {
+          "type": "text",
+          "name": "t:names.text",
+          "settings": {
+            "text": "<h1>Page not found</h1>",
+            "width": "100%",
+            "max_width": "normal",
+            "alignment": "center",
+            "type_preset": "h3",
+            "font": "var(--font-primary--family)",
+            "font_size": "",
+            "line_height": "normal",
+            "letter_spacing": "normal",
+            "case": "none",
+            "wrap": "pretty",
+            "color": "",
+            "background": false,
+            "background_color": "#00000026",
+            "corner_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {}
+        },
+        "text_Ua9XAW": {
+          "type": "text",
+          "name": "t:names.text",
+          "settings": {
+            "text": "<p>The link may be incorrect, or the page has been removed. </p>",
+            "width": "100%",
+            "max_width": "normal",
+            "alignment": "center",
+            "type_preset": "rte",
+            "font": "var(--font-primary--family)",
+            "font_size": "",
+            "line_height": "normal",
+            "letter_spacing": "normal",
+            "case": "none",
+            "wrap": "pretty",
+            "color": "",
+            "background": false,
+            "background_color": "#00000026",
+            "corner_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 16,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {}
+        },
+        "button_PAQMwR": {
+          "type": "button",
+          "name": "t:names.button",
+          "settings": {
+            "label": "Continue shopping",
+            "link": "shopify://collections/all",
+            "open_in_new_tab": false,
+            "style_class": "button",
+            "width": "fit-content",
+            "custom_width": 100,
+            "width_mobile": "fit-content",
+            "custom_width_mobile": 100
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "text_GqmVFf",
+        "text_Ua9XAW",
+        "button_PAQMwR"
+      ],
+      "disabled": true,
+      "settings": {
+        "content_direction": "column",
+        "section_width": "page-width",
+        "section_height": "small",
+        "horizontal_alignment_flex_direction_column": "center",
+        "vertical_alignment_flex_direction_column": "center",
+        "gap": 20,
+        "color_scheme": "",
+        "padding-block-start": 100,
+        "padding-block-end": 100
+      }
+    },
+    "collection_grid_xMt7td": {
+      "type": "collection-grid",
+      "blocks": {
+        "item_KyCVKR": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/8A46BF5A-5507-45B9-A3EB-7CAD6E82029D_1_201_a.jpg",
+            "title": "WOMEN'S TROUSERS",
+            "collection": "womens-trousers"
+          }
+        },
+        "item_PWxJbF": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/ChatGPT_Image_Mar_31_2026_02_16_54_PM.png",
+            "title": "MEN'S KOREAN PANTS",
+            "collection": "mens-korean-pants"
+          }
+        },
+        "item_TMyzHT": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/F5FACDE1-2656-42A5-A7EA-2686B021A3FD_1_201_a_800x1000_crop_center_566e4f8a-7d0e-41b2-84bc-6ac8992edfce.jpg",
+            "title": "MEN'S TSHIRT",
+            "collection": "mens-tshirts"
+          }
+        }
+      },
+      "block_order": [
+        "item_KyCVKR",
+        "item_PWxJbF",
+        "item_TMyzHT"
+      ],
+      "name": "Collection Grid",
+      "settings": {}
+    },
+    "featured_products_a8jEEU": {
+      "type": "featured-products",
+      "name": "Featured Collection",
+      "settings": {
+        "subheading": "Premium Collection",
+        "heading": "Featured Products",
+        "description": "Discover our hand-picked selection of premium products designed for style and comfort.",
+        "products": [
+          "korean-style-high-waist-belted-wide-leg-pants",
+          "korean-style-high-waist-belted-wide-leg-trousers",
+          "korean-style-high-waist-wide-leg-pants",
+          "modern-korean-wide-pants",
+          "minimal-pleated-wide-leg-trousers",
+          "korean-pleated-wide-leg-trousers",
+          "elegant-high-waist-wide-leg-trousers",
+          "blue-knit-polo",
+          "nivrox-beltease-high-waist-pleated-women-trouser",
+          "nivrox-beltfit-high-waist-wide-leg-women-trouser",
+          "nivrox-luxetail-high-waist-women-s-trouser",
+          "relaxed-fit-korean-wide-pants"
+        ],
+        "products_limit": 12,
+        "show_vendor": true,
+        "show_rating": true,
+        "show_color_options": true,
+        "show_view_all": true,
+        "view_all_text": "View All Products",
+        "view_all_link": "shopify://collections/all"
+      }
+    },
+    "custom_text_LBTjat": {
+      "type": "custom-text",
+      "name": "Custom Text",
+      "settings": {
+        "heading": "Share information about your brand",
+        "text": "Nivrox is a modern fashion brand focused on clean silhouettes, premium fabrics, and everyday comfort. Our collections are designed to deliver effortless style with a confident and contemporary look."
+      }
+    },
+    "info_boxes_XhRNXX": {
+      "type": "info-boxes",
+      "name": "Info Boxes",
+      "settings": {}
+    },
+    "winter_collection_63zejV": {
+      "type": "winter-collection",
+      "name": "Winter Collection",
+      "settings": {
+        "image": "shopify://shop_images/girls_image.jpg",
+        "heading": "CLASSIC TROUSER COLLECTION",
+        "text": "Discover Nivrox trousers designed with modern fits, premium fabrics, and effortless style. Perfect for everyday wear, work, and casual occasions.",
+        "button_label": "SHOP COLLECTION",
+        "button_link": "shopify://collections"
+      }
+    },
+    "image_text_split_w7dKDT": {
+      "type": "image-text-split",
+      "name": "Image with Text (Split)",
+      "settings": {
+        "image": "shopify://shop_images/model-8.png",
+        "heading": "SIGNATURE TROUSERS",
+        "text": "Our signature trousers combine modern tailoring with comfortable fabrics to deliver a sharp silhouette and effortless everyday style.",
+        "button_label": "SHOP NOW",
+        "button_link": ""
+      }
+    },
+    "image_text_split_s_8nJxtC": {
+      "type": "image-text-split-s",
+      "name": "Image with Text (Split)",
+      "settings": {
+        "image": "shopify://shop_images/model-9.png",
+        "heading": "MODERN EVERYDAY STYLE",
+        "text": "Upgrade your wardrobe with Nivrox trousers and t-shirts designed for comfort, confidence, and clean modern style.",
+        "button_label": "SHOP NOW",
+        "button_link": ""
+      }
+    },
+    "custom_newsletter_E4Adpz": {
+      "type": "custom-newsletter",
+      "name": "Custom Newsletter",
+      "settings": {
+        "heading": "SUBSCRIBE TO OUR EMAILS",
+        "subtext": "Be the first to know about new collections and exclusive offers."
+      }
+    },
+    "video_section_2_n7yR8x": {
+      "type": "video-section-2",
+      "name": "Custom Video Hero-2",
+      "settings": {
+        "video": "shopify://files/videos/a95b75d9d3874e38a92a6c9d27233372.mp4",
+        "video_url": ""
+      }
+    },
+    "nivrox_reviews_gVfWFp": {
+      "type": "nivrox-reviews",
+      "name": "Nivrox Premium Reviews",
+      "settings": {
+        "products": [
+          "elegant-high-waist-wide-leg-trousers",
+          "korean-style-high-waist-belted-wide-leg-trousers",
+          "nivrox-beltease-high-waist-pleated-women-trouser",
+          "premium-korean-loose-fit-trousers",
+          "nivrox-luxetail-high-waist-women-s-trouser"
+        ]
+      }
+    },
+    "custom_footer_M9mEEd": {
+      "type": "custom-footer",
+      "name": "Custom Footer",
+      "settings": {
+        "logo_text": "Nivrox",
+        "menu_1_title": "LINKS",
+        "footer_menu_1": "footer",
+        "menu_2_title": "LEGAL",
+        "footer_menu_2": "legal",
+        "description": "Nivrox represents modern fashion with clean silhouettes, premium fabrics, and everyday comfort. Our collections focus on trousers and t-shirts designed for confident, effortless style.",
+        "facebook": "https://www.facebook.com/people/Nivrox/61587792748130/",
+        "instagram": "https://www.instagram.com/nivrox_official/",
+        "twitter": "https://nivrox.in",
+        "linkedin": "https://nivrox.in"
+      }
+    }
+  },
+  "order": [
+    "video_section_AzCBci",
+    "main",
+    "collection_grid_xMt7td",
+    "featured_products_a8jEEU",
+    "custom_text_LBTjat",
+    "info_boxes_XhRNXX",
+    "winter_collection_63zejV",
+    "image_text_split_w7dKDT",
+    "image_text_split_s_8nJxtC",
+    "custom_newsletter_E4Adpz",
+    "video_section_2_n7yR8x",
+    "nivrox_reviews_gVfWFp",
+    "custom_footer_M9mEEd"
+  ]
+}
