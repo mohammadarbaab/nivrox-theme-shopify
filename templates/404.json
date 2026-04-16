@@ -114,12 +114,12 @@
     "collection_grid_xMt7td": {
       "type": "collection-grid",
       "blocks": {
-        "item_KyCVKR": {
+        "item_TMyzHT": {
           "type": "item",
           "settings": {
-            "image": "shopify://shop_images/8A46BF5A-5507-45B9-A3EB-7CAD6E82029D_1_201_a.jpg",
-            "title": "WOMEN'S TROUSERS",
-            "collection": "womens-trousers"
+            "image": "shopify://shop_images/F5FACDE1-2656-42A5-A7EA-2686B021A3FD_1_201_a_800x1000_crop_center_566e4f8a-7d0e-41b2-84bc-6ac8992edfce.jpg",
+            "title": "MEN'S TSHIRT",
+            "collection": "mens-tshirts"
           }
         },
         "item_PWxJbF": {
@@ -130,19 +130,19 @@
             "collection": "mens-korean-pants"
           }
         },
-        "item_TMyzHT": {
+        "item_KyCVKR": {
           "type": "item",
           "settings": {
-            "image": "shopify://shop_images/F5FACDE1-2656-42A5-A7EA-2686B021A3FD_1_201_a_800x1000_crop_center_566e4f8a-7d0e-41b2-84bc-6ac8992edfce.jpg",
-            "title": "MEN'S TSHIRT",
-            "collection": "mens-tshirts"
+            "image": "shopify://shop_images/8A46BF5A-5507-45B9-A3EB-7CAD6E82029D_1_201_a.jpg",
+            "title": "WOMEN'S TROUSERS",
+            "collection": "womens-trousers"
           }
         }
       },
       "block_order": [
-        "item_KyCVKR",
+        "item_TMyzHT",
         "item_PWxJbF",
-        "item_TMyzHT"
+        "item_KyCVKR"
       ],
       "name": "Collection Grid",
       "settings": {}
