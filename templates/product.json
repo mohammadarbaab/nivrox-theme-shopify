@@ -16,8 +16,8 @@
           "type": "_product-media-gallery",
           "static": true,
           "settings": {
-            "media_presentation": "carousel",
-            "media_columns": "one",
+            "media_presentation": "grid",
+            "media_columns": "two",
             "image_gap": 4,
             "large_first_image": false,
             "icons_style": "none",
@@ -259,9 +259,9 @@
         }
       },
       "settings": {
-        "content_width": "content-center-aligned",
+        "content_width": "content-full-width",
         "desktop_media_position": "left",
-        "equal_columns": false,
+        "equal_columns": true,
         "limit_details_width": false,
         "gap": 48,
         "enable_sticky_add_to_cart": true,
