@@ -12,6 +12,16 @@
     "main": {
       "type": "product-information",
       "blocks": {
+        "judge_me_reviews_review_widget_jMLaLG": {
+          "type": "shopify://apps/judge-me-reviews/blocks/review_widget/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+          "disabled": true,
+          "settings": {
+            "review_data": "sample_data",
+            "max_width": 1200,
+            "show_shop_reviews": false,
+            "empty_state": "empty_widget"
+          }
+        },
         "media-gallery": {
           "type": "_product-media-gallery",
           "static": true,
@@ -134,6 +144,10 @@
                   },
                   "blocks": {}
                 },
+                "judge_me_reviews_preview_badge_yrhqz4": {
+                  "type": "shopify://apps/judge-me-reviews/blocks/preview_badge/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+                  "settings": {}
+                },
                 "price_tVjtKg": {
                   "type": "price",
                   "settings": {
@@ -159,12 +173,9 @@
               },
               "block_order": [
                 "text_xrnftG",
+                "judge_me_reviews_preview_badge_yrhqz4",
                 "price_tVjtKg"
               ]
-            },
-            "judge_me_reviews_preview_badge_acL9hW": {
-              "type": "shopify://apps/judge-me-reviews/blocks/preview_badge/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
-              "settings": {}
             },
             "divider_VJhene": {
               "type": "_divider",
@@ -251,29 +262,20 @@
                 "padding-inline-end": 0
               },
               "blocks": {}
-            },
-            "judge_me_reviews_review_widget_WKxeVw": {
-              "type": "shopify://apps/judge-me-reviews/blocks/review_widget/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
-              "disabled": true,
-              "settings": {
-                "review_data": "real_data",
-                "max_width": 1200,
-                "show_shop_reviews": false,
-                "empty_state": "empty_widget"
-              }
             }
           },
           "block_order": [
             "group_icgrde",
-            "judge_me_reviews_preview_badge_acL9hW",
             "divider_VJhene",
             "variant_picker_R3rGDr",
             "buy_buttons_eYQEYi",
-            "text_aEtTtq",
-            "judge_me_reviews_review_widget_WKxeVw"
+            "text_aEtTtq"
           ]
         }
       },
+      "block_order": [
+        "judge_me_reviews_review_widget_jMLaLG"
+      ],
       "settings": {
         "content_width": "content-full-width",
         "desktop_media_position": "left",
@@ -349,6 +351,15 @@
               },
               "blocks": {}
             },
+            "judge_me_reviews_review_widget_yyazaC": {
+              "type": "shopify://apps/judge-me-reviews/blocks/review_widget/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+              "settings": {
+                "review_data": "real_data",
+                "max_width": 1200,
+                "show_shop_reviews": false,
+                "empty_state": "empty_widget"
+              }
+            },
             "product_title_M7MJkb": {
               "type": "product-title",
               "name": "t:names.product_title",
@@ -399,6 +410,7 @@
           },
           "block_order": [
             "product_card_gallery_DNizbJ",
+            "judge_me_reviews_review_widget_yyazaC",
             "product_title_M7MJkb",
             "price_gLWgA6"
           ]
@@ -514,20 +526,6 @@
     },
     "1776509191bbb0e52f": {
       "type": "_blocks",
-      "blocks": {
-        "judge_me_reviews_review_widget_XrgBHf": {
-          "type": "shopify://apps/judge-me-reviews/blocks/review_widget/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
-          "settings": {
-            "review_data": "real_data",
-            "max_width": 1200,
-            "show_shop_reviews": false,
-            "empty_state": "empty_widget"
-          }
-        }
-      },
-      "block_order": [
-        "judge_me_reviews_review_widget_XrgBHf"
-      ],
       "settings": {
         "content_direction": "column",
         "vertical_on_mobile": true,
