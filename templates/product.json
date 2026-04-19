@@ -60,7 +60,7 @@
             "custom_width_mobile": 100,
             "height": "fit",
             "details_position": "flex-start",
-            "gap": 15,
+            "gap": 12,
             "sticky_details_desktop": true,
             "inherit_color_scheme": true,
             "color_scheme": "scheme-1",
@@ -169,6 +169,32 @@
                   },
                   "blocks": {}
                 },
+                "text_AM8btM": {
+                  "type": "text",
+                  "name": "t:names.text",
+                  "settings": {
+                    "text": "<p>🎁 Use Code: <strong>SAVE100 </strong> <br/>Get <strong>₹100</strong> OFF on checkout</p>",
+                    "width": "fit-content",
+                    "max_width": "normal",
+                    "alignment": "left",
+                    "type_preset": "rte",
+                    "font": "var(--font-body--family)",
+                    "font_size": "1rem",
+                    "line_height": "normal",
+                    "letter_spacing": "normal",
+                    "case": "none",
+                    "wrap": "pretty",
+                    "color": "var(--color-foreground)",
+                    "background": false,
+                    "background_color": "#00000026",
+                    "corner_radius": 0,
+                    "padding-block-start": 0,
+                    "padding-block-end": 0,
+                    "padding-inline-start": 0,
+                    "padding-inline-end": 0
+                  },
+                  "blocks": {}
+                },
                 "text_BpfymJ": {
                   "type": "text",
                   "name": "t:names.text",
@@ -200,6 +226,7 @@
                 "text_xrnftG",
                 "judge_me_reviews_preview_badge_yrhqz4",
                 "price_tVjtKg",
+                "text_AM8btM",
                 "text_BpfymJ"
               ]
             },
@@ -286,7 +313,7 @@
               "settings": {
                 "text": "<p>Limited Stock🔥</p>",
                 "width": "fit-content",
-                "max_width": "normal",
+                "max_width": "narrow",
                 "alignment": "left",
                 "type_preset": "rte",
                 "font": "var(--font-body--family)",
@@ -299,7 +326,7 @@
                 "background": false,
                 "background_color": "#00000026",
                 "corner_radius": 0,
-                "padding-block-start": 0,
+                "padding-block-start": 4,
                 "padding-block-end": 0,
                 "padding-inline-start": 0,
                 "padding-inline-end": 0
