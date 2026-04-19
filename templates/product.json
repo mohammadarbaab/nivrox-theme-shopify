@@ -168,13 +168,66 @@
                     "padding-inline-end": 0
                   },
                   "blocks": {}
+                },
+                "text_BpfymJ": {
+                  "type": "text",
+                  "name": "t:names.text",
+                  "settings": {
+                    "text": "<p><strong>40% OFF 🔥</strong></p>",
+                    "width": "fit-content",
+                    "max_width": "normal",
+                    "alignment": "left",
+                    "type_preset": "rte",
+                    "font": "var(--font-body--family)",
+                    "font_size": "1rem",
+                    "line_height": "normal",
+                    "letter_spacing": "normal",
+                    "case": "none",
+                    "wrap": "pretty",
+                    "color": "var(--color-foreground)",
+                    "background": false,
+                    "background_color": "#00000026",
+                    "corner_radius": 0,
+                    "padding-block-start": 0,
+                    "padding-block-end": 0,
+                    "padding-inline-start": 0,
+                    "padding-inline-end": 0
+                  },
+                  "blocks": {}
                 }
               },
               "block_order": [
                 "text_xrnftG",
                 "judge_me_reviews_preview_badge_yrhqz4",
-                "price_tVjtKg"
+                "price_tVjtKg",
+                "text_BpfymJ"
               ]
+            },
+            "text_BLApf8": {
+              "type": "text",
+              "name": "t:names.text",
+              "settings": {
+                "text": "<p>⚠️ Only 10 left in stock</p>",
+                "width": "fit-content",
+                "max_width": "normal",
+                "alignment": "left",
+                "type_preset": "rte",
+                "font": "var(--font-body--family)",
+                "font_size": "1rem",
+                "line_height": "normal",
+                "letter_spacing": "normal",
+                "case": "none",
+                "wrap": "pretty",
+                "color": "var(--color-foreground)",
+                "background": false,
+                "background_color": "#00000026",
+                "corner_radius": 0,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
             },
             "text_69jiN9": {
               "type": "text",
@@ -291,6 +344,7 @@
           },
           "block_order": [
             "group_icgrde",
+            "text_BLApf8",
             "text_69jiN9",
             "divider_VJhene",
             "variant_picker_R3rGDr",
