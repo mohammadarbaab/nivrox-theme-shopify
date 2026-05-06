@@ -59,6 +59,20 @@ html[scroll-lock] {
 .product__info-wrapper {
   border-top: none !important;
 }
+/* Details column border and padding remove */
+.product__info-wrapper,
+.product__info-wrapper * {
+  border: none !important;       /* Top border remove */
+  padding: 0 !important;         /* Top & bottom padding remove */
+  margin: 0 !important;          /* Extra margin remove */
+}
+
+/* Optional: Heading ko bhi top/bottom se remove karna */
+.product__info-wrapper h2,
+.product__info-wrapper h3 {
+  margin: 0 !important;
+  padding: 0 !important;
+}
 
 img,
 picture,
