@@ -475,6 +475,115 @@
                 "padding-inline-end": 0
               },
               "blocks": {}
+            },
+            "group_zfe8tT": {
+              "type": "group",
+              "name": "t:names.group",
+              "settings": {
+                "content_direction": "row",
+                "vertical_on_mobile": false,
+                "horizontal_alignment": "center",
+                "vertical_alignment": "center",
+                "align_baseline": false,
+                "horizontal_alignment_flex_direction_column": "flex-start",
+                "vertical_alignment_flex_direction_column": "center",
+                "gap": 40,
+                "width": "fill",
+                "custom_width": 100,
+                "width_mobile": "fill",
+                "custom_width_mobile": 100,
+                "height": "fit",
+                "custom_height": 100,
+                "inherit_color_scheme": true,
+                "color_scheme": "",
+                "background_media": "none",
+                "video_position": "cover",
+                "background_image_position": "cover",
+                "border": "none",
+                "border_width": 1,
+                "border_opacity": 100,
+                "border_radius": 0,
+                "toggle_overlay": false,
+                "overlay_color": "#00000026",
+                "overlay_style": "solid",
+                "gradient_direction": "to top",
+                "link": "",
+                "open_in_new_tab": false,
+                "placeholder": "",
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {
+                "icon_HaRHan": {
+                  "type": "icon",
+                  "name": "t:names.icon",
+                  "settings": {
+                    "icon": "price_tag",
+                    "image_upload": "shopify://shop_images/icons8-paytm-50.png",
+                    "width": 30,
+                    "link": "",
+                    "open_in_new_tab": false
+                  },
+                  "blocks": {}
+                },
+                "icon_KwKHNb": {
+                  "type": "icon",
+                  "name": "t:names.icon",
+                  "settings": {
+                    "icon": "price_tag",
+                    "image_upload": "shopify://shop_images/icons8-google-pay-50.png",
+                    "width": 30,
+                    "link": "",
+                    "open_in_new_tab": false
+                  },
+                  "blocks": {}
+                },
+                "icon_FXFMdm": {
+                  "type": "icon",
+                  "name": "t:names.icon",
+                  "settings": {
+                    "icon": "price_tag",
+                    "image_upload": "shopify://shop_images/icons8-rupay-50.png",
+                    "width": 30,
+                    "link": "",
+                    "open_in_new_tab": false
+                  },
+                  "blocks": {}
+                },
+                "icon_rY9efp": {
+                  "type": "icon",
+                  "name": "t:names.icon",
+                  "settings": {
+                    "icon": "price_tag",
+                    "image_upload": "shopify://shop_images/icons8-bhim-upi-50.png",
+                    "width": 30,
+                    "link": "",
+                    "open_in_new_tab": false
+                  },
+                  "blocks": {}
+                },
+                "icon_EWqb8R": {
+                  "type": "icon",
+                  "name": "t:names.icon",
+                  "settings": {
+                    "icon": "price_tag",
+                    "image_upload": "shopify://shop_images/icons8-visa-50.png",
+                    "width": 24,
+                    "link": "",
+                    "open_in_new_tab": false
+                  },
+                  "blocks": {}
+                }
+              },
+              "block_order": [
+                "icon_HaRHan",
+                "icon_KwKHNb",
+                "icon_FXFMdm",
+                "icon_rY9efp",
+                "icon_EWqb8R"
+              ]
             }
           },
           "block_order": [
@@ -482,7 +591,8 @@
             "variant_picker_R3rGDr",
             "text_WxyNDc",
             "buy_buttons_eYQEYi",
-            "text_aEtTtq"
+            "text_aEtTtq",
+            "group_zfe8tT"
           ]
         }
       },
