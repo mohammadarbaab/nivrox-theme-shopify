@@ -612,6 +612,202 @@
                 "custom_liquid": "<div class=\"stock-status\">\n  <h4 class=\"stock-title\">SELLING OUT FAST</h4>\n  <p class=\"stock-subtitle\">Due to high demand, limited quantities available</p>\n\n  <div class=\"progress-bar-container\">\n    <div class=\"progress-fill\" id=\"progress-fill\">\n      <span class=\"progress-text\" id=\"progress-text\"></span>\n    </div>\n  </div>\n</div>\n\n<style>\n  .stock-status {\n    max-width: 570px;\n    padding: 4px 10px;\n    font-family: system-ui, sans-serif;\n  }\n\n  .stock-title {\n    font-size: 15px;\n    font-weight: 700;\n    color: #1a1a1a;\n    margin-bottom: 4px;\n  }\n\n  .stock-subtitle {\n    font-size: 13px;\n    color: #444;\n    margin-bottom: 10px;\n  }\n\n  .progress-bar-container {\n    position: relative;\n    width: 100%;\n    height: 22px;\n    background: repeating-linear-gradient(\n      45deg,\n      #f4f4f4 0,\n      #f4f4f4 12px,\n      #e9e9e9 12px,\n      #e9e9e9 24px\n    );\n    background-size: 40px 40px;\n    border: 1px solid #333;\n    border-radius: 6px;\n    overflow: hidden;\n    animation: stripesMove 3s linear infinite;\n    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.15);\n  }\n\n  @keyframes stripesMove {\n    from { background-position: 0 0; }\n    to { background-position: 40px 0; }\n  }\n\n  .progress-fill {\n    background: linear-gradient(90deg, #1a1a1a, #000);\n    height: 100%;\n    display: flex;\n    align-items: center;\n    justify-content: flex-start;\n    border-radius: 6px 0 0 6px;\n    transition: width 4s ease-in-out;\n  }\n\n  .progress-text {\n    color: #fff;\n    font-size: 12px;\n    font-weight: 700;\n    margin-left: 10px;\n    background: rgba(0, 0, 0, 0.3);\n    padding: 2px 6px;\n    border-radius: 3px;\n  }\n</style>\n\n<script>\n  document.addEventListener(\"DOMContentLoaded\", () => {\n    const fill = document.getElementById(\"progress-fill\");\n    const text = document.getElementById(\"progress-text\");\n\n    let initialPercent = 67;\n    let percent = initialPercent;\n\n    function updateBar() {\n      fill.style.width = percent + \"%\";\n      text.textContent = percent + \"% SOLD\";\n    }\n\n    function increaseProgress() {\n      percent = percent >= 100 ? initialPercent : percent + 1;\n      updateBar();\n    }\n\n    updateBar();\n    setInterval(increaseProgress, 30000); // +1% every 30 sec\n  });\n</script>"
               },
               "blocks": {}
+            },
+            "group_KyfNCW": {
+              "type": "group",
+              "name": "t:names.group",
+              "settings": {
+                "content_direction": "column",
+                "vertical_on_mobile": true,
+                "horizontal_alignment": "flex-start",
+                "vertical_alignment": "center",
+                "align_baseline": false,
+                "horizontal_alignment_flex_direction_column": "flex-start",
+                "vertical_alignment_flex_direction_column": "center",
+                "gap": 12,
+                "width": "fill",
+                "custom_width": 100,
+                "width_mobile": "fill",
+                "custom_width_mobile": 100,
+                "height": "fit",
+                "custom_height": 100,
+                "inherit_color_scheme": true,
+                "color_scheme": "",
+                "background_media": "none",
+                "video_position": "cover",
+                "background_image_position": "cover",
+                "border": "none",
+                "border_width": 1,
+                "border_opacity": 100,
+                "border_radius": 0,
+                "toggle_overlay": false,
+                "overlay_color": "#00000026",
+                "overlay_style": "solid",
+                "gradient_direction": "to top",
+                "link": "",
+                "open_in_new_tab": false,
+                "placeholder": "",
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            },
+            "group_Y6rAxm": {
+              "type": "group",
+              "name": "t:names.group",
+              "settings": {
+                "content_direction": "row",
+                "vertical_on_mobile": false,
+                "horizontal_alignment": "flex-start",
+                "vertical_alignment": "center",
+                "align_baseline": false,
+                "horizontal_alignment_flex_direction_column": "flex-start",
+                "vertical_alignment_flex_direction_column": "center",
+                "gap": 12,
+                "width": "fill",
+                "custom_width": 100,
+                "width_mobile": "fill",
+                "custom_width_mobile": 100,
+                "height": "fit",
+                "custom_height": 100,
+                "inherit_color_scheme": true,
+                "color_scheme": "",
+                "background_media": "none",
+                "video_position": "cover",
+                "background_image_position": "cover",
+                "border": "none",
+                "border_width": 1,
+                "border_opacity": 100,
+                "border_radius": 0,
+                "toggle_overlay": false,
+                "overlay_color": "#00000026",
+                "overlay_style": "solid",
+                "gradient_direction": "to top",
+                "link": "",
+                "open_in_new_tab": false,
+                "placeholder": "",
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {
+                "icon_x7Bdhn": {
+                  "type": "icon",
+                  "name": "t:names.icon",
+                  "settings": {
+                    "icon": "price_tag",
+                    "width": 24,
+                    "link": "",
+                    "open_in_new_tab": false
+                  },
+                  "blocks": {}
+                },
+                "group_Ef3jKJ": {
+                  "type": "group",
+                  "name": "t:names.group",
+                  "settings": {
+                    "content_direction": "column",
+                    "vertical_on_mobile": true,
+                    "horizontal_alignment": "flex-start",
+                    "vertical_alignment": "center",
+                    "align_baseline": false,
+                    "horizontal_alignment_flex_direction_column": "flex-start",
+                    "vertical_alignment_flex_direction_column": "center",
+                    "gap": 12,
+                    "width": "fill",
+                    "custom_width": 100,
+                    "width_mobile": "fill",
+                    "custom_width_mobile": 100,
+                    "height": "fit",
+                    "custom_height": 100,
+                    "inherit_color_scheme": true,
+                    "color_scheme": "",
+                    "background_media": "none",
+                    "video_position": "cover",
+                    "background_image_position": "cover",
+                    "border": "none",
+                    "border_width": 1,
+                    "border_opacity": 100,
+                    "border_radius": 0,
+                    "toggle_overlay": false,
+                    "overlay_color": "#00000026",
+                    "overlay_style": "solid",
+                    "gradient_direction": "to top",
+                    "link": "",
+                    "open_in_new_tab": false,
+                    "placeholder": "",
+                    "padding-block-start": 0,
+                    "padding-block-end": 0,
+                    "padding-inline-start": 0,
+                    "padding-inline-end": 0
+                  },
+                  "blocks": {
+                    "text_RkrQQ4": {
+                      "type": "text",
+                      "name": "t:names.heading",
+                      "settings": {
+                        "text": "<p><strong>7 Days money back gaurantee</strong></p>",
+                        "width": "fit-content",
+                        "max_width": "normal",
+                        "alignment": "left",
+                        "type_preset": "rte",
+                        "font": "var(--font-body--family)",
+                        "font_size": "1rem",
+                        "line_height": "normal",
+                        "letter_spacing": "normal",
+                        "case": "none",
+                        "wrap": "pretty",
+                        "color": "var(--color-foreground)",
+                        "background": false,
+                        "background_color": "#00000026",
+                        "corner_radius": 0,
+                        "padding-block-start": 0,
+                        "padding-block-end": 0,
+                        "padding-inline-start": 0,
+                        "padding-inline-end": 0
+                      },
+                      "blocks": {}
+                    },
+                    "text_Gm6jHq": {
+                      "type": "text",
+                      "name": "t:names.text",
+                      "settings": {
+                        "text": "<p>We make things that work better and last longer. Our products solve real problems with clean design and honest materials.</p>",
+                        "width": "fit-content",
+                        "max_width": "normal",
+                        "alignment": "left",
+                        "type_preset": "rte",
+                        "font": "var(--font-body--family)",
+                        "font_size": "1rem",
+                        "line_height": "normal",
+                        "letter_spacing": "normal",
+                        "case": "none",
+                        "wrap": "pretty",
+                        "color": "var(--color-foreground)",
+                        "background": false,
+                        "background_color": "#00000026",
+                        "corner_radius": 0,
+                        "padding-block-start": 0,
+                        "padding-block-end": 0,
+                        "padding-inline-start": 0,
+                        "padding-inline-end": 0
+                      },
+                      "blocks": {}
+                    }
+                  },
+                  "block_order": [
+                    "text_RkrQQ4",
+                    "text_Gm6jHq"
+                  ]
+                }
+              },
+              "block_order": [
+                "icon_x7Bdhn",
+                "group_Ef3jKJ"
+              ]
             }
           },
           "block_order": [
@@ -623,7 +819,9 @@
             "group_zfe8tT",
             "custom_liquid_ewwemr",
             "divider_LQTeEy",
-            "custom_liquid_mqJnWc"
+            "custom_liquid_mqJnWc",
+            "group_KyfNCW",
+            "group_Y6rAxm"
           ]
         }
       },
