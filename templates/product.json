@@ -65,7 +65,7 @@
           "type": "icon",
           "name": "t:names.icon",
           "settings": {
-            "icon": "star",
+            "icon": "silhouette",
             "width": 18,
             "link": "",
             "open_in_new_tab": false
