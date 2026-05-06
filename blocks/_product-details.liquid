@@ -36,33 +36,22 @@
       padding-inline: 0;
     }
   }
-/* Remove border & padding from Details section completely */
-.product-details,
-.product-details > .group-block,
-.product-details * {
-  border: none !important;       /* Remove any border */
-  padding: 0 !important;         /* Remove top/bottom/inline padding */
-  margin: 0 !important;          /* Remove any margin */
+.product__description,
+.product__description p {
+  margin-bottom: 10px !important;
+  line-height: 1.6;
 }
 
-/* Optional: heading and text inside Details */
-.product-details h1,
-.product-details h2,
-.product-details h3,
-.product-details p {
-  margin: 4 !important;
-  padding: 4 !important;
+.product__description h1,
+.product__description h2,
+.product__description h3 {
+  margin: 12px 0 6px !important;
 }
-  .view-product-title {
-    display: none;
-  }
 
-  /* Container styles */
-  .product-details {
-    display: flex;
-    align-self: start;
-    justify-content: center;
-  }
+.product__description ul {
+  margin: 10px 0 !important;
+  padding-left: 18px !important;
+}
 
   @media screen and (min-width: 750px) {
     .product-details > .group-block {
