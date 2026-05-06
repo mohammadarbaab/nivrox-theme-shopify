@@ -99,7 +99,7 @@
         "movement_direction": "normal",
         "color_scheme": "scheme-4",
         "padding-block-start": 8,
-        "padding-block-end": 0,
+        "padding-block-end": 9,
         "gap_between_elements": 30
       }
     },
