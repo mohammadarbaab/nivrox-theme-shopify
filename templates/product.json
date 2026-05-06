@@ -49,6 +49,55 @@
           },
           "blocks": {}
         },
+        "divider_CPhXqT": {
+          "type": "_divider",
+          "name": "t:names.divider",
+          "settings": {
+            "thickness": 2,
+            "corner_radius": "rounded",
+            "width_percent": 80,
+            "padding-block-start": 0,
+            "padding-block-end": 0
+          },
+          "blocks": {}
+        },
+        "icon_HTAhgb": {
+          "type": "icon",
+          "name": "t:names.icon",
+          "settings": {
+            "icon": "star",
+            "width": 18,
+            "link": "",
+            "open_in_new_tab": false
+          },
+          "blocks": {}
+        },
+        "text_fAgaL7": {
+          "type": "text",
+          "name": "t:names.text",
+          "settings": {
+            "text": "<p><strong>Trusted by 2000+ happy Customers</strong></p>",
+            "width": "fit-content",
+            "max_width": "normal",
+            "alignment": "left",
+            "type_preset": "custom",
+            "font": "var(--font-body--family)",
+            "font_size": "0.875rem",
+            "line_height": "normal",
+            "letter_spacing": "normal",
+            "case": "none",
+            "wrap": "pretty",
+            "color": "var(--color-foreground)",
+            "background": false,
+            "background_color": "#00000026",
+            "corner_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {}
+        },
         "divider_gc4f9C": {
           "type": "_divider",
           "name": "t:names.divider",
@@ -61,20 +110,32 @@
           },
           "blocks": {}
         },
-        "text_EFdNQC": {
-          "type": "text",
+        "icon_bmjc8B": {
+          "type": "icon",
+          "name": "t:names.icon",
           "settings": {
-            "text": "<p><strong>High demand - order before it's gone!</strong></p>",
+            "icon": "star",
+            "width": 18,
+            "link": "",
+            "open_in_new_tab": false
+          },
+          "blocks": {}
+        },
+        "text_RN3izV": {
+          "type": "text",
+          "name": "t:names.text",
+          "settings": {
+            "text": "<p><strong> Rated 4.3*for quality and reliability</strong></p>",
             "width": "fit-content",
             "max_width": "normal",
             "alignment": "left",
             "type_preset": "custom",
             "font": "var(--font-body--family)",
             "font_size": "0.875rem",
-            "line_height": "tight",
-            "letter_spacing": "tight",
+            "line_height": "normal",
+            "letter_spacing": "normal",
             "case": "none",
-            "wrap": "nowrap",
+            "wrap": "pretty",
             "color": "var(--color-foreground)",
             "background": false,
             "background_color": "#00000026",
@@ -85,13 +146,30 @@
             "padding-inline-end": 0
           },
           "blocks": {}
+        },
+        "divider_hr63Tg": {
+          "type": "_divider",
+          "name": "t:names.divider",
+          "settings": {
+            "thickness": 2,
+            "corner_radius": "rounded",
+            "width_percent": 80,
+            "padding-block-start": 0,
+            "padding-block-end": 0
+          },
+          "blocks": {}
         }
       },
       "block_order": [
         "icon_GcTbkj",
         "text_Y4kT8b",
+        "divider_CPhXqT",
+        "icon_HTAhgb",
+        "text_fAgaL7",
         "divider_gc4f9C",
-        "text_EFdNQC"
+        "icon_bmjc8B",
+        "text_RN3izV",
+        "divider_hr63Tg"
       ],
       "custom_css": [],
       "name": "t:names.marquee_section",
@@ -376,18 +454,6 @@
               },
               "blocks": {}
             },
-            "divider_VJhene": {
-              "type": "_divider",
-              "name": "t:names.divider",
-              "settings": {
-                "thickness": 1,
-                "corner_radius": "square",
-                "width_percent": 100,
-                "padding-block-start": 0,
-                "padding-block-end": 0
-              },
-              "blocks": {}
-            },
             "variant_picker_R3rGDr": {
               "type": "variant-picker",
               "settings": {
@@ -493,7 +559,6 @@
             "group_icgrde",
             "text_BLApf8",
             "text_69jiN9",
-            "divider_VJhene",
             "variant_picker_R3rGDr",
             "text_WxyNDc",
             "buy_buttons_eYQEYi",
