@@ -27,7 +27,7 @@
           "type": "text",
           "name": "t:names.text",
           "settings": {
-            "text": "<p> Rated 4.3*for quality and reliability</p>",
+            "text": "<p><strong> Rated 4.3*for quality and reliability</strong></p>",
             "width": "fit-content",
             "max_width": "normal",
             "alignment": "left",
@@ -53,9 +53,9 @@
           "type": "_divider",
           "name": "t:names.divider",
           "settings": {
-            "thickness": 1,
-            "corner_radius": "square",
-            "width_percent": 100,
+            "thickness": 2,
+            "corner_radius": "rounded",
+            "width_percent": 80,
             "padding-block-start": 0,
             "padding-block-end": 0
           },
@@ -98,9 +98,9 @@
       "settings": {
         "movement_direction": "normal",
         "color_scheme": "scheme-4",
-        "padding-block-start": 24,
-        "padding-block-end": 24,
-        "gap_between_elements": 24
+        "padding-block-start": 8,
+        "padding-block-end": 0,
+        "gap_between_elements": 30
       }
     },
     "main": {
