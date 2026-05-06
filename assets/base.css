@@ -56,6 +56,10 @@ html[scroll-lock] {
   overflow: hidden;
 }
 
+.product__info-wrapper {
+  border-top: none !important;
+}
+
 img,
 picture,
 video,
