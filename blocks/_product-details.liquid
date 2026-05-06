@@ -36,7 +36,23 @@
       padding-inline: 0;
     }
   }
+/* Remove border & padding from Details section completely */
+.product-details,
+.product-details > .group-block,
+.product-details * {
+  border: none !important;       /* Remove any border */
+  padding: 0 !important;         /* Remove top/bottom/inline padding */
+  margin: 0 !important;          /* Remove any margin */
+}
 
+/* Optional: heading and text inside Details */
+.product-details h1,
+.product-details h2,
+.product-details h3,
+.product-details p {
+  margin: 0 !important;
+  padding: 0 !important;
+}
   .view-product-title {
     display: none;
   }
