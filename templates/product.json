@@ -570,7 +570,7 @@
                   "settings": {
                     "icon": "price_tag",
                     "image_upload": "shopify://shop_images/icons8-visa-50.png",
-                    "width": 24,
+                    "width": 30,
                     "link": "",
                     "open_in_new_tab": false
                   },
@@ -584,6 +584,14 @@
                 "icon_rY9efp",
                 "icon_EWqb8R"
               ]
+            },
+            "custom_liquid_ewwemr": {
+              "type": "custom-liquid",
+              "name": "t:names.custom_liquid",
+              "settings": {
+                "custom_liquid": "<!-- Font Awesome CDN -->\n<link rel=\"stylesheet\" href=\"https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css\" />\n\n<!-- Order Tracking Section -->\n<div class=\"order-tracking\">\n  <div class=\"step\">\n    <div class=\"icon\"><i class=\"fas fa-shopping-bag\"></i></div> <!-- Ordered -->\n    <div class=\"label\">Ordered</div>\n    <div class=\"date\" id=\"ordered-date\"></div>\n  </div>\n\n  <div class=\"arrow\">»</div>\n\n  <div class=\"step\">\n    <div class=\"icon\"><i class=\"fas fa-truck\"></i></div> <!-- Shipped -->\n    <div class=\"label\">Shipped</div>\n    <div class=\"date\" id=\"shipped-date\"></div>\n  </div>\n\n  <div class=\"arrow\">»</div>\n\n  <div class=\"step\">\n    <div class=\"icon\"><i class=\"fas fa-box\"></i></div> <!-- Delivered -->\n    <div class=\"label\">Delivered</div>\n    <div class=\"date\" id=\"delivered-date\"></div>\n  </div>\n</div>\n\n<!-- Styling -->\n<style>\n  .order-tracking {\n  display: flex;\n  justify-content: space-around;\n  align-items: center;\n  gap: 10px;\n  padding: 0px 10px;\n  background-color: transparent;\n  width: 100%;\n}\n\n.step {\n  flex: 1;\n  text-align: center;\n  padding: 0px 0px;\n  border: 1px solid #FF8B8B;\n  border-radius: 8px;\n  background-color: transparent;\n}\n\n  .icon {\n    font-size: 28px;\n    margin-bottom: -4px;\n    color: #FF8B8B;\n  }\n\n  .label {\n    font-weight: 600;\n    font-size: 14px;\n    margin-bottom: -4px;\n    color: #121212;\n  }\n\n  .date {\n    font-size: 13px;\n    color: #121212;\n  }\n\n  .arrow {\n    font-size: 30px;\n    color: #494949;\n  }\n</style>\n\n<!-- Date Logic -->\n<script>\n  function formatDate(date) {\n    const options = { month: 'short', day: 'numeric' };\n    return date.toLocaleDateString('en-US', options);\n  }\n\n  const today = new Date();\n  const orderedDate = formatDate(today);\n\n  const shippedDateObj = new Date();\n  shippedDateObj.setDate(today.getDate() + 1);\n  const shippedDate = formatDate(shippedDateObj);\n\n  const deliveredDateObj = new Date();\n  deliveredDateObj.setDate(today.getDate() + 3);\n  const deliveredDate = formatDate(deliveredDateObj);\n\n  document.getElementById('ordered-date').textContent = orderedDate;\n  document.getElementById('shipped-date').textContent = shippedDate;\n  document.getElementById('delivered-date').textContent = deliveredDate;\n</script>"
+              },
+              "blocks": {}
             }
           },
           "block_order": [
@@ -592,7 +600,8 @@
             "text_WxyNDc",
             "buy_buttons_eYQEYi",
             "text_aEtTtq",
-            "group_zfe8tT"
+            "group_zfe8tT",
+            "custom_liquid_ewwemr"
           ]
         }
       },
