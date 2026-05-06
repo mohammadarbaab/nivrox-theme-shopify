@@ -17,7 +17,7 @@
           "name": "t:names.icon",
           "settings": {
             "icon": "star",
-            "width": 24,
+            "width": 18,
             "link": "",
             "open_in_new_tab": false
           },
@@ -46,6 +46,18 @@
             "padding-block-end": 0,
             "padding-inline-start": 0,
             "padding-inline-end": 0
+          },
+          "blocks": {}
+        },
+        "divider_gc4f9C": {
+          "type": "_divider",
+          "name": "t:names.divider",
+          "settings": {
+            "thickness": 1,
+            "corner_radius": "square",
+            "width_percent": 100,
+            "padding-block-start": 0,
+            "padding-block-end": 0
           },
           "blocks": {}
         },
@@ -78,12 +90,14 @@
       "block_order": [
         "icon_GcTbkj",
         "text_Y4kT8b",
+        "divider_gc4f9C",
         "text_EFdNQC"
       ],
+      "custom_css": [],
       "name": "t:names.marquee_section",
       "settings": {
         "movement_direction": "normal",
-        "color_scheme": "",
+        "color_scheme": "scheme-4",
         "padding-block-start": 24,
         "padding-block-end": 24,
         "gap_between_elements": 24
