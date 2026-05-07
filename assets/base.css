@@ -52,29 +52,9 @@ html {
   scroll-behavior: smooth;
 }
 
-html, body {
-  overflow-x: hidden;
-  max-width: 100%;
-}
+
 html[scroll-lock] {
   overflow: hidden;
-}
-
-* {
-  box-sizing: border-box;
-}
-
-img, video {
-  max-width: 100%;
-  height: auto;
-}
-
-.container,
-.page-width,
-.product,
-.product__info-wrapper {
-  max-width: 100%;
-  overflow-x: hidden;
 }
 
 
