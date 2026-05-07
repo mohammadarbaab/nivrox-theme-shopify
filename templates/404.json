@@ -12,6 +12,17 @@
     "marquee_PjheME": {
       "type": "marquee",
       "blocks": {
+        "icon_XXCPDj": {
+          "type": "icon",
+          "name": "t:names.icon",
+          "settings": {
+            "icon": "star",
+            "width": 24,
+            "link": "",
+            "open_in_new_tab": false
+          },
+          "blocks": {}
+        },
         "text_JzMTXX": {
           "type": "text",
           "settings": {
@@ -39,6 +50,7 @@
         }
       },
       "block_order": [
+        "icon_XXCPDj",
         "text_JzMTXX"
       ],
       "name": "t:names.marquee_section",
