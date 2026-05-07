@@ -227,7 +227,7 @@
         "movement_direction": "normal",
         "color_scheme": "",
         "padding-block-start": 18,
-        "padding-block-end": 18,
+        "padding-block-end": 14,
         "gap_between_elements": 24
       }
     },
