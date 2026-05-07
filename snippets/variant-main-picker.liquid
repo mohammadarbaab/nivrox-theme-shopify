@@ -210,483 +210,375 @@
 {% endunless %}
 
 {% stylesheet %}
+
+/*==================================================
+  PREMIUM RESPONSIVE VARIANT PICKER - SHOPIFY
+===================================================*/
+
+/*========================
+  MAIN WRAPPER
+=========================*/
+
+.variant-picker {
+  width: 100%;
+  max-width: 100%;
+  overflow: hidden;
+}
+
+.variant-picker__form {
+  width: 100%;
+}
+
+/*========================
+  VARIANT OPTION WRAPPER
+=========================*/
+
+.variant-option {
+  width: 100%;
+  margin-bottom: 22px;
+}
+
+.variant-option:last-child {
+  margin-bottom: 0;
+}
+
+/*========================
+  LABEL / TITLE
+=========================*/
+
+.variant-option legend,
+.variant-option__label {
+  display: block;
+
+  margin-bottom: 12px;
+
+  font-size: clamp(14px, 2vw, 16px);
+  font-weight: 600;
+
+  color: #111;
+
+  line-height: 1.4;
+}
+
+/*========================
+  BUTTON VARIANTS
+=========================*/
+
+.variant-option--buttons {
+  display: flex;
+  flex-wrap: wrap;
+
+  gap: 12px;
+
+  width: 100%;
+}
+
+/*========================
+  VARIANT BUTTON
+=========================*/
+
+.variant-option__button-label {
+  position: relative;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  min-height: 48px;
+  min-width: 70px;
+
+  padding: 12px 18px;
+
+  border: 1px solid #dcdcdc;
+  border-radius: 12px;
+
+  background: #fff;
+  color: #111;
+
+  cursor: pointer;
+
+  transition: all 0.3s ease;
+
+  overflow: hidden;
+
+  font-size: clamp(13px, 2vw, 15px);
+  font-weight: 500;
+
+  text-align: center;
+
+  white-space: nowrap;
+}
+
+/* Hover */
+
+.variant-option__button-label:hover {
+  background: #111;
+  color: #fff;
+  border-color: #111;
+
+  transform: translateY(-2px);
+}
+
+/* Active */
+
+.variant-option__button-label:has(:checked) {
+  background: #111;
+  color: #fff;
+  border-color: #111;
+}
+
+/* Disabled */
+
+.variant-option__button-label:has([data-option-available='false']) {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+/*========================
+  HIDDEN INPUT
+=========================*/
+
+.variant-option__button-label input {
+  position: absolute;
+  inset: 0;
+
+  opacity: 0;
+
+  width: 100%;
+  height: 100%;
+
+  cursor: pointer;
+}
+
+/*========================
+  BUTTON TEXT
+=========================*/
+
+.variant-option__button-label__text {
+  position: relative;
+  z-index: 2;
+
+  line-height: 1.3;
+}
+
+/*========================
+  SWATCHES
+=========================*/
+
+.variant-option--swatches {
+  width: 100%;
+}
+
+.variant-option__button-label--has-swatch {
+  padding: 0;
+  min-width: auto;
+  border: none;
+  background: transparent;
+}
+
+.variant-option__button-label--has-swatch .swatch {
+  width: 42px;
+  height: 42px;
+
+  border-radius: 50%;
+
+  border: 2px solid transparent;
+
+  transition: all 0.3s ease;
+}
+
+/* Active Swatch */
+
+.variant-option__button-label--has-swatch:has(:checked) .swatch {
+  border-color: #111;
+  transform: scale(1.05);
+}
+
+/* Hover Swatch */
+
+.variant-option__button-label--has-swatch:hover .swatch {
+  transform: scale(1.05);
+}
+
+/*========================
+  DROPDOWN STYLE
+=========================*/
+
+.variant-option__select-wrapper {
+  position: relative;
+
+  width: 100%;
+
+  border: 1px solid #ddd;
+  border-radius: 12px;
+
+  overflow: hidden;
+
+  background: #fff;
+
+  transition: all 0.3s ease;
+}
+
+/* Hover */
+
+.variant-option__select-wrapper:hover {
+  border-color: #111;
+}
+
+/* Select */
+
+.variant-option__select {
+  width: 100%;
+  min-height: 52px;
+
+  padding: 12px 16px;
+
+  border: none;
+  outline: none;
+
+  background: transparent;
+
+  font-size: clamp(14px, 2vw, 15px);
+
+  cursor: pointer;
+
+  appearance: none;
+}
+
+/* Dropdown Icon */
+
+.variant-option__select-wrapper .icon {
+  position: absolute;
+
+  top: 50%;
+  right: 14px;
+
+  transform: translateY(-50%);
+
+  width: 14px;
+  height: 14px;
+
+  pointer-events: none;
+}
+
+/*========================
+  CENTER ALIGNMENT
+=========================*/
+
+.variant-picker--center,
+.variant-picker--center .variant-option {
+  text-align: center;
+}
+
+.variant-picker--center .variant-option--buttons {
+  justify-content: center;
+}
+
+/*========================
+  RIGHT ALIGNMENT
+=========================*/
+
+.variant-picker--right,
+.variant-picker--right .variant-option {
+  text-align: right;
+}
+
+.variant-picker--right .variant-option--buttons {
+  justify-content: flex-end;
+}
+
+/*========================
+  TABLET RESPONSIVE
+=========================*/
+
+@media screen and (max-width: 991px) {
+
+  .variant-option--buttons {
+    gap: 10px;
+  }
+
+  .variant-option__button-label {
+    min-height: 46px;
+    padding: 11px 16px;
+  }
+}
+
+/*========================
+  MOBILE RESPONSIVE
+=========================*/
+
+@media screen and (max-width: 767px) {
+
   .variant-picker {
     width: 100%;
   }
 
-  .variant-picker__form {
-    width: 100%;
-  }
-
-  .variant-picker[data-shopify-visual-preview] {
-    min-width: 300px;
-    padding-inline-start: max(4px, var(--padding-inline-start));
-  }
-
   .variant-option {
-    --options-border-radius: var(--variant-picker-button-radius);
-    --options-border-width: var(--variant-picker-button-border-width);
-    --variant-option-padding-inline: var(--padding-md);
+    margin-bottom: 18px;
   }
 
-  .variant-option + .variant-option {
-    margin-top: var(--padding-lg);
+  .variant-option legend,
+  .variant-option__label {
+    font-size: 14px;
+    margin-bottom: 10px;
   }
 
-  .variant-option--swatches {
-    --options-border-radius: var(--variant-picker-swatch-radius);
-
-    width: 100%;
-  }
-
-  .variant-option--swatches-disabled {
-    pointer-events: none;
-    cursor: not-allowed;
-  }
-
-  .variant-option--swatches > overflow-list {
-    justify-content: var(--product-swatches-alignment);
-
-    @media (max-width: 749px) {
-      justify-content: var(--product-swatches-alignment-mobile);
-    }
-  }
+  /* Mobile Variant Buttons */
 
   .variant-option--buttons {
-    display: flex;
-    flex-wrap: wrap;
-    gap: var(--gap-sm);
-    margin: 0;
-    padding: 0;
-    border: none;
-  }
-
-  .variant-option--buttons legend {
-    padding: 0;
-    margin-block-end: var(--margin-xs);
-  }
-
-  .variant-option__swatch-value {
-    padding-inline-start: var(--padding-xs);
-    color: rgb(var(--color-foreground-rgb) / var(--opacity-70));
-  }
-
-  @media (prefers-reduced-motion: no-preference) {
-    .variant-option__button-label,
-    .variant-option__select-wrapper,
-    .variant-option__button-label::before,
-    .variant-option__button-label::after,
-    .variant-option__button-label:has([data-previous-checked='true'], [data-current-checked='true'])
-      .variant-option__button-label__pill,
-    .variant-option__button-label:not(.variant-option__button-label--has-swatch) svg line:last-of-type {
-      transition-duration: var(--animation-speed);
-      transition-timing-function: var(--animation-easing);
-    }
-
-    .variant-option__button-label__pill {
-      transition-property: transform;
-    }
-
-    .variant-option__button-label:not(.variant-option__button-label--has-swatch) svg line:last-of-type {
-      transition-property: clip-path;
-    }
-
-    .variant-option__button-label:has([data-previous-checked='true'], [data-current-checked='true'])
-      .variant-option__button-label__pill {
-      transition-property: transform;
-    }
-
-    .variant-option__button-label::after {
-      transition-property: clip-path;
-    }
-
-    .variant-option__button-label::before {
-      transition-property: border-color;
-    }
-
-    .variant-option__select-wrapper,
-    .variant-option__button-label {
-      transition-property: background-color, border-color, color;
-    }
+    gap: 8px;
   }
 
   .variant-option__button-label {
-    --variant-picker-stroke-color: var(--color-variant-border);
+    min-height: 44px;
 
-    cursor: pointer;
-    display: flex;
-    flex: 0 0 3.25em;
-    align-items: center;
-    position: relative;
-    padding-block: var(--padding-sm);
-    padding-inline: var(--padding-lg);
-    border: var(--options-border-width) solid var(--color-variant-border);
-    border-radius: var(--options-border-radius);
-    overflow: clip;
-    justify-content: center;
-    min-height: 3.25em;
-    min-width: fit-content;
-    white-space: nowrap;
-    background-color: var(--color-variant-background);
-    color: var(--color-variant-text);
+    padding: 10px 14px;
 
-    &:hover,
-    &:hover:has([aria-disabled='true']):has([data-option-available='false']) {
-      background-color: var(--color-variant-hover-background);
-      border-color: var(--color-variant-hover-border);
-      color: var(--color-variant-hover-text);
-    }
+    border-radius: 10px;
 
-    /* we need something like overflow-clip-margin to use the pseudoelement but it doesn't work in Safari */
+    font-size: 13px;
 
-    /* so instead use the layered background image trick */
-    &:not(.variant-option__button-label--has-swatch):has([data-option-available='false']) {
-      border-width: 0;
-    }
-
-    /* ::after/::before act as a fake border for the button style variant */
-
-    /* ::after is the unavailable variant border that clips in */
-    &:not(.variant-option__button-label--has-swatch)::before,
-    &:has([data-option-available='false']):not(.variant-option__button-label--has-swatch)::after {
-      content: '';
-      position: absolute;
-      inset: 0;
-      border: var(--options-border-width) solid var(--color-selected-variant-border);
-      border-radius: inherit;
-      pointer-events: none;
-      z-index: 2;
-      /* stylelint-disable-next-line plugin/no-unsupported-browser-features */
-      clip-path: inset(var(--clip, 0 0 0 0));
-    }
-
-    &:has([data-option-available='false']):not(.variant-option__button-label--has-swatch)::before {
-      inset: 0;
-    }
-
-    &:not(.variant-option__button-label--has-swatch)::before {
-      /* stylelint-disable-next-line plugin/no-unsupported-browser-features */
-      clip-path: inset(0 0 0 0);
-      border-color: var(--color-variant-border);
-      inset: calc(var(--options-border-width) * -1);
-    }
-
-    &:has(:checked):not(.variant-option__button-label--has-swatch, :has([data-option-available='false']))::before {
-      border-color: var(--color-selected-variant-border);
-    }
-
-    /* setting left/right accounts for variant buttons of different widths */
-    &:not(:has(:checked)):has(~ label > :checked),
-    &:has(:checked):has(~ label > [data-previous-checked='true']) {
-      .variant-option__button-label__pill {
-        right: 0;
-        left: unset;
-      }
-    }
-
-    &:has([data-previous-checked='true']) ~ label:has([data-current-checked='true']),
-    &:has(:checked) ~ label {
-      .variant-option__button-label__pill {
-        left: 0;
-        right: unset;
-      }
-    }
-
-    &:not(:has(:checked)):has(~ label > :checked) {
-      --pill-offset: calc(100% + 1px);
-    }
-
-    &:has(:checked) ~ label {
-      --pill-offset: calc(-100% - 1px);
-    }
-
-    &:has([data-current-checked='true']):first-of-type
-      ~ label:last-of-type:not(.variant-option__button-label--has-swatch),
-    &:not(:has(:checked)):has(~ label > :checked):not(.variant-option__button-label--has-swatch) {
-      --clip: 0 0 0 100%;
-    }
-
-    &:not(:has([data-current-checked='true'])):first-of-type:has(~ label:last-of-type > :checked):not(
-        .variant-option__button-label--has-swatch
-      ),
-    &:has(:checked) ~ label:not(.variant-option__button-label--has-swatch) {
-      --clip: 0 100% 0 0;
-    }
-
-    &:has([data-previous-checked='true'], [data-current-checked='true']) .variant-option__button-label__pill {
-      width: max(var(--pill-width-current, 100%), var(--pill-width-previous, 100%));
-    }
-
-    @media screen and (min-width: 750px) {
-      padding: var(--padding-xs) var(--variant-option-padding-inline);
-    }
+    flex: 1 1 auto;
   }
 
-  /* wrap around only for 3 or more variants in a row */
+  /* Mobile Dropdown */
 
-  /* the more complex selector rules here produce the wrap around effect for first/last variants */
-  .variant-option--buttons:has(:nth-of-type(3)) {
-    .variant-option__button-label:has([data-current-checked='true']):first-of-type ~ label:last-of-type {
-      --pill-offset: calc(100% + 1px);
-    }
-
-    .variant-option__button-label:not(:has([data-current-checked='true'])):first-of-type:has(
-        ~ label:last-of-type > :checked
-      ) {
-      --pill-offset: calc(-100% - 1px);
-    }
+  .variant-option__select {
+    min-height: 48px;
+    font-size: 14px;
   }
 
-  .variant-option__button-label__pill {
-    background: var(--color-selected-variant-background);
-    position: absolute;
-    top: calc(var(--options-border-width) * -1);
-    bottom: calc(var(--options-border-width) * -1);
-    border-radius: inherit;
-    pointer-events: none;
-    width: 100%;
-    transform: translateX(var(--pill-offset, 0));
+  /* Swatches */
+
+  .variant-option__button-label--has-swatch .swatch {
+    width: 36px;
+    height: 36px;
+  }
+}
+
+/*========================
+  EXTRA SMALL MOBILE
+=========================*/
+
+@media screen and (max-width: 480px) {
+
+  .variant-option__button-label {
+    min-height: 42px;
+
+    padding: 10px 12px;
+
+    font-size: 12px;
   }
 
-  .variant-option__button-label__text {
-    pointer-events: none;
-    text-align: start;
-    text-wrap: auto;
-    z-index: 2;
-  }
-
-  .variant-option--equal-width-buttons {
-    --variant-min-width: clamp(44px, calc(var(--variant-option-padding-inline) * 2 + var(--variant-ch)), 100%);
-
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(var(--variant-min-width), 1fr));
-
-    .variant-option__button-label {
-      min-width: var(--variant-min-width);
-    }
-
-    .variant-option__button-label__text {
-      text-align: center;
-      text-wrap: balance;
-    }
-  }
-
-  .variant-option__button-label:has(:focus-visible) {
-    --variant-picker-stroke-color: var(--color-foreground);
-
-    border-color: var(--color-foreground);
-    outline: var(--focus-outline-width) solid var(--color-foreground);
-    outline-offset: var(--focus-outline-offset);
-  }
-
-  .variant-option__button-label--has-swatch {
-    --focus-outline-radius: var(--variant-picker-swatch-radius);
-
-    padding: 0;
-    border: none;
-    display: block;
-    flex-basis: auto;
-    min-height: auto;
-  }
-
-  .variant-option__button-label:has(:checked) {
-    color: var(--color-selected-variant-text);
-    border-color: var(--color-selected-variant-border);
-  }
-
-  .variant-option__button-label:has(:checked):hover {
-    border-color: var(--color-selected-variant-hover-border);
-    color: var(--color-selected-variant-hover-text);
-
-    .variant-option__button-label__pill {
-      background-color: var(--color-selected-variant-hover-background);
-    }
-  }
-
-  .variant-option__button-label:has([data-option-available='false']) {
-    color: rgb(var(--color-variant-text-rgb) / var(--opacity-60));
-  }
-
-  .facets__inputs-list--swatches-grid .variant-option__button-label--has-swatch:hover .swatch {
-    --focus-outline: var(--focus-outline-width) solid rgb(var(--color-foreground-rgb) / var(--opacity-35-55));
-
-    outline: var(--focus-outline);
-    outline-offset: var(--focus-outline-offset);
-  }
-
-  .facets__inputs-list--swatches-grid .variant-option__button-label:has(:focus-visible) .swatch {
-    --focus-outline: var(--focus-outline-width) solid currentcolor;
-
-    outline: var(--focus-outline);
-    outline-offset: var(--focus-outline-offset);
-  }
-
-  .facets__inputs-list--swatches-grid .variant-option__button-label:has(:focus-visible) {
-    outline: none;
-  }
-
-  .facets__inputs-list--swatches-grid .variant-option__button-label--has-swatch:hover {
-    outline: none;
-  }
-
-  .variant-option__button-label--has-swatch:hover {
-    outline: var(--focus-outline-width) solid rgb(var(--color-foreground-rgb) / var(--opacity-35-55));
-    outline-offset: var(--focus-outline-offset);
-  }
-
-  .facets__inputs-list--swatches-grid .variant-option__button-label--has-swatch:has(:checked) {
-    --focus-outline: none;
-  }
-
-  .facets__inputs-list--swatches-grid .variant-option__button-label--has-swatch:has(:checked) .swatch {
-    outline: var(--focus-outline);
-    outline-offset: var(--focus-outline-offset);
-  }
-
-  .variant-option__button-label--has-swatch:has(:checked) {
-    --focus-outline: var(--focus-outline-width) solid var(--color-foreground);
-
-    outline: var(--focus-outline);
-    outline-offset: var(--focus-outline-offset);
-  }
-
-  /* This triggers iOS < 16.4. The outline bug is not recognized as a lack of @supports */
-  @supports not (background-color: rgb(from red 150 g b / alpha)) {
-    /** There is a bug in safari < 16.4 that causes the outline to not follow the elements border radius. This is a workaround. **/
-    .variant-option__button-label--has-swatch:has(:checked),
-    .variant-option__button-label:has(:focus-visible) .swatch,
-    .facets__inputs-list--swatches-grid .variant-option__button-label--has-swatch:hover .swatch {
-      outline: none;
-      position: relative;
-      overflow: visible;
-    }
-
-    .variant-option__button-label--has-swatch:has(:checked)::after,
-    .variant-option__button-label:has(:focus-visible) .swatch::after,
-    .facets__inputs-list--swatches-grid .variant-option__button-label--has-swatch:hover .swatch::after {
-      content: '';
-      position: absolute;
-      inset: calc(-1 * var(--focus-outline-offset));
-      border: var(--focus-outline);
-      border-radius: var(--focus-outline-radius, 50%);
-      background-color: transparent;
-      display: inherit;
-    }
-  }
-
-  .variant-option__button-label:has([data-option-available='false']):has(:checked) {
-    background-color: inherit;
-    color: rgb(var(--color-variant-text-rgb) / var(--opacity-60));
-  }
-
-  .variant-option__button-label input,
-  .variant-option--images input {
-    /* remove the checkbox from the page flow */
-    position: absolute;
-
-    /* set the dimensions to match those of the label */
-    inset: 0;
-
-    /* hide it */
-    opacity: 0;
-    margin: 0;
-    cursor: pointer;
-    width: 100%;
-    height: 100%;
-  }
-
-  .variant-option__button-label svg {
-    position: absolute;
-    left: var(--options-border-width);
-    top: var(--options-border-width);
-    height: calc(100% - (var(--options-border-width) * 2));
-    width: calc(100% - (var(--options-border-width) * 2));
-    cursor: pointer;
-    pointer-events: none;
-    stroke-width: var(--style-border-width);
-    stroke: var(--variant-picker-stroke-color);
-  }
-
-  .variant-option__button-label:not(.variant-option__button-label--has-swatch) svg {
-    stroke: var(--color-variant-border);
-
-    line {
-      stroke-width: var(--options-border-width);
-    }
-
-    line:last-of-type {
-      /* stylelint-disable-next-line plugin/no-unsupported-browser-features */
-      clip-path: inset(var(--clip, 0 0 0 0));
-      stroke: rgb(var(--color-variant-text-rgb) / 1);
-    }
-  }
-
-  .variant-option__select-wrapper {
-    display: flex;
-    position: relative;
-    border: var(--style-border-width-inputs) solid var(--color-border);
-    border-radius: var(--style-border-radius-inputs);
-    align-items: center;
-    margin-top: var(--margin-2xs);
-    overflow: clip;
-  }
-
-  .variant-option__select-wrapper:has(.swatch) {
-    --variant-picker-swatch-width: 20px;
-    --variant-picker-swatch-height: 20px;
-  }
-
-  .variant-option__select-wrapper:hover {
-    border-color: var(--color-variant-hover-border);
-  }
-
-  .variant-option__select:focus-visible {
-    outline: var(--focus-outline-width) solid currentcolor;
-    outline-offset: var(--focus-outline-offset);
+  .variant-option__button-label--has-swatch .swatch {
+    width: 32px;
+    height: 32px;
   }
 
   .variant-option__select {
-    padding-block: var(--padding-md);
-    padding-inline: var(--padding-lg) calc(var(--padding-lg) + var(--icon-size-2xs));
-    appearance: none;
-    border: 0;
-    width: 100%;
-    margin: 0;
-    cursor: pointer;
+    min-height: 46px;
+    font-size: 13px;
   }
+}
 
-  .variant-option__select-wrapper .icon {
-    position: absolute;
-    right: var(--padding-md);
-    top: 50%;
-    transform: translateY(-50%);
-    width: var(--icon-size-2xs);
-    height: var(--icon-size-2xs);
-    pointer-events: none;
-  }
-
-  .variant-option__select--has-swatch {
-    padding-inline-start: calc((2 * var(--padding-sm)) + var(--variant-picker-swatch-width));
-  }
-
-  .variant-option__select-wrapper .swatch {
-    position: absolute;
-    top: 50%;
-    left: var(--padding-md);
-    transform: translateY(-50%);
-  }
-
-  .variant-picker--center,
-  .variant-picker--center .variant-option {
-    text-align: center;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-  }
-
-  .variant-picker--right,
-  .variant-picker--right .variant-option {
-    text-align: right;
-    justify-content: right;
-  }
 {% endstylesheet %}
