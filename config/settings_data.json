@@ -127,12 +127,12 @@
       },
       "scheme-2": {
         "settings": {
-          "background": "#ffffff",
+          "background": "#ffffffc7",
           "foreground_heading": "#e64747",
           "foreground": "#6e6a66",
           "primary": "#f7f3ee",
           "primary_hover": "#ffffff",
-          "border": "#fafafa",
+          "border": "#f7f3ee",
           "shadow": "#000000",
           "primary_button_background": "#000000",
           "primary_button_text": "#ffffff",
