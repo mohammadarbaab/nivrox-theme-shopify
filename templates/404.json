@@ -47,11 +47,24 @@
             "padding-inline-end": 0
           },
           "blocks": {}
+        },
+        "divider_8DN8zY": {
+          "type": "_divider",
+          "name": "t:names.divider",
+          "settings": {
+            "thickness": 2,
+            "corner_radius": "rounded",
+            "width_percent": 100,
+            "padding-block-start": 0,
+            "padding-block-end": 0
+          },
+          "blocks": {}
         }
       },
       "block_order": [
         "icon_XXCPDj",
-        "text_JzMTXX"
+        "text_JzMTXX",
+        "divider_8DN8zY"
       ],
       "name": "t:names.marquee_section",
       "settings": {
