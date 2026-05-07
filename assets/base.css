@@ -14,10 +14,7 @@ h1, h2, h3, h4, h5, h6, .header__heading {
 button, input, textarea, select {
   font-family: 'Montserrat', sans-serif !important;
 }
-html, body {
-  overflow-x: hidden;
-  max-width: 100%;
-}
+
 
 
 
