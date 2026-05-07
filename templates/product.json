@@ -17,7 +17,7 @@
           "name": "t:names.icon",
           "settings": {
             "icon": "star",
-            "width": 18,
+            "width": 16,
             "link": "",
             "open_in_new_tab": false
           },
@@ -33,7 +33,7 @@
             "alignment": "left",
             "type_preset": "custom",
             "font": "var(--font-body--family)",
-            "font_size": "0.875rem",
+            "font_size": "0.75rem",
             "line_height": "normal",
             "letter_spacing": "normal",
             "case": "none",
@@ -66,7 +66,7 @@
           "name": "t:names.icon",
           "settings": {
             "icon": "silhouette",
-            "width": 18,
+            "width": 16,
             "link": "",
             "open_in_new_tab": false
           },
@@ -82,7 +82,7 @@
             "alignment": "left",
             "type_preset": "custom",
             "font": "var(--font-body--family)",
-            "font_size": "0.875rem",
+            "font_size": "0.75rem",
             "line_height": "normal",
             "letter_spacing": "normal",
             "case": "none",
@@ -115,7 +115,7 @@
           "name": "t:names.icon",
           "settings": {
             "icon": "lightning_bolt",
-            "width": 18,
+            "width": 16,
             "link": "",
             "open_in_new_tab": false
           },
@@ -131,7 +131,7 @@
             "alignment": "left",
             "type_preset": "custom",
             "font": "var(--font-body--family)",
-            "font_size": "0.875rem",
+            "font_size": "0.75rem",
             "line_height": "normal",
             "letter_spacing": "normal",
             "case": "none",
@@ -180,7 +180,7 @@
             "alignment": "left",
             "type_preset": "custom",
             "font": "var(--font-body--family)",
-            "font_size": "0.875rem",
+            "font_size": "0.75rem",
             "line_height": "normal",
             "letter_spacing": "normal",
             "case": "none",
