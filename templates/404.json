@@ -17,7 +17,7 @@
           "name": "t:names.icon",
           "settings": {
             "icon": "star",
-            "width": 18,
+            "width": 16,
             "link": "",
             "open_in_new_tab": false
           },
@@ -65,7 +65,7 @@
           "name": "t:names.icon",
           "settings": {
             "icon": "lightning_bolt",
-            "width": 18,
+            "width": 16,
             "link": "",
             "open_in_new_tab": false
           },
@@ -114,7 +114,7 @@
           "name": "t:names.icon",
           "settings": {
             "icon": "silhouette",
-            "width": 24,
+            "width": 16,
             "link": "",
             "open_in_new_tab": false
           },
@@ -163,7 +163,7 @@
           "name": "t:names.icon",
           "settings": {
             "icon": "truck",
-            "width": 18,
+            "width": 16,
             "link": "",
             "open_in_new_tab": false
           },
