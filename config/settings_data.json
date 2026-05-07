@@ -128,8 +128,8 @@
       "scheme-2": {
         "settings": {
           "background": "#f7f3ee",
-          "foreground_heading": "#000000",
-          "foreground": "#000000cf",
+          "foreground_heading": "#1e1e1e",
+          "foreground": "#6e6a66",
           "primary": "#f7f3ee",
           "primary_hover": "#ffffff",
           "border": "#f7f3ee",
