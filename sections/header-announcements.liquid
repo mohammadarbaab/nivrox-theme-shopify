@@ -39,12 +39,26 @@
 </aside>
 
 {% stylesheet %}
-  .announcement-bar {
-    border-block-end: var(--border-bottom-width) solid var(--color-border);
-    background-color: #f2f2f2 !important;
-    padding: 10px 0;
+ .announcement-bar {
+  position: relative;
+  z-index: 1000; /* navbar se upar */
+  background-color: #f2f2f2 !important;
+  padding: 10px 0;
+  border-block-end: var(--border-bottom-width) solid var(--color-border);
+}
+/* Sticky option (recommended for Shopify stores) */
+.announcement-bar--sticky {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
 
-  }
+/* If header is fixed, force layering */
+header,
+.site-header {
+  z-index: 999 !important;
+  position: relative;
+}
 
   .announcement-bar__slider {
     display: flex;
@@ -123,6 +137,17 @@
     position: absolute;
     inset: 0;
   }
+
+@media screen and (max-width: 749px) {
+  .announcement-bar {
+    padding: 8px 10px;
+  }
+
+  .announcement-bar__slides {
+    max-width: 100%;
+    width: 100%;
+  }
+}
 {% endstylesheet %}
 
 {% schema %}
