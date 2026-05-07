@@ -127,12 +127,12 @@
       },
       "scheme-2": {
         "settings": {
-          "background": "#ffffff",
+          "background": "#ffffffc7",
           "foreground_heading": "#e64747",
           "foreground": "#6e6a66",
           "primary": "#f7f3ee",
           "primary_hover": "#ffffff",
-          "border": "#e5e0d8",
+          "border": "#fafafa",
           "shadow": "#000000",
           "primary_button_background": "#000000",
           "primary_button_text": "#ffffff",
@@ -166,7 +166,7 @@
       },
       "scheme-3": {
         "settings": {
-          "background": "#fafafa",
+          "background": "#f7f3ee",
           "foreground_heading": "#000000",
           "foreground": "#000000cf",
           "primary": "#000000cf",
