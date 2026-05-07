@@ -8,8 +8,12 @@
 
 {% stylesheet %}
   /*====================================================
-  PREMIUM GROUP BLOCK RESPONSIVE (HORIZONTAL SAFE)
+  SHOPIFY GROUP BLOCK - PREMIUM RESPONSIVE CSS
 =====================================================*/
+
+/*========================
+  GLOBAL RESET
+=========================*/
 
 *,
 *::before,
@@ -17,199 +21,411 @@
   box-sizing: border-box;
 }
 
+html,
+body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  width: 100%;
+  max-width: 100%;
+  scroll-behavior: smooth;
+  font-family: Arial, sans-serif;
+}
+
+/* Prevent all overflow */
+
+body * {
+  max-width: 100%;
+}
+
+/*========================
+  MAIN GROUP CONTAINER
+=========================*/
+
 .group,
 .group-block,
 .group-wrapper {
+  position: relative;
+
   width: 100%;
   max-width: 100%;
+
   display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: flex-start;
-  gap: var(--gap, 16px);
+  flex-direction: column;
+
   overflow: hidden;
-  border-radius: var(--border-radius, 14px);
+
   transition: all 0.3s ease;
 }
 
 /*========================
-  FORCE HORIZONTAL FLOW (DESKTOP)
+  FLEX ROW LAYOUT
 =========================*/
 
 .group--row,
 .content-direction-row {
   display: flex;
   flex-direction: row;
-  flex-wrap: nowrap; /* IMPORTANT → keeps single row */
-  align-items: center;
-  justify-content: flex-start;
-  gap: var(--gap, 16px);
-  overflow-x: auto; /* allows scroll instead of breaking */
-  -webkit-overflow-scrolling: touch;
-  scroll-snap-type: x mandatory;
-}
+  flex-wrap: wrap;
 
-/* Hide scrollbar (clean UI) */
-.group--row::-webkit-scrollbar {
-  display: none;
+  gap: var(--gap, 16px);
+
+  align-items: center;
 }
 
 /*========================
-  CHILD ELEMENTS (CARD STYLE ALIGNMENT)
+  FLEX COLUMN LAYOUT
+=========================*/
+
+.group--column,
+.content-direction-column {
+  display: flex;
+  flex-direction: column;
+
+  gap: var(--gap, 16px);
+}
+
+/*========================
+  CHILD ELEMENTS
 =========================*/
 
 .group > *,
 .group-block > *,
 .group-wrapper > * {
-  flex: 0 0 auto;
-  min-width: 140px;
   max-width: 100%;
-  scroll-snap-align: start;
+  min-width: 0;
 }
 
 /*========================
-  ICON + TEXT ALIGNMENT FIX
+  RESPONSIVE IMAGES
 =========================*/
 
-.group svg,
-.group img {
+.group img,
+.group video,
+.group iframe,
+.group svg {
   width: 100%;
   max-width: 100%;
   height: auto;
+
   display: block;
-  object-fit: contain;
+
+  border-radius: inherit;
+
+  object-fit: cover;
 }
 
-.group .icon {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+/* Smooth hover effect */
+
+.group img {
+  transition: transform 0.4s ease;
+}
+
+.group img:hover {
+  transform: scale(1.02);
 }
 
 /*========================
-  TYPOGRAPHY (RESPONSIVE BUT STABLE)
+  TYPOGRAPHY
 =========================*/
 
 .group h1,
 .group h2,
 .group h3,
-.group h4 {
+.group h4,
+.group h5,
+.group h6 {
   margin: 0;
-  font-weight: 700;
+
   line-height: 1.3;
-  color: #111;
+  font-weight: 700;
+
   word-break: break-word;
+
+  color: #111;
 }
 
-.group h1 { font-size: clamp(26px, 4vw, 48px); }
-.group h2 { font-size: clamp(22px, 3vw, 36px); }
-.group h3 { font-size: clamp(18px, 2.5vw, 28px); }
+.group h1 {
+  font-size: clamp(28px, 5vw, 52px);
+}
+
+.group h2 {
+  font-size: clamp(24px, 4vw, 42px);
+}
+
+.group h3 {
+  font-size: clamp(20px, 3vw, 34px);
+}
 
 .group p,
 .group span,
-.group li {
-  font-size: clamp(13px, 1.8vw, 15px);
-  line-height: 1.6;
+.group li,
+.group a {
+  font-size: clamp(14px, 2vw, 16px);
+
+  line-height: 1.7;
+
   color: #555;
+
+  word-break: break-word;
 }
 
 /*========================
-  BUTTONS (SMART RESPONSIVE)
+  BUTTONS
 =========================*/
 
 .group button,
 .group .button,
-.group .btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
+.group .btn,
+.group input[type="submit"] {
+  width: auto;
+  min-height: 50px;
 
-  min-height: 46px;
-  padding: 12px 18px;
+  padding: 14px 22px;
 
-  border-radius: 10px;
   border: none;
+  border-radius: 12px;
 
   background: #000;
   color: #fff;
 
+  font-size: clamp(14px, 2vw, 16px);
   font-weight: 600;
-  font-size: 14px;
 
   cursor: pointer;
-  transition: 0.3s ease;
-  white-space: nowrap;
+
+  transition: all 0.3s ease;
+
+  text-align: center;
+
+  white-space: normal;
+  word-break: break-word;
 }
 
+/* Hover */
+
 .group button:hover,
-.group .button:hover {
-  transform: translateY(-2px);
+.group .button:hover,
+.group .btn:hover,
+.group input[type="submit"]:hover {
   background: #222;
+  transform: translateY(-2px);
 }
 
 /*========================
-  MOBILE: HORIZONTAL SCROLL (NO BREAK)
+  LINKS
 =========================*/
 
-@media (max-width: 768px) {
+.group a {
+  text-decoration: none;
+  transition: 0.3s ease;
+}
+
+.group a:hover {
+  opacity: 0.8;
+}
+
+/*========================
+  FORMS
+=========================*/
+
+.group input,
+.group textarea,
+.group select {
+  width: 100%;
+
+  min-height: 48px;
+
+  padding: 12px 14px;
+
+  border: 1px solid #ddd;
+  border-radius: 10px;
+
+  font-size: 15px;
+
+  outline: none;
+}
+
+.group textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+/*========================
+  VIDEO / BACKGROUND MEDIA
+=========================*/
+
+.group video,
+.group iframe {
+  border-radius: inherit;
+  overflow: hidden;
+}
+
+/*========================
+  BORDER + SHADOW
+=========================*/
+
+.group {
+  border-radius: var(--border-radius, 14px);
+}
+
+/* Optional classy shadow */
+
+.group.shadow {
+  box-shadow:
+    0 4px 14px rgba(0,0,0,0.06),
+    0 10px 30px rgba(0,0,0,0.04);
+}
+
+/*========================
+  TABLET RESPONSIVE
+=========================*/
+
+@media screen and (max-width: 991px) {
+
+  .group,
+  .group-block,
+  .group-wrapper {
+    width: 100%;
+  }
 
   .group--row,
   .content-direction-row {
-    flex-wrap: nowrap;
-    overflow-x: auto;
-    gap: 12px;
-    padding-bottom: 6px;
+    gap: 18px;
   }
 
-  .group > *,
-  .group-block > *,
-  .group-wrapper > * {
-    min-width: 180px; /* better touch UX */
+  .group h1 {
+    font-size: 36px;
   }
 
-  /* Text slightly smaller for mobile */
-  .group h1 { font-size: 24px; }
-  .group h2 { font-size: 20px; }
-  .group h3 { font-size: 18px; }
+  .group h2 {
+    font-size: 30px;
+  }
 
-  .group button {
-    min-height: 44px;
-    font-size: 13px;
+  .group h3 {
+    font-size: 24px;
   }
 }
 
 /*========================
-  SMALL MOBILE (STILL HORIZONTAL)
+  MOBILE RESPONSIVE
 =========================*/
 
-@media (max-width: 480px) {
+@media screen and (max-width: 767px) {
 
-  .group > *,
-  .group-block > *,
-  .group-wrapper > * {
-    min-width: 160px;
+  html,
+  body {
+    overflow-x: hidden !important;
+  }
+
+  /* FORCE MOBILE STACK */
+
+  .group--row,
+  .content-direction-row {
+    flex-direction: column !important;
+    align-items: stretch !important;
+  }
+
+  /* Full Width Mobile */
+
+  .group,
+  .group-block,
+  .group-wrapper {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  /* Mobile Typography */
+
+  .group h1 {
+    font-size: 30px;
+    line-height: 1.3;
+  }
+
+  .group h2 {
+    font-size: 26px;
+  }
+
+  .group h3 {
+    font-size: 22px;
   }
 
   .group p,
-  .group span {
-    font-size: 13px;
+  .group span,
+  .group li,
+  .group a {
+    font-size: 14px;
+    line-height: 1.7;
+  }
+
+  /* Mobile Buttons */
+
+  .group button,
+  .group .button,
+  .group .btn,
+  .group input[type="submit"] {
+    width: 100%;
+    min-height: 48px;
+
+    font-size: 14px;
+
+    border-radius: 10px;
+  }
+
+  /* Mobile Inputs */
+
+  .group input,
+  .group textarea,
+  .group select {
+    font-size: 14px;
+  }
+
+  /* Prevent any overflow */
+
+  .group *,
+  .group-block *,
+  .group-wrapper * {
+    max-width: 100%;
   }
 }
 
 /*========================
-  ANTI OVERFLOW SAFETY
+  EXTRA SMALL MOBILE
 =========================*/
 
-.group,
-.group-block,
-.group-wrapper {
-  overflow-x: auto;
-  -webkit-overflow-scrolling: touch;
-}
+@media screen and (max-width: 480px) {
 
-body {
-  overflow-x: hidden;
-}{% endstylesheet %}
+  .group h1 {
+    font-size: 26px;
+  }
+
+  .group h2 {
+    font-size: 22px;
+  }
+
+  .group h3 {
+    font-size: 19px;
+  }
+
+  .group p,
+  .group span,
+  .group li,
+  .group a {
+    font-size: 13px;
+  }
+
+  .group button,
+  .group .button,
+  .group .btn,
+  .group input[type="submit"] {
+    min-height: 46px;
+
+    font-size: 13px;
+
+    padding: 12px;
+  }
+}
+{% endstylesheet %}
 {% schema %}
 {
   "name": "t:names.group",
