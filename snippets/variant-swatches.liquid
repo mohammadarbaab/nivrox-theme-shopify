@@ -102,10 +102,10 @@
                   data-variant-id="{{ first_available_variant.id | default: product_option_value.variant.id }}"
                   data-first-available-or-first-variant-id="{{ first_available_variant.id | default: product_option_value.variant.id }}"
                 >
-                {% render 'swatch',
-                  swatch: product_option_value.swatch,
-                  variant_image: featured_media,
-                %}
+                <span
+  class="custom-color-swatch"
+  style="background-color: {{ product_option_value | downcase }};"
+></span>
                 {% render 'strikethrough-variant', product_option: product_option_value %}
               </label>
             </li>
@@ -129,3 +129,4 @@
     </script>
   </form>
 </swatches-variant-picker-component>
+
