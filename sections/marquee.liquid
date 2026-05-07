@@ -38,13 +38,16 @@
 </marquee-component>
 
 {% stylesheet %}
- marquee-component{
+ marquee-component {
+  display: block;
+  width: 100%;
+  overflow: hidden;
+
   position: fixed;
   top: 70px;
   left: 0;
-  width: 100%;
   z-index: 998;
-  background: white;
+  background: #f8f6f2;
 }
 
   .marquee__wrapper {
