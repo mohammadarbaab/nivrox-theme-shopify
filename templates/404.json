@@ -17,7 +17,7 @@
           "name": "t:names.icon",
           "settings": {
             "icon": "star",
-            "width": 24,
+            "width": 18,
             "link": "",
             "open_in_new_tab": false
           },
@@ -103,7 +103,56 @@
           "settings": {
             "thickness": 2,
             "corner_radius": "square",
-            "width_percent": 100,
+            "width_percent": 98,
+            "padding-block-start": 0,
+            "padding-block-end": 0
+          },
+          "blocks": {}
+        },
+        "icon_fWTHmb": {
+          "type": "icon",
+          "name": "t:names.icon",
+          "settings": {
+            "icon": "silhouette",
+            "width": 24,
+            "link": "",
+            "open_in_new_tab": false
+          },
+          "blocks": {}
+        },
+        "text_TdPN6Y": {
+          "type": "text",
+          "name": "t:names.text",
+          "settings": {
+            "text": "<p><strong>Trusted by 1200+ Happy Customers</strong></p>",
+            "width": "fit-content",
+            "max_width": "normal",
+            "alignment": "left",
+            "type_preset": "rte",
+            "font": "var(--font-body--family)",
+            "font_size": "1rem",
+            "line_height": "normal",
+            "letter_spacing": "normal",
+            "case": "none",
+            "wrap": "pretty",
+            "color": "var(--color-foreground)",
+            "background": false,
+            "background_color": "#00000026",
+            "corner_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {}
+        },
+        "divider_JViVqh": {
+          "type": "_divider",
+          "name": "t:names.divider",
+          "settings": {
+            "thickness": 2,
+            "corner_radius": "square",
+            "width_percent": 98,
             "padding-block-start": 0,
             "padding-block-end": 0
           },
@@ -116,7 +165,10 @@
         "divider_8DN8zY",
         "icon_PDyE3C",
         "text_pBeaVh",
-        "divider_rFJFcK"
+        "divider_rFJFcK",
+        "icon_fWTHmb",
+        "text_TdPN6Y",
+        "divider_JViVqh"
       ],
       "name": "t:names.marquee_section",
       "settings": {
