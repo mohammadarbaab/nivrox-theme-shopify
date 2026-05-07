@@ -12,7 +12,7 @@
 <marquee-component
   class="section spacing-style gap-style color-{{ section.settings.color_scheme }}"
   style="
-    {%- render 'spacing-style', settings: section.settings %};
+    {%- render 'spacing-style', settings: sectioan.settings %};
     {% render 'gap-style', value: gap_between_elements, name: 'marquee-gap' %}
     --marquee-direction: {{ section.settings.movement_direction }};
   "
@@ -38,12 +38,19 @@
 </marquee-component>
 
 {% stylesheet %}
-  marquee-component {
-    display: block;
-    width: 100%;
-    overflow: hidden;
-    
-  }
+ marquee-component {
+  display: block;
+  width: 100%;
+  overflow: hidden;
+
+  position: fixed;
+  top: 70px; /* navbar height */
+  left: 0;
+  width: 100%;
+  z-index: 998;
+
+  background: #f8f6f2;
+}
 
   .marquee__wrapper {
     display: flex;
