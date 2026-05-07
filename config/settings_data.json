@@ -88,7 +88,7 @@
     "color_schemes": {
       "scheme-1": {
         "settings": {
-          "background": "#fed899",
+          "background": "#fafafa",
           "foreground_heading": "#000000",
           "foreground": "#000000cf",
           "primary": "#ffffffcf",
@@ -166,7 +166,7 @@
       },
       "scheme-3": {
         "settings": {
-          "background": "#eef1ea",
+          "background": "#fafafa",
           "foreground_heading": "#000000",
           "foreground": "#000000cf",
           "primary": "#000000cf",
