@@ -88,12 +88,12 @@
     "color_schemes": {
       "scheme-1": {
         "settings": {
-          "background": "#fafafa",
+          "background": "#f7f3ee",
           "foreground_heading": "#000000",
           "foreground": "#000000cf",
           "primary": "#ffffffcf",
           "primary_hover": "#000000",
-          "border": "#0000000f",
+          "border": "#d8d2c8",
           "shadow": "#000000",
           "primary_button_background": "#000000",
           "primary_button_text": "#ffffff",
