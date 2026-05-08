@@ -175,14 +175,15 @@
                 "background_color": "#f7f3ee",
                 "corner_radius": 0,
                 "padding-block-start": 4,
-                "padding-block-end": 0,
-                "padding-inline-start": 0,
-                "padding-inline-end": 0
+                "padding-block-end": 4,
+                "padding-inline-start": 4,
+                "padding-inline-end": 4
               },
               "blocks": {}
             },
             "judge_me_reviews_preview_badge_jVWxiD": {
               "type": "shopify://apps/judge-me-reviews/blocks/preview_badge/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+              "disabled": true,
               "settings": {}
             },
             "price_EzJzMm": {
@@ -200,10 +201,10 @@
                 "letter_spacing": "normal",
                 "case": "none",
                 "color": "var(--color-foreground)",
-                "padding-block-start": 0,
-                "padding-block-end": 0,
-                "padding-inline-start": 0,
-                "padding-inline-end": 0
+                "padding-block-start": 4,
+                "padding-block-end": 8,
+                "padding-inline-start": 4,
+                "padding-inline-end": 4
               },
               "blocks": {}
             }
