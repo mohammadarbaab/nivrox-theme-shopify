@@ -2719,6 +2719,8 @@ product-price.text-block:is(.h1, .h2, .h3, .h4, .h5, .h6) > *:not(.tax-note) {
 .quantity-selector {
   --quantity-selector-width: 124px;
 
+   border: 2px solid black; border: 2px solid black;
+
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -2731,7 +2733,7 @@ product-price.text-block:is(.h1, .h2, .h3, .h4, .h5, .h6) > *:not(.tax-note) {
   transition: background-color var(--animation-speed) var(--animation-easing);
 
   &:hover {
-    background-color: blue;
+    background-color: var(--color-input-hover-background);
   }
 }
 
