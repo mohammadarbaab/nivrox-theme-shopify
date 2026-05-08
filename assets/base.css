@@ -164,6 +164,7 @@ select {
   transition: transform var(--hover-transition-duration) var(--hover-transition-timing),
     box-shadow var(--hover-transition-duration) var(--hover-transition-timing);
   z-index: var(--layer-flat);
+  
 }
 
 .product-card__link {
@@ -177,6 +178,7 @@ select {
 
 .product-card__content {
   cursor: pointer;
+  
 }
 
 .product-card__content slideshow-component {
