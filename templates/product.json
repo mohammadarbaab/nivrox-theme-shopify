@@ -486,9 +486,17 @@
                 "show_swatches": false,
                 "alignment": "left",
                 "padding-block-start": 0,
-                "padding-block-end": 0,
+                "padding-block-end": 16,
                 "padding-inline-start": 0,
                 "padding-inline-end": 12
+              },
+              "blocks": {}
+            },
+            "custom_liquid_aP8RYK": {
+              "type": "custom-liquid",
+              "name": "t:names.custom_liquid",
+              "settings": {
+                "custom_liquid": "{% if product.metafields.custom.size_guide.value %}\n\n<div class=\"size-guide-wrapper\">\n\n  <details class=\"size-guide-box\">\n\n    <summary class=\"size-guide-btn\">\n      <span>📏 Size Guide</span>\n      <span class=\"size-guide-icon\">+</span>\n    </summary>\n\n    <div class=\"size-guide-content\">\n\n      <img \n        src=\"{{ product.metafields.custom.size_guide.value.size_guide | image_url: width: 1200 }}\"\n        alt=\"Size Guide\"\n      >\n\n    </div>\n\n  </details>\n\n</div>\n\n{% endif %}\n\n<style>\n\n.size-guide-btn{\n  list-style:none;\nborder:1px solid gray;\nborder-radius:8px;\n\n  display:flex;\n  align-items:center;\n  justify-content:space-between;\n\n  padding:14px 16px;\n\n  cursor:pointer;\n\n  font-size:14px;\n  font-weight:500;\n\n  color:#111 !important;\n  background:#fff !important;\n\n  transition:all .25s ease;\n}\n\n/* HOVER FIX */\n\n.size-guide-btn:hover{\n  background:#fafafa !important;\n  color:#111 !important;\n}\n\n/* TEXT FIX */\n\n.size-guide-btn span{\n  color:#111 !important;\n}\n</style>"
               },
               "blocks": {}
             },
@@ -1359,6 +1367,7 @@
           "block_order": [
             "group_icgrde",
             "variant_picker_R3rGDr",
+            "custom_liquid_aP8RYK",
             "text_WxyNDc",
             "buy_buttons_eYQEYi",
             "text_aEtTtq",
