@@ -111,18 +111,11 @@
     
     {{ product_details }}
 
-    <!-- SIZE GUIDE BUTTON INSIDE PRODUCT DETAILS -->
-    <button onclick="openSizeGuide()" class="size-btn">
-      Size Guide
-    </button>
-
   {% endif %}
 {% endfor %}
    
   </div>  
 {{ additional_blocks }}
-
-{% render 'size-guide' %}
 </div>
 {% stylesheet %}
 /*==================================================
@@ -384,14 +377,6 @@ svg {
 .shopify-payment-button__button:hover {
   background: #000;
   color: #fff;
-}
-
-/* SIZE GUIDE BUTTON */
-
-.size-btn {
-  background: #fff;
-  color: #000;
-  border: 1px solid #000;
 }
 
 .size-btn:hover {
@@ -692,10 +677,7 @@ table {
     
     {{ product_details }}
 
-    <!-- SIZE GUIDE BUTTON INSIDE PRODUCT DETAILS -->
-    <button onclick="openSizeGuide()" class="size-btn">
-      Size Guide
-    </button>
+    
 
   {% endif %}
 {% endfor %}
@@ -1031,10 +1013,6 @@ table {
     
     {{ product_details }}
 
-    <!-- SIZE GUIDE BUTTON INSIDE PRODUCT DETAILS -->
-    <button onclick="openSizeGuide()" class="size-btn">
-      Size Guide
-    </button>
 
   {% endif %}
 {% endfor %}
