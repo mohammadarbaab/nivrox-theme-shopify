@@ -583,7 +583,7 @@
               "type": "custom-liquid",
               "name": "t:names.custom_liquid",
               "settings": {
-                "custom_liquid": "{% if product.metafields.custom.size_guide.value %}\n\n<div class=\"size-guide-wrapper\">\n\n  <details class=\"size-guide-box\">\n\n    <summary class=\"size-guide-btn\">\n      📏 Size Guide\n    </summary>\n\n    <div class=\"size-guide-content\">\n\n      <img \n        src=\"{{ product.metafields.custom.size_guide.value.size_chart | image_url: width: 1200 }}\"\n        alt=\"Size Guide\"\n      >\n\n    </div>\n\n  </details>\n\n</div>\n\n{% endif %}"
+                "custom_liquid": "{% if product.metafields.custom.size_guide.value %}\n\n<div class=\"size-guide-wrapper\">\n\n  <details class=\"size-guide-box\">\n\n    <summary class=\"size-guide-btn\">\n      📏 Size Guide\n    </summary>\n\n    <div class=\"size-guide-content\">\n\n      <img \n        src=\"{{ product.metafields.custom.size_guide.value.size_guide | image_url: width: 1200 }}\"\n        alt=\"Size Guide\"\n      >\n\n    </div>\n\n  </details>\n\n</div>\n\n{% endif %}"
               },
               "blocks": {}
             },
