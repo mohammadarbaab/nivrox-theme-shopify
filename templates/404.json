@@ -336,6 +336,14 @@
     "collection_grid_xMt7td": {
       "type": "collection-grid",
       "blocks": {
+        "item_wWyGhc": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/PHOTO-2026-05-01-16-16-27_1_c5491d74-7fe9-434e-a782-8df4e66c27ef.jpg",
+            "title": "Men's Shirts",
+            "collection": "mens-shirts"
+          }
+        },
         "item_TMyzHT": {
           "type": "item",
           "settings": {
@@ -362,6 +370,7 @@
         }
       },
       "block_order": [
+        "item_wWyGhc",
         "item_TMyzHT",
         "item_PWxJbF",
         "item_KyCVKR"
