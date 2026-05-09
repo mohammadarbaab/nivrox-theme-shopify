@@ -426,62 +426,96 @@
    QUANTITY SELECTOR
 ========================================= */
 
-.quantity-selector-wrapper{
-  width:100%;
-  /* background-color: gray; */
+.quantity-selector-wrapper {
+  width: 100%;
   display: flex;
-  flex-direction: row;
   justify-content: center;
   align-items: center;
-  border-radius: 20px;
-  border: 2px solid gray;
+  margin-top: 12px;
 }
 
-.quantity-selector{
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  width:140px;
-  height:52px;
-  border:1px solid #e5e5e5;
-  border-radius:14px;
-  overflow:hidden;
-  /* background:blue; */
-  
+.quantity-selector {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 150px;
+  height: 52px;
+  background: #ffffff;
+  border: 1.5px solid #dcdcdc;
+  border-radius: 14px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+.quantity-selector:hover {
+  border-color: #111111;
 }
 
 /* PLUS MINUS BUTTONS */
-.quantity-selector button{
-  width:45px;
-  height:100%;
-  border:1px solid #e5e5e5;
-  background:#f7f7f7;
-  
-  color:#111;
-  font-size:20px;
-  font-weight:600;
-  cursor:pointer;
-  transition:all .3s ease;
+.quantity-selector button {
+  width: 48px;
+  height: 100%;
+  border: none;
+  background: #ffffff;
+  color: #111111;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.25s ease;
 }
 
-.quantity-selector button:hover{
-  background:#111;
-  color:#fff;
+
+.quantity-selector button svg {
+  width: 18px;
+  height: 18px;
 }
 
-/* INPUT */
-.quantity-selector input{
-  width:50px;
-  border:none;
-  text-align:center;
-  font-size:16px;
-  font-weight:600;
-  outline:none;
-  background:transparent;
-  /* background-color: orange; */
-  color:#111;
+.quantity-selector button:hover {
+  background: #111111;
+  color: #ffffff;
+}
+.quantity-selector button:hover svg {
+  fill: #ffffff;
 }
 
+/* INPUT FIELD */
+.quantity-selector input {
+  width: 54px;
+  border: none;
+  background: transparent;
+  text-align: center;
+  font-size: 16px;
+  font-weight: 600;
+  color: #111111;
+  outline: none;
+  box-shadow: none;
+  appearance: none;
+  -moz-appearance: textfield;
+}
+/* REMOVE INPUT ARROWS */
+.quantity-selector input::-webkit-outer-spin-button,
+.quantity-selector input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* MOBILE RESPONSIVE */
+@media screen and (max-width: 768px) {
+  .quantity-selector {
+    width: 135px;
+    height: 48px;
+    border-radius: 12px;
+  }
+
+  .quantity-selector button {
+    width: 42px;
+  }
+
+  .quantity-selector input {
+    width: 48px;
+    font-size: 15px;
+  }
+}
 /* =========================================
    BUTTONS
 ========================================= */
