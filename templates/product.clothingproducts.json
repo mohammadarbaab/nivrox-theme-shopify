@@ -583,7 +583,7 @@
               "type": "custom-liquid",
               "name": "t:names.custom_liquid",
               "settings": {
-                "custom_liquid": "{% if product.metafields.custom.size_guide %}\n  <div class=\"size-guide-wrapper\">\n    \n    <button class=\"size-guide-btn\">\n      📏 Size Guide\n    </button>\n\n    <div class=\"size-guide-content\">\n      <img \n        src=\"{{ product.metafields.custom.size_guide.value.image | image_url: width: 1200 }}\" \n        alt=\"Size Guide\"\n      >\n    </div>\n\n  </div>\n{% endif %}\n\n.size-guide-wrapper{\n  margin-top:20px;\n}\n\n.size-guide-btn{\n  width:100%;\n  padding:16px;\n  border:none;\n  border-radius:14px;\n  background:#111;\n  color:#fff;\n  font-size:16px;\n  font-weight:600;\n  cursor:pointer;\n}\n\n.size-guide-content{\n  margin-top:14px;\n}\n\n.size-guide-content img{\n  width:100%;\n  border-radius:18px;\n  display:block;\n}"
+                "custom_liquid": "{% if product.metafields.custom.size_guide %}\n\n<div class=\"size-guide-wrapper\">\n\n  <details class=\"size-guide-box\">\n\n    <summary class=\"size-guide-btn\">\n      📏 Size Guide\n    </summary>\n\n    <div class=\"size-guide-content\">\n      <img \n        src=\"{{ product.metafields.custom.size_guide.value.image | image_url: width: 1200 }}\" \n        alt=\"Size Guide\"\n      >\n    </div>\n\n  </details>\n\n</div>\n\n{% endif %}"
               },
               "blocks": {}
             },
