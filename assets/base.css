@@ -2740,7 +2740,6 @@ product-price.text-block:is(.h1, .h2, .h3, .h4, .h5, .h6) > *:not(.tax-note) {
 
 .product-form-buttons:has(.add-to-cart-button.button-secondary) .quantity-selector {
   border-radius: var(--style-border-radius-buttons-secondary);
-  background-color:red;
 }
 
 .quantity-selector :is(.quantity-minus, .quantity-plus) {
