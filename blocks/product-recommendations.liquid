@@ -1,46 +1,21 @@
+{% comment %}
+Luxury Product Recommendations - FULL SECTION (COS / ÉCLAT STYLE)
+{% endcomment %}
 
-
-{%- doc -%}
-  Renders product recommendations.
-  {section.id} - identifies the parent section for the Section Rendering API
-
-  https://shopify.dev/docs/api/section-rendering-api
-{%- enddoc -%}
-
-<script
-  src="{{ 'product-recommendations.js' | asset_url }}"
-  type="module"
-></script>
-
-{% liquid
-  assign block_settings = block.settings
-  case block_settings.layout_type
-    when 'grid'
-      assign classes = 'resource-list--grid'
-    when 'carousel'
-      assign classes = 'resource-list--carousel'
-  endcase
-%}
+<script src="{{ 'product-recommendations.js' | asset_url }}" type="module"></script>
 
 <style>
-/* ====== YOUR ORIGINAL CSS (UNCHANGED) ====== */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-body {
-    background-color: #F7F3EE;
-    font-family: 'Poppins', sans-serif;
-    color: #1E1B1A;
-    scroll-behavior: smooth;
-}
+/* ===========================
+   BASE LUXURY STYLING
+=========================== */
 
 .featured-section {
     max-width: 1440px;
     margin: 0 auto;
     padding: 5rem 2rem 6rem;
+    font-family: 'Poppins', sans-serif;
+    color: #1E1B1A;
+    background: #F7F3EE;
     position: relative;
 }
 
@@ -53,6 +28,10 @@ body {
     margin: 0 auto 2rem auto;
     border-radius: 2px;
 }
+
+/* ===========================
+   HEADER
+=========================== */
 
 .section-header {
     text-align: center;
@@ -70,14 +49,20 @@ body {
 .section-header h2 {
     font-family: 'Playfair Display', serif;
     font-size: 2.6rem;
+    font-weight: 500;
 }
 
-.section-header .subhead {
+.subhead {
     font-size: 1rem;
     color: #5A5249;
     max-width: 500px;
     margin: 1rem auto 0;
+    font-weight: 300;
 }
+
+/* ===========================
+   GRID LAYOUT
+=========================== */
 
 .products-grid {
     display: grid;
@@ -85,23 +70,33 @@ body {
     gap: 2rem;
 }
 
+/* ===========================
+   PRODUCT CARD
+=========================== */
+
 .product-card {
-    background: #fff;
+    background: #FFFFFF;
     border-radius: 24px;
     overflow: hidden;
-    transition: all 0.4s ease;
+    position: relative;
+    transition: all 0.4s cubic-bezier(0.2, 0, 0, 1);
     box-shadow: 0 8px 20px rgba(0,0,0,0.02);
 }
 
 .product-card:hover {
     transform: translateY(-6px);
+    box-shadow: 0 25px 35px -12px rgba(0,0,0,0.12);
 }
+
+/* ===========================
+   IMAGE
+=========================== */
 
 .card-img {
     position: relative;
-    aspect-ratio: 3/4;
-    background: #F0EBE4;
     overflow: hidden;
+    aspect-ratio: 3 / 4;
+    background: #F0EBE4;
 }
 
 .card-img img {
@@ -115,6 +110,57 @@ body {
     transform: scale(1.05);
 }
 
+/* ===========================
+   BADGES
+=========================== */
+
+.badges {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    display: flex;
+    gap: 0.5rem;
+}
+
+.badge {
+    font-size: 0.7rem;
+    padding: 4px 10px;
+    border-radius: 20px;
+    background: rgba(255,255,255,0.9);
+    backdrop-filter: blur(4px);
+}
+
+.badge.new {
+    background: #1E1B1A;
+    color: #F7F3EE;
+}
+
+.badge.bestseller {
+    background: #E6DED5;
+}
+
+/* ===========================
+   WISHLIST
+=========================== */
+
+.wishlist {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.85);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    cursor:pointer;
+}
+
+/* ===========================
+   CONTENT
+=========================== */
+
 .card-info {
     padding: 1.5rem;
 }
@@ -122,30 +168,40 @@ body {
 .product-title {
     font-family: 'Playfair Display', serif;
     font-size: 1.25rem;
+    margin-bottom: 0.4rem;
 }
 
 .product-desc {
     font-size: 0.75rem;
     color: #6F675F;
-    margin: 0.5rem 0;
+    margin-bottom: 0.8rem;
 }
+
+/* ===========================
+   PRICE
+=========================== */
 
 .price-wrapper {
     display: flex;
-    gap: 10px;
+    gap: 0.7rem;
     align-items: baseline;
-    margin: 1rem 0;
+    margin-bottom: 1.2rem;
 }
 
 .old-price {
     text-decoration: line-through;
     color: #A99F94;
+    font-size: 0.85rem;
 }
 
 .sale-price {
     font-size: 1.3rem;
     font-weight: 600;
 }
+
+/* ===========================
+   BUTTON
+=========================== */
 
 .btn-add {
     width: 100%;
@@ -155,155 +211,165 @@ body {
     padding: 0.85rem;
     border-radius: 60px;
     cursor: pointer;
-    transition: 0.3s;
+    font-size: 0.8rem;
+    letter-spacing: 0.05em;
+    transition: 0.3s ease;
 }
 
 .btn-add:hover {
     background: #000;
+    transform: scale(0.98);
 }
 
-.wishlist {
-    position: absolute;
-    top: 1rem;
-    right: 1rem;
-    background: rgba(255,255,255,0.85);
-    width: 36px;
-    height: 36px;
-    border-radius: 50%;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    cursor:pointer;
-}
+/* ===========================
+   MOBILE SWIPE
+=========================== */
 
-.badges {
-    position: absolute;
-    top: 1rem;
-    left: 1rem;
-    display:flex;
-    gap:0.5rem;
-}
-
-.badge {
-    font-size: 0.7rem;
-    padding: 4px 10px;
-    border-radius: 20px;
-    background: white;
-}
-
-/* MOBILE */
 @media(max-width:768px){
-    .products-grid{
-        display:flex;
-        overflow-x:auto;
-        gap:1rem;
-        scroll-snap-type:x mandatory;
-    }
-    .product-card{
-        min-width:85%;
-    }
+
+.products-grid{
+    display:flex;
+    overflow-x:auto;
+    gap:1.2rem;
+    scroll-snap-type:x mandatory;
+    -webkit-overflow-scrolling:touch;
 }
+
+.product-card{
+    flex:0 0 85%;
+    min-width:260px;
+    scroll-snap-align:start;
+}
+
+.section-header h2{
+    font-size:2rem;
+}
+
+}
+
 </style>
 
-<section class="featured-section">
+<product-recommendations
+  class="featured-section"
+  data-url="{{ routes.product_recommendations_url }}?limit={{ section.settings.max_products }}"
+  data-section-id="{{ section.id }}"
+  data-product-id="{{ product.id }}"
+  data-intent="{{ section.settings.recommendation_type }}"
+>
 
-    <div class="section-header">
-        <div class="overline">— ÉDITION CURÉE —</div>
-        <h2>{{ section.settings.heading }}</h2>
-        <div class="subhead">{{ section.settings.subheading }}</div>
-    </div>
+  <!-- HEADER -->
+  <div class="section-header">
+      <div class="overline">— ÉDITION CURÉE —</div>
+      <h2>Featured Selections</h2>
+      <div class="subhead">
+          Timeless silhouettes, modern elegance. You may also like these selections.
+      </div>
+  </div>
 
-    <div class="products-grid">
+  {% if recommendations.performed and recommendations.products_count > 0 %}
 
-        {% for product in section.settings.collection.products limit: 4 %}
+  <div class="products-grid">
 
-        <div class="product-card">
+      {% for product in recommendations.products limit: section.settings.max_products %}
 
-            <div class="card-img">
-                <img src="{{ product.featured_image | image_url: width: 800 }}" alt="{{ product.title }}">
+      <div class="product-card">
 
-                <div class="badges">
-                    {% if product.tags contains 'new' %}
-                        <span class="badge">New Arrival</span>
-                    {% endif %}
-                    {% if product.tags contains 'bestseller' %}
-                        <span class="badge">Best Seller</span>
-                    {% endif %}
-                </div>
+          <div class="card-img">
+              <img src="{{ product.featured_image | image_url: width: 800 }}" alt="{{ product.title }}">
 
-                <div class="wishlist">
-                    <i class="far fa-heart"></i>
-                </div>
-            </div>
+              <div class="badges">
+                  {% if product.tags contains 'new' %}
+                      <span class="badge new">New</span>
+                  {% endif %}
+                  {% if product.tags contains 'bestseller' %}
+                      <span class="badge bestseller">Best Seller</span>
+                  {% endif %}
+              </div>
 
-            <div class="card-info">
+              <div class="wishlist">
+                  <i class="far fa-heart"></i>
+              </div>
+          </div>
 
-                <h3 class="product-title">{{ product.title }}</h3>
+          <div class="card-info">
 
-                <p class="product-desc">
-                    {{ product.description | strip_html | truncate: 60 }}
-                </p>
+              <h3 class="product-title">{{ product.title }}</h3>
 
-                <div class="price-wrapper">
-                    {% if product.compare_at_price > product.price %}
-                        <span class="old-price">{{ product.compare_at_price | money }}</span>
-                    {% endif %}
-                    <span class="sale-price">{{ product.price | money }}</span>
-                </div>
+              <p class="product-desc">
+                  {{ product.description | strip_html | truncate: 65 }}
+              </p>
 
-                <!-- ADD TO CART (SHOPIFY REAL FUNCTIONAL) -->
-                <form method="post" action="/cart/add">
-                    <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">
-                    <button type="submit" class="btn-add">
-                        <i class="fas fa-shopping-bag"></i> Add to Cart
-                    </button>
-                </form>
+              <div class="price-wrapper">
+                  {% if product.compare_at_price > product.price %}
+                      <span class="old-price">{{ product.compare_at_price | money }}</span>
+                  {% endif %}
+                  <span class="sale-price">{{ product.price | money }}</span>
+              </div>
 
-            </div>
+              <form method="post" action="/cart/add">
+                  <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">
+                  <button type="submit" class="btn-add">
+                      Add to Cart
+                  </button>
+              </form>
 
-        </div>
+          </div>
 
-        {% endfor %}
+      </div>
 
-    </div>
-</section>
+      {% endfor %}
+
+  </div>
+
+  {% else %}
+
+  <div class="products-grid">
+      {% for i in (1..4) %}
+          <div class="product-card" style="height:420px;"></div>
+      {% endfor %}
+  </div>
+
+  {% endif %}
+
+</product-recommendations>
 
 <script>
-// Wishlist toggle (same UX)
+// Wishlist toggle
 document.querySelectorAll('.wishlist').forEach(el=>{
     el.addEventListener('click', ()=>{
         const icon = el.querySelector('i');
-        icon.classList.toggle('fas');
         icon.classList.toggle('far');
+        icon.classList.toggle('fas');
     });
 });
 </script>
 
 {% schema %}
 {
-  "name": "Featured Luxury Products",
+  "name": "Luxury",
   "settings": [
     {
-      "type": "collection",
-      "id": "collection",
-      "label": "Select Collection"
+      "type": "select",
+      "id": "recommendation_type",
+      "label": "Type",
+      "options": [
+        {"value": "related", "label": "Related"},
+        {"value": "complementary", "label": "Complementary"}
+      ],
+      "default": "related"
     },
     {
-      "type": "text",
-      "id": "heading",
-      "label": "Heading",
-      "default": "Featured Selections"
-    },
-    {
-      "type": "text",
-      "id": "subheading",
-      "label": "Subheading",
-      "default": "Timeless silhouettes, modern elegance. Discover the new wave of luxury."
+      "type": "range",
+      "id": "max_products",
+      "label": "Products",
+      "min": 2,
+      "max": 10,
+      "default": 4
     }
   ],
   "presets": [
     {
-      "name": "Featured Luxury Products"
+      "name": "Luxury Product Recommendations"
     }
   ]
 }
