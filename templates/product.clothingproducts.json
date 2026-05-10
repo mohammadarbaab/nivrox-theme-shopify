@@ -1694,7 +1694,7 @@
                               "type": "icon",
                               "settings": {
                                 "icon": "eye",
-                                "image_upload": "shopify://shop_images/secure-payment.png",
+                                "image_upload": "shopify://shop_images/diamond_1.png",
                                 "width": 58,
                                 "link": "",
                                 "open_in_new_tab": false
@@ -1704,7 +1704,7 @@
                             "text_bgPMFM": {
                               "type": "text",
                               "settings": {
-                                "text": "<p>Premium Quality</p>",
+                                "text": "<p><strong>Premium Quality</strong></p>",
                                 "width": "100%",
                                 "max_width": "normal",
                                 "alignment": "left",
@@ -1806,7 +1806,7 @@
                           "type": "icon",
                           "settings": {
                             "icon": "eye",
-                            "image_upload": "shopify://shop_images/return.png",
+                            "image_upload": "shopify://shop_images/slim-fit.png",
                             "width": 58,
                             "link": "",
                             "open_in_new_tab": false
@@ -1816,7 +1816,7 @@
                         "text_UrAhPy": {
                           "type": "text",
                           "settings": {
-                            "text": "<p>Fast Delivery</p>",
+                            "text": "<p><strong>Perfect Fit</strong></p>",
                             "width": "100%",
                             "max_width": "normal",
                             "alignment": "left",
@@ -1841,7 +1841,7 @@
                         "text_Nn4jgJ": {
                           "type": "text",
                           "settings": {
-                            "text": "<p>Quick shipping across India with secure packaging.</p>",
+                            "text": "<p>Designed for a comfortable everyday fit.</p>",
                             "width": "100%",
                             "max_width": "normal",
                             "alignment": "left",
@@ -2043,7 +2043,7 @@
                               "type": "icon",
                               "settings": {
                                 "icon": "eye",
-                                "image_upload": "shopify://shop_images/secure-payment.png",
+                                "image_upload": "shopify://shop_images/woman.png",
                                 "width": 58,
                                 "link": "",
                                 "open_in_new_tab": false
@@ -2053,7 +2053,7 @@
                             "text_wyddxm": {
                               "type": "text",
                               "settings": {
-                                "text": "<p>Affordable Fashion</p>",
+                                "text": "<p><strong>Affordable Fashion</strong></p>",
                                 "width": "100%",
                                 "max_width": "normal",
                                 "alignment": "left",
@@ -2078,7 +2078,7 @@
                             "text_thgB8i": {
                               "type": "text",
                               "settings": {
-                                "text": "<p>100% trusted payment</p>",
+                                "text": "<p>Hassle-free exchange aur return process.</p>",
                                 "width": "100%",
                                 "max_width": "normal",
                                 "alignment": "left",
@@ -2155,7 +2155,7 @@
                           "type": "icon",
                           "settings": {
                             "icon": "eye",
-                            "image_upload": "shopify://shop_images/return.png",
+                            "image_upload": "shopify://shop_images/quality.png",
                             "width": 58,
                             "link": "",
                             "open_in_new_tab": false
@@ -2165,7 +2165,7 @@
                         "text_f4EaLc": {
                           "type": "text",
                           "settings": {
-                            "text": "<h2><strong>Easy Return</strong></h2>",
+                            "text": "<p>Trusted Quality</p>",
                             "width": "100%",
                             "max_width": "normal",
                             "alignment": "left",
@@ -2190,7 +2190,7 @@
                         "text_i3cG7R": {
                           "type": "text",
                           "settings": {
-                            "text": "<p>within 7 days if product hae issues</p>",
+                            "text": "<p>Carefully crafted with attention to detail.</p>",
                             "width": "100%",
                             "max_width": "normal",
                             "alignment": "left",
