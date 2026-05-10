@@ -174,101 +174,330 @@
 
 /* Page background style removed because Shopify page already has layout */
 
+{% stylesheet %}
+
+/* ================================
+   LUXURY PRODUCT RECOMMENDATIONS
+   Inspired from provided ÉCLAT design
+================================== */
+
+/* Google font import */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap');
+
+/* Main wrapper */
 .product-recommendations-wrapper{
   width:100%;
   display:flex;
   justify-content:center;
+  background:#F7F3EE;
+  padding:5rem 0;
 }
 
-/* Main recommendation card */
+/* Main section */
 .product-recommendations{
-  display:block;
-  /* max-width:780px; */
   width:100%;
-  background:#ffffff;
-  box-shadow:0 20px 35px -8px rgba(0,0,0,0.08),0 8px 16px -6px rgba(0,0,0,0.02);
-  padding:2rem 2.2rem;
+  max-width:1440px;
+  padding:0 2rem;
+  font-family:'Poppins',sans-serif;
 }
 
-/* grid container spacing */
+/* Decorative divider */
+.product-recommendations::before{
+  content:'';
+  display:block;
+  width:70px;
+  height:2px;
+  background:#DCCFC2;
+  margin:0 auto 2rem;
+  border-radius:2px;
+}
+
+/* Content wrapper */
 .block-resource-list{
-  border-radius:var(--border-radius,0);
+  width:100%;
 }
 
-/* product grid */
-.resource-list{
-  margin-top:20px;
+/* ================================
+   SECTION HEADER
+================================== */
+
+.section-resource-list__content{
+  text-align:center;
+  margin-bottom:3.5rem;
 }
 
-/* product item */
-.resource-list__item{
-  transition:all .15s ease;
+/* Small overline */
+.section-resource-list__content p{
+  font-size:.8rem;
+  letter-spacing:.2em;
+  text-transform:uppercase;
+  color:#9B8E7C;
+  font-weight:400;
+  margin-bottom:1rem;
 }
 
-/* hover effect like original */
-.resource-list__item:hover{
-  background:#fafbfc;
-  border-radius:14px;
-  padding:6px 8px;
-  margin-left:-8px;
-  margin-right:-8px;
-}
-
-/* product title */
-.resource-list__item .product-title,
-.resource-list__item .product-card__title{
-  font-size:1rem;
+/* Main heading */
+.section-resource-list__content h2,
+.section-resource-list__content h3{
+  font-family:'Playfair Display',serif;
+  font-size:2.6rem;
   font-weight:500;
-  color:#121316;
-  line-height:1.5;
+  color:#1E1B1A;
+  letter-spacing:-0.02em;
+  line-height:1.2;
 }
 
-/* price styling */
+/* ================================
+   GRID
+================================== */
+
+.resource-list--grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:2rem;
+}
+
+/* ================================
+   CARD DESIGN
+================================== */
+
+.resource-list__item{
+  background:#fff;
+  border-radius:24px;
+  overflow:hidden;
+  position:relative;
+  transition:all .4s cubic-bezier(0.2,0,0,1);
+  box-shadow:
+    0 8px 20px rgba(0,0,0,.02),
+    0 2px 4px rgba(0,0,0,.02);
+}
+
+/* Hover lift */
+.resource-list__item:hover{
+  transform:translateY(-6px);
+  box-shadow:
+    0 25px 35px -12px rgba(0,0,0,.12),
+    0 1px 3px rgba(0,0,0,.02);
+}
+
+/* ================================
+   IMAGE
+================================== */
+
+.resource-list__item .product-card__media,
+.resource-list__item .media{
+  overflow:hidden;
+  position:relative;
+  background:#F0EBE4;
+  aspect-ratio:3/4;
+}
+
+/* image */
+.resource-list__item img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  transition:transform .7s ease-out;
+  display:block;
+}
+
+.resource-list__item:hover img{
+  transform:scale(1.05);
+}
+
+/* ================================
+   CARD BODY
+================================== */
+
+.resource-list__item .product-card__info,
+.resource-list__item .product-card__content{
+  padding:1.5rem 1.2rem 1.6rem;
+}
+
+/* Title */
+.resource-list__item .product-title,
+.resource-list__item .product-card__title,
+.resource-list__item .product-card__title a{
+  font-family:'Playfair Display',serif;
+  font-size:1.25rem;
+  font-weight:500;
+  color:#1E1B1A;
+  line-height:1.3;
+  letter-spacing:-0.3px;
+  text-decoration:none;
+}
+
+/* Remove underline */
+.resource-list__item a{
+  text-decoration:none;
+}
+
+/* Product description text spacing */
+.resource-list__item .product-card__info > * + *{
+  margin-top:.65rem;
+}
+
+/* ================================
+   PRICE
+================================== */
+
 .resource-list__item .price{
-  font-size:1.1rem;
-  font-weight:700;
-  color:#0f1115;
+  display:flex;
+  align-items:baseline;
+  gap:.7rem;
+  flex-wrap:wrap;
+  margin-top:.9rem;
 }
 
-/* compare price */
-.resource-list__item .price .price__compare{
-  color:#9aa3b2;
+.resource-list__item .price-item--sale,
+.resource-list__item .price__current{
+  font-size:1.3rem;
+  font-weight:600;
+  color:#1E1B1A;
+  font-family:'Poppins',sans-serif;
+  letter-spacing:-0.3px;
+}
+
+.resource-list__item .price-item--regular,
+.resource-list__item .price__compare{
+  font-size:.85rem;
+  color:#A99F94;
+  text-decoration:line-through;
   font-weight:400;
 }
 
-/* skeleton loading */
-.product-recommendations__skeleton-item{
-  aspect-ratio:3 / 4;
-  background-color:var(--color-foreground);
-  opacity:var(--skeleton-opacity);
-  border-radius:6px;
+/* ================================
+   BUTTONS
+================================== */
+
+.resource-list__item button,
+.resource-list__item .button,
+.resource-list__item .quick-add__submit{
+  width:100%;
+  border:none;
+  border-radius:60px;
+  background:#1E1B1A;
+  color:#F7F3EE;
+  padding:.9rem 1rem;
+  margin-top:1.2rem;
+  font-size:.8rem;
+  font-weight:500;
+  letter-spacing:.05em;
+  font-family:'Poppins',sans-serif;
+  transition:all .3s ease;
 }
 
-/* responsive */
-@media (max-width:550px){
+.resource-list__item button:hover,
+.resource-list__item .button:hover,
+.resource-list__item .quick-add__submit:hover{
+  background:#000;
+  transform:scale(.98);
+  box-shadow:0 4px 12px rgba(0,0,0,.1);
+}
+
+/* ================================
+   MOBILE HORIZONTAL SCROLL
+================================== */
+
+@media(max-width:768px){
+
+  .product-recommendations-wrapper{
+    padding:3rem 0;
+  }
 
   .product-recommendations{
-    padding:1.5rem 1.2rem;
-    border-radius:24px;
+    padding:0 1rem;
   }
 
-  .resource-list__item .product-title{
-    font-size:.95rem;
+  .section-resource-list__content h2,
+  .section-resource-list__content h3{
+    font-size:2rem;
   }
 
-  .resource-list__item .price{
-    font-size:1rem;
+  .resource-list--grid{
+    display:flex;
+    flex-wrap:nowrap;
+    overflow-x:auto;
+    overflow-y:hidden;
+    gap:1.2rem;
+    scroll-snap-type:x mandatory;
+    -webkit-overflow-scrolling:touch;
+    padding-bottom:1rem;
+  }
+
+  .resource-list--grid::-webkit-scrollbar{
+    height:4px;
+  }
+
+  .resource-list--grid::-webkit-scrollbar-track{
+    background:#E8E2DA;
+    border-radius:12px;
+  }
+
+  .resource-list--grid::-webkit-scrollbar-thumb{
+    background:#B8A99A;
+    border-radius:12px;
+  }
+
+  .resource-list__item{
+    flex:0 0 85%;
+    min-width:260px;
+    max-width:300px;
+    scroll-snap-align:start;
+  }
+
+  .resource-list__item .product-card__info,
+  .resource-list__item .product-card__content{
+    padding:1.2rem 1rem 1.3rem;
+  }
+
+  .resource-list__item .product-title,
+  .resource-list__item .product-card__title,
+  .resource-list__item .product-card__title a{
+    font-size:1.1rem;
+  }
+
+  .resource-list__item .price-item--sale{
+    font-size:1.2rem;
+  }
+}
+
+/* ================================
+   TABLET
+================================== */
+
+@media(max-width:1024px) and (min-width:769px){
+
+  .resource-list--grid{
+    grid-template-columns:repeat(2,1fr);
+    gap:2rem;
   }
 
 }
 
-@media (max-width:380px){
+/* ================================
+   SMALL MOBILE
+================================== */
 
-  .product-recommendations{
-    padding:1rem .9rem;
+@media(max-width:480px){
+
+  .resource-list__item{
+    flex:0 0 82%;
+    max-width:290px;
   }
 
 }
+
+/* ================================
+   PERFORMANCE
+================================== */
+
+.resource-list__item,
+.resource-list__item img,
+.resource-list__item button{
+  will-change:transform;
+}
+
 
 {% endstylesheet %}
 
