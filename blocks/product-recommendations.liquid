@@ -1,144 +1,118 @@
+<section class="featured-section">
+  <div class="section-header">
+    <div class="overline">—  ÉDITION CURÉE  —</div>
+    <h2>Featured Selections</h2>
+    <div class="subhead">Timeless silhouettes, modern elegance. Discover the new wave of luxury.</div>
+  </div>
 
+  <!-- Products grid: desktop 4-col, tablet 2-col, mobile horizontal swipe -->
+  <div class="products-grid">
+    {% assign featured_collection = collections['featured'] %}
+    {% if featured_collection.products.size > 0 %}
+      {% for product in featured_collection.products %}
+        <div class="product-card">
+          <div class="card-img">
+            <a href="{{ product.url }}">
+              <img src="{{ product.featured_image | img_url: '600x800' }}" alt="{{ product.title }}">
+            </a>
 
-{%- doc -%}
-  Renders product recommendations.
-  {section.id} - identifies the parent section for the Section Rendering API
-  https://shopify.dev/docs/api/section-rendering-api
-{%- enddoc -%}
-
-<script
-  src="{{ 'product-recommendations.js' | asset_url }}"
-  type="module"
-></script>
-
-{% liquid
-  assign block_settings = block.settings
-  case block_settings.layout_type
-    when 'grid'
-      assign classes = 'products-grid'
-    when 'carousel'
-      assign classes = 'products-grid products-carousel'
-  endcase
-%}
-
-<product-recommendations
-  id="product-recommendations-{{ block.id }}"
-  class="featured-section"
-  data-url="{{ routes.product_recommendations_url }}?limit={{ block_settings.max_products }}"
-  data-section-id="{{ section.id }}"
-  data-product-id="{{ closest.product.id }}"
-  data-intent="{{ block_settings.recommendation_type }}"
-  data-recommendations-performed="{{ recommendations.performed }}"
-  {% if request.visual_preview_mode %}
-    data-shopify-editor-preview
-  {% endif %}
-  data-testid="product-recommendations-block"
-  {{ block.shopify_attributes }}
->
-
-  <section class="featured-section">
-    
-    <div class="section-header">
-      {% content_for 'blocks' %}
-    </div>
-
-    {%- if recommendations.performed or closest.product == blank -%}
-
-      {% liquid
-        assign products = recommendations.products
-
-        if closest.product == blank
-          for i in (1..block_settings.max_products)
-            assign products = products | append: ', ' | split: ','
-          endfor
-        elsif recommendations.performed and recommendations.products_count == 0
-          if block_settings.recommendation_type == 'related'
-            assign products = collections.all.products | reject: 'id', closest.product.id
-          elsif block_settings.recommendation_type == 'complementary'
-            assign products = null
-          endif
-        else
-          assign products = recommendations.products
-        endif
-      %}
-
-      {% capture list_items %}
-        {% for product in products limit: block_settings.max_products %}
-          
-          <div class="product-card">
-            
-            <div class="card-img">
-              {% content_for 'block',
-                type: '_product-card',
-                id: 'static-product-card',
-                closest.product: product
-              %}
+            <!-- badges -->
+            <div class="badges">
+              {% if product.tags contains 'New Arrival' %}
+                <span class="badge new">New Arrival</span>
+              {% endif %}
+              {% if product.tags contains 'Best Seller' %}
+                <span class="badge bestseller">Best Seller</span>
+              {% endif %}
             </div>
 
+            <!-- wishlist heart -->
+            <div class="wishlist">
+              <i class="far fa-heart"></i>
+            </div>
           </div>
 
-          {% if block_settings.layout_type == 'carousel' or block_settings.carousel_on_mobile %}
-            {% unless forloop.last %}
-              <!--@list/split-->
-            {% endunless %}
-          {% endif %}
+          <div class="card-info">
+            <h3 class="product-title">
+              <a href="{{ product.url }}">{{ product.title }}</a>
+            </h3>
+            <p class="product-desc">{{ product.description | strip_html | truncate: 80 }}</p>
 
-        {% endfor %}
-      {% endcapture %}
+            <!-- Rating (optional: based on metafields or reviews app) -->
+            <div class="rating">
+              {% assign rating = product.metafields.reviews.rating | default: 5 %}
+              <span class="stars">
+                {% for i in (1..5) %}
+                  {% if i <= rating %}
+                    ★
+                  {% else %}
+                    ☆
+                  {% endif %}
+                {% endfor %}
+              </span>
+              {% if product.metafields.reviews.count %}
+                <span class="rating-count">({{ product.metafields.reviews.count }} reviews)</span>
+              {% endif %}
+            </div>
 
-      {% assign slide_content = list_items | strip %}
-      {% assign slides = slide_content | split: '<!--@list/split-->' %}
+            <!-- Price -->
+            <div class="price-wrapper">
+              {% if product.compare_at_price_max > product.price %}
+                <span class="old-price">{{ product.compare_at_price_max | money }}</span>
+              {% endif %}
+              <span class="sale-price">{{ product.price | money }}</span>
+            </div>
 
-      {% if products != blank and products.size > 0 %}
-        {% assign has_recommendations = 'true' %}
-      {% else %}
-        {% assign has_recommendations = 'false' %}
-      {% endif %}
-
-      <div
-        class="{{ classes }}"
-        data-has-recommendations="{{ has_recommendations }}"
-      >
-        {% case block_settings.layout_type %}
-          
-          {% when 'grid' %}
-            {{ list_items }}
-
-          {% when 'carousel' %}
-            {% render 'resource-list-carousel',
-              ref: 'resourceListCarousel',
-              slides: slides,
-              slide_count: recommendations.products.size,
-              settings: block_settings
-            %}
-
-        {% endcase %}
-      </div>
-
-      {% if block_settings.carousel_on_mobile and block_settings.layout_type != 'carousel' %}
-        <div class="products-grid hidden--desktop">
-          {% render 'resource-list-carousel',
-            ref: 'resourceListCarouselMobile',
-            slides: slides,
-            slide_count: recommendations.products.size,
-            settings: block_settings
-          %}
+            <!-- Add to Cart -->
+            <form method="post" action="/cart/add">
+              <input type="hidden" name="id" value="{{ product.variants.first.id }}">
+              <button type="submit" class="btn-add">
+                <i class="fas fa-shopping-bag"></i> Add to Cart
+              </button>
+            </form>
+          </div>
         </div>
-      {% endif %}
+      {% endfor %}
+    {% else %}
+      <p>No featured products found.</p>
+    {% endif %}
+  </div>
+</section>
 
-    {%- else -%}
+<!-- Wishlist heart JS (same as your original) -->
+<script>
+  document.querySelectorAll('.wishlist').forEach(heartContainer => {
+      heartContainer.addEventListener('click', (e) => {
+          e.stopPropagation();
+          const icon = heartContainer.querySelector('i');
+          if (icon.classList.contains('far')) {
+              icon.classList.remove('far');
+              icon.classList.add('fas');
+              heartContainer.style.color = '#C47A6E';
+              heartContainer.style.transform = 'scale(1.08)';
+              setTimeout(() => { heartContainer.style.transform = ''; }, 200);
+          } else {
+              icon.classList.remove('fas');
+              icon.classList.add('far');
+              heartContainer.style.color = '#8F7D6B';
+          }
+      });
+  });
 
-      <div class="products-grid">
-        {% for i in (1..block_settings.max_products) %}
-          <div class="product-card product-recommendations__skeleton-item"></div>
-        {% endfor %}
-      </div>
-
-    {%- endif -%}
-
-  </section>
-
-</product-recommendations>
+  document.querySelectorAll('.btn-add').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+          e.preventDefault();
+          const originalText = btn.innerHTML;
+          btn.innerHTML = '<i class="fas fa-check"></i> Added';
+          btn.style.backgroundColor = '#2C6E5C';
+          setTimeout(() => {
+              btn.innerHTML = originalText;
+              btn.style.backgroundColor = '#1E1B1A';
+          }, 1800);
+          console.log('Item added to cart (Shopify demo)');
+      });
+  });
+</script>
 {% stylesheet %}
 
 /* Page background style removed because Shopify page already has layout */
