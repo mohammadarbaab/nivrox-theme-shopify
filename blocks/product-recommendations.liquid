@@ -22,806 +22,288 @@
   endcase
 %}
 
-{% comment %}
-  [data-section-id] {section.id} - used to fetch the product recommendations from the Section Rendering API
-{% endcomment %}
+<style>
+/* ====== YOUR ORIGINAL CSS (UNCHANGED) ====== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-<product-recommendations
-  id="product-recommendations-{{ block.id }}"
-  class="product-recommendations"
-  data-url="{{ routes.product_recommendations_url }}?limit={{ block_settings.max_products }}"
-  data-section-id="{{ section.id }}"
-  data-product-id="{{ closest.product.id }}"
-  data-intent="{{ block_settings.recommendation_type }}"
-  data-recommendations-performed="{{ recommendations.performed }}"
-  {% if request.visual_preview_mode %}
-    data-shopify-editor-preview
-  {% endif %}
-  data-testid="product-recommendations-block"
-  {{ block.shopify_attributes }}
->
-  <div
-    class="
-      {% if block_settings.inherit_color_scheme == false %}color-{{ block_settings.color_scheme }}{% endif %}
-      block-resource-list
-      spacing-style
-      gap-style
-    "
-    style="
-      {%  render 'spacing-style', settings: block_settings %}
-      {%  render 'gap-style', value: block_settings.gap %}
-      --resource-list-column-gap-desktop: {{ block_settings.columns_gap }}px;
-      --resource-list-row-gap-desktop: {{ block_settings.rows_gap }}px;
-      --resource-list-columns-mobile: repeat(auto-fill, minmax(9.25rem, 1fr));
-      --border-radius: {{ block_settings.border_radius }}px;
-    "
-  >
-    <div class="section-resource-list__content">
-      {% content_for 'blocks' %}
+body {
+    background-color: #F7F3EE;
+    font-family: 'Poppins', sans-serif;
+    color: #1E1B1A;
+    scroll-behavior: smooth;
+}
+
+.featured-section {
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 5rem 2rem 6rem;
+    position: relative;
+}
+
+.featured-section:before {
+    content: '';
+    display: block;
+    width: 70px;
+    height: 2px;
+    background: #DCCFC2;
+    margin: 0 auto 2rem auto;
+    border-radius: 2px;
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: 3.5rem;
+}
+
+.section-header .overline {
+    font-size: 0.8rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: #9B8E7C;
+    margin-bottom: 1rem;
+}
+
+.section-header h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.6rem;
+}
+
+.section-header .subhead {
+    font-size: 1rem;
+    color: #5A5249;
+    max-width: 500px;
+    margin: 1rem auto 0;
+}
+
+.products-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+}
+
+.product-card {
+    background: #fff;
+    border-radius: 24px;
+    overflow: hidden;
+    transition: all 0.4s ease;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.02);
+}
+
+.product-card:hover {
+    transform: translateY(-6px);
+}
+
+.card-img {
+    position: relative;
+    aspect-ratio: 3/4;
+    background: #F0EBE4;
+    overflow: hidden;
+}
+
+.card-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.7s ease;
+}
+
+.product-card:hover .card-img img {
+    transform: scale(1.05);
+}
+
+.card-info {
+    padding: 1.5rem;
+}
+
+.product-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.25rem;
+}
+
+.product-desc {
+    font-size: 0.75rem;
+    color: #6F675F;
+    margin: 0.5rem 0;
+}
+
+.price-wrapper {
+    display: flex;
+    gap: 10px;
+    align-items: baseline;
+    margin: 1rem 0;
+}
+
+.old-price {
+    text-decoration: line-through;
+    color: #A99F94;
+}
+
+.sale-price {
+    font-size: 1.3rem;
+    font-weight: 600;
+}
+
+.btn-add {
+    width: 100%;
+    background: #1E1B1A;
+    color: #F7F3EE;
+    border: none;
+    padding: 0.85rem;
+    border-radius: 60px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn-add:hover {
+    background: #000;
+}
+
+.wishlist {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: rgba(255,255,255,0.85);
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    cursor:pointer;
+}
+
+.badges {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    display:flex;
+    gap:0.5rem;
+}
+
+.badge {
+    font-size: 0.7rem;
+    padding: 4px 10px;
+    border-radius: 20px;
+    background: white;
+}
+
+/* MOBILE */
+@media(max-width:768px){
+    .products-grid{
+        display:flex;
+        overflow-x:auto;
+        gap:1rem;
+        scroll-snap-type:x mandatory;
+    }
+    .product-card{
+        min-width:85%;
+    }
+}
+</style>
+
+<section class="featured-section">
+
+    <div class="section-header">
+        <div class="overline">— ÉDITION CURÉE —</div>
+        <h2>{{ section.settings.heading }}</h2>
+        <div class="subhead">{{ section.settings.subheading }}</div>
     </div>
 
-    {%- if recommendations.performed or closest.product == blank -%}
-      {% liquid
-        assign products = recommendations.products
+    <div class="products-grid">
 
-        if closest.product == blank
-          # Onboarding mode: Show placeholder products
-          for i in (1..block_settings.max_products)
-            assign products = products | append: ', '
-            assign products = products | split: ','
-          endfor
-        elsif recommendations.performed and recommendations.products_count == 0
-          # No recommendations found, pull from catalog
-          if block_settings.recommendation_type == 'related'
-            assign products = collections.all.products | reject: 'id', closest.product.id
-          elsif block_settings.recommendation_type == 'complementary'
-            # Do not recommend the All collection as complementary products
-            assign products = null
-          endif
-        else
-          assign products = recommendations.products
-        endif
-      %}
-      {% capture list_items %}
-        {% for product in products limit: block_settings.max_products %}
-          <div class="resource-list__item">
-            {% content_for 'block',
-              type: '_product-card',
-              id: 'static-product-card',
-              closest.product: product
-            %}
-          </div>
-          {% if block_settings.layout_type == 'carousel' or block_settings.carousel_on_mobile %}
-            {% unless forloop.last %}
-              <!--@list/split-->
-            {% endunless %}
-          {% endif %}
-        {% endfor %}
-      {% endcapture %}
+        {% for product in section.settings.collection.products limit: 4 %}
 
-      {% liquid
-        # Create an array from the list items to be used in the carousel
-        assign slide_content = list_items | strip
-        assign slides = slide_content | split: '<!--@list/split-->'
+        <div class="product-card">
 
-        if products != blank and products.size > 0
-          assign has_recommendations = 'true'
-        else
-          assign has_recommendations = 'false'
-        endif
-      %}
+            <div class="card-img">
+                <img src="{{ product.featured_image | image_url: width: 800 }}" alt="{{ product.title }}">
 
-      <div
-        class="
-          resource-list
-          {% if block_settings.carousel_on_mobile and block_settings.layout_type != 'carousel' %}
-            hidden--mobile
-          {% endif %}
-          {{ classes }}
-        "
-        {% if block_settings.layout_type == 'grid' %}
-          data-testid="resource-list-grid"
-        {% endif %}
-        data-has-recommendations="{{ has_recommendations }}"
-      >
-        {% case block_settings.layout_type %}
-          {% when 'grid' %}
-            {{ list_items }}
-          {% when 'carousel' %}
-            {% render 'resource-list-carousel',
-              ref: 'resourceListCarousel',
-              slides: slides,
-              slide_count: recommendations.products.size,
-              settings: block_settings
-            %}
-        {% endcase %}
-      </div>
+                <div class="badges">
+                    {% if product.tags contains 'new' %}
+                        <span class="badge">New Arrival</span>
+                    {% endif %}
+                    {% if product.tags contains 'bestseller' %}
+                        <span class="badge">Best Seller</span>
+                    {% endif %}
+                </div>
 
-      {% if block_settings.carousel_on_mobile and block_settings.layout_type != 'carousel' %}
-        {% liquid
-          assign mobile_carousel_gap = block_settings.columns_gap
-        %}
-        <div
-          class="
-            resource-list
-            hidden--desktop
-            force-full-width
-          "
-          style="--resource-list-gap: {{ mobile_carousel_gap }}px;"
-        >
-          {% render 'resource-list-carousel',
-            ref: 'resourceListCarouselMobile',
-            slides: slides,
-            slide_count: recommendations.products.size,
-            settings: block_settings
-          %}
+                <div class="wishlist">
+                    <i class="far fa-heart"></i>
+                </div>
+            </div>
+
+            <div class="card-info">
+
+                <h3 class="product-title">{{ product.title }}</h3>
+
+                <p class="product-desc">
+                    {{ product.description | strip_html | truncate: 60 }}
+                </p>
+
+                <div class="price-wrapper">
+                    {% if product.compare_at_price > product.price %}
+                        <span class="old-price">{{ product.compare_at_price | money }}</span>
+                    {% endif %}
+                    <span class="sale-price">{{ product.price | money }}</span>
+                </div>
+
+                <!-- ADD TO CART (SHOPIFY REAL FUNCTIONAL) -->
+                <form method="post" action="/cart/add">
+                    <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">
+                    <button type="submit" class="btn-add">
+                        <i class="fas fa-shopping-bag"></i> Add to Cart
+                    </button>
+                </form>
+
+            </div>
+
         </div>
-      {% endif %}
-    {%- else -%}
-      <div class="resource-list resource-list--grid">
-        {% for i in (1..block_settings.max_products) %}
-          <div
-            class="resource-list__item product-recommendations__skeleton-item"
-            aria-label="{{ 'accessibility.loading_product_recommendations' | t }}"
-          ></div>
+
         {% endfor %}
-      </div>
-    {%- endif -%}
-  </div>
-</product-recommendations>
 
-{% stylesheet %}
+    </div>
+</section>
 
-/* Page background style removed because Shopify page already has layout */
-
-{% stylesheet %}
-
-/* ================================
-   LUXURY PRODUCT RECOMMENDATIONS
-   Inspired from provided ÉCLAT design
-================================== */
-
-/* Google font import */
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap');
-
-/* Main wrapper */
-.product-recommendations-wrapper{
-  width:100%;
-  display:flex;
-  justify-content:center;
-  background:#F7F3EE;
-  padding:5rem 0;
-}
-
-/* Main section */
-.product-recommendations{
-  width:100%;
-  max-width:1440px;
-  padding:0 2rem;
-  font-family:'Poppins',sans-serif;
-}
-
-/* Decorative divider */
-.product-recommendations::before{
-  content:'';
-  display:block;
-  width:70px;
-  height:2px;
-  background:#DCCFC2;
-  margin:0 auto 2rem;
-  border-radius:2px;
-}
-
-/* Content wrapper */
-.block-resource-list{
-  width:100%;
-}
-
-/* ================================
-   SECTION HEADER
-================================== */
-
-.section-resource-list__content{
-  text-align:center;
-  margin-bottom:3.5rem;
-}
-
-/* Small overline */
-.section-resource-list__content p{
-  font-size:.8rem;
-  letter-spacing:.2em;
-  text-transform:uppercase;
-  color:#9B8E7C;
-  font-weight:400;
-  margin-bottom:1rem;
-}
-
-/* Main heading */
-.section-resource-list__content h2,
-.section-resource-list__content h3{
-  font-family:'Playfair Display',serif;
-  font-size:2.6rem;
-  font-weight:500;
-  color:#1E1B1A;
-  letter-spacing:-0.02em;
-  line-height:1.2;
-}
-
-/* ================================
-   GRID
-================================== */
-
-.resource-list--grid{
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
-  gap:2rem;
-}
-
-/* ================================
-   CARD DESIGN
-================================== */
-
-.resource-list__item{
-  background:#fff;
-  border-radius:24px;
-  overflow:hidden;
-  position:relative;
-  transition:all .4s cubic-bezier(0.2,0,0,1);
-  box-shadow:
-    0 8px 20px rgba(0,0,0,.02),
-    0 2px 4px rgba(0,0,0,.02);
-}
-
-/* Hover lift */
-.resource-list__item:hover{
-  transform:translateY(-6px);
-  box-shadow:
-    0 25px 35px -12px rgba(0,0,0,.12),
-    0 1px 3px rgba(0,0,0,.02);
-}
-
-/* ================================
-   IMAGE
-================================== */
-
-.resource-list__item .product-card__media,
-.resource-list__item .media{
-  overflow:hidden;
-  position:relative;
-  background:#F0EBE4;
-  aspect-ratio:3/4;
-}
-
-/* image */
-.resource-list__item img{
-  width:100%;
-  height:100%;
-  object-fit:cover;
-  transition:transform .7s ease-out;
-  display:block;
-}
-
-.resource-list__item:hover img{
-  transform:scale(1.05);
-}
-
-/* ================================
-   CARD BODY
-================================== */
-
-.resource-list__item .product-card__info,
-.resource-list__item .product-card__content{
-  padding:1.5rem 1.2rem 1.6rem;
-}
-
-/* Title */
-.resource-list__item .product-title,
-.resource-list__item .product-card__title,
-.resource-list__item .product-card__title a{
-  font-family:'Playfair Display',serif;
-  font-size:1.25rem;
-  font-weight:500;
-  color:#1E1B1A;
-  line-height:1.3;
-  letter-spacing:-0.3px;
-  text-decoration:none;
-}
-
-/* Remove underline */
-.resource-list__item a{
-  text-decoration:none;
-}
-
-/* Product description text spacing */
-.resource-list__item .product-card__info > * + *{
-  margin-top:.65rem;
-}
-
-/* ================================
-   PRICE
-================================== */
-
-.resource-list__item .price{
-  display:flex;
-  align-items:baseline;
-  gap:.7rem;
-  flex-wrap:wrap;
-  margin-top:.9rem;
-}
-
-.resource-list__item .price-item--sale,
-.resource-list__item .price__current{
-  font-size:1.3rem;
-  font-weight:600;
-  color:#1E1B1A;
-  font-family:'Poppins',sans-serif;
-  letter-spacing:-0.3px;
-}
-
-.resource-list__item .price-item--regular,
-.resource-list__item .price__compare{
-  font-size:.85rem;
-  color:#A99F94;
-  text-decoration:line-through;
-  font-weight:400;
-}
-
-/* ================================
-   BUTTONS
-================================== */
-
-.resource-list__item button,
-.resource-list__item .button,
-.resource-list__item .quick-add__submit{
-  width:100%;
-  border:none;
-  border-radius:60px;
-  background:#1E1B1A;
-  color:#F7F3EE;
-  padding:.9rem 1rem;
-  margin-top:1.2rem;
-  font-size:.8rem;
-  font-weight:500;
-  letter-spacing:.05em;
-  font-family:'Poppins',sans-serif;
-  transition:all .3s ease;
-}
-
-.resource-list__item button:hover,
-.resource-list__item .button:hover,
-.resource-list__item .quick-add__submit:hover{
-  background:#000;
-  transform:scale(.98);
-  box-shadow:0 4px 12px rgba(0,0,0,.1);
-}
-
-/* ================================
-   MOBILE HORIZONTAL SCROLL
-================================== */
-
-@media(max-width:768px){
-
-  .product-recommendations-wrapper{
-    padding:3rem 0;
-  }
-
-  .product-recommendations{
-    padding:0 1rem;
-  }
-
-  .section-resource-list__content h2,
-  .section-resource-list__content h3{
-    font-size:2rem;
-  }
-
-  .resource-list--grid{
-    display:flex;
-    flex-wrap:nowrap;
-    overflow-x:auto;
-    overflow-y:hidden;
-    gap:1.2rem;
-    scroll-snap-type:x mandatory;
-    -webkit-overflow-scrolling:touch;
-    padding-bottom:1rem;
-  }
-
-  .resource-list--grid::-webkit-scrollbar{
-    height:4px;
-  }
-
-  .resource-list--grid::-webkit-scrollbar-track{
-    background:#E8E2DA;
-    border-radius:12px;
-  }
-
-  .resource-list--grid::-webkit-scrollbar-thumb{
-    background:#B8A99A;
-    border-radius:12px;
-  }
-
-  .resource-list__item{
-    flex:0 0 85%;
-    min-width:260px;
-    max-width:300px;
-    scroll-snap-align:start;
-  }
-
-  .resource-list__item .product-card__info,
-  .resource-list__item .product-card__content{
-    padding:1.2rem 1rem 1.3rem;
-  }
-
-  .resource-list__item .product-title,
-  .resource-list__item .product-card__title,
-  .resource-list__item .product-card__title a{
-    font-size:1.1rem;
-  }
-
-  .resource-list__item .price-item--sale{
-    font-size:1.2rem;
-  }
-}
-
-/* ================================
-   TABLET
-================================== */
-
-@media(max-width:1024px) and (min-width:769px){
-
-  .resource-list--grid{
-    grid-template-columns:repeat(2,1fr);
-    gap:2rem;
-  }
-
-}
-
-/* ================================
-   SMALL MOBILE
-================================== */
-
-@media(max-width:480px){
-
-  .resource-list__item{
-    flex:0 0 82%;
-    max-width:290px;
-  }
-
-}
-
-/* ================================
-   PERFORMANCE
-================================== */
-
-.resource-list__item,
-.resource-list__item img,
-.resource-list__item button{
-  will-change:transform;
-}
-
-
-{% endstylesheet %}
+<script>
+// Wishlist toggle (same UX)
+document.querySelectorAll('.wishlist').forEach(el=>{
+    el.addEventListener('click', ()=>{
+        const icon = el.querySelector('i');
+        icon.classList.toggle('fas');
+        icon.classList.toggle('far');
+    });
+});
+</script>
 
 {% schema %}
 {
-  "name": "t:names.product_recommendations",
-  "class": "product-recommendations-wrapper",
-  "blocks": [
-    {
-      "type": "@theme"
-    },
-    {
-      "type": "@app"
-    }
-  ],
+  "name": "Featured Luxury Products",
   "settings": [
     {
-      "type": "paragraph",
-      "content": "t:content.resource_reference_product_recommendations"
+      "type": "collection",
+      "id": "collection",
+      "label": "Select Collection"
     },
     {
-      "type": "select",
-      "id": "recommendation_type",
-      "label": "t:settings.type",
-      "options": [
-        {
-          "value": "related",
-          "label": "t:options.related"
-        },
-        {
-          "value": "complementary",
-          "label": "t:options.complementary"
-        }
-      ],
-      "default": "related"
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Featured Selections"
     },
     {
-      "type": "paragraph",
-      "content": "t:content.complementary_products"
-    },
-    {
-      "type": "header",
-      "content": "t:content.cards_layout"
-    },
-    {
-      "type": "select",
-      "id": "layout_type",
-      "label": "t:settings.layout_style",
-      "options": [
-        {
-          "value": "grid",
-          "label": "t:options.grid"
-        },
-        {
-          "value": "carousel",
-          "label": "t:options.carousel"
-        }
-      ],
-      "default": "grid"
-    },
-    {
-      "type": "checkbox",
-      "id": "carousel_on_mobile",
-      "label": "t:settings.carousel_on_mobile",
-      "default": true,
-      "visible_if": "{{ block.settings.layout_type == 'grid' }}"
-    },
-    {
-      "type": "range",
-      "id": "max_products",
-      "label": "t:settings.product_count",
-      "min": 2,
-      "max": 10,
-      "step": 1,
-      "default": 4
-    },
-    {
-      "type": "range",
-      "id": "columns_gap",
-      "label": "t:settings.horizontal_gap",
-      "min": 0,
-      "max": 100,
-      "step": 1,
-      "unit": "px",
-      "default": 16,
-      "visible_if": "{{ block.settings.layout_type == 'grid' or block.settings.layout_type == 'carousel' }}"
-    },
-    {
-      "type": "range",
-      "id": "rows_gap",
-      "label": "t:settings.vertical_gap",
-      "min": 0,
-      "max": 100,
-      "step": 1,
-      "unit": "px",
-      "default": 16,
-      "visible_if": "{{ block.settings.layout_type == 'grid' }}"
-    },
-    {
-      "type": "header",
-      "content": "t:content.carousel_navigation",
-      "visible_if": "{{ block.settings.layout_type == 'carousel' or block.settings.carousel_on_mobile == true }}"
-    },
-    {
-      "type": "select",
-      "id": "icons_style",
-      "label": "t:settings.icon",
-      "options": [
-        {
-          "value": "arrow",
-          "label": "t:options.arrows"
-        },
-        {
-          "value": "chevron",
-          "label": "t:options.chevrons"
-        },
-        {
-          "value": "arrows_large",
-          "label": "t:options.arrows_large"
-        },
-        {
-          "value": "chevron_large",
-          "label": "t:options.chevron_large"
-        },
-        {
-          "value": "none",
-          "label": "t:options.none"
-        }
-      ],
-      "default": "arrow",
-      "visible_if": "{{ block.settings.layout_type == 'carousel' or block.settings.carousel_on_mobile == true }}"
-    },
-    {
-      "type": "select",
-      "id": "icons_shape",
-      "label": "t:settings.icon_background",
-      "options": [
-        {
-          "value": "none",
-          "label": "t:options.none"
-        },
-        {
-          "value": "circle",
-          "label": "t:options.circle"
-        },
-        {
-          "value": "square",
-          "label": "t:options.square"
-        }
-      ],
-      "default": "none",
-      "visible_if": "{{ block.settings.icons_style != 'none' and block.settings.layout_type == 'carousel' or block.settings.carousel_on_mobile == true }}"
-    },
-    {
-      "type": "header",
-      "content": "t:content.layout"
-    },
-    {
-      "type": "range",
-      "id": "gap",
-      "label": "t:settings.gap",
-      "min": 0,
-      "max": 100,
-      "step": 1,
-      "unit": "px",
-      "default": 12
-    },
-    {
-      "type": "range",
-      "id": "border_radius",
-      "label": "t:settings.border_radius",
-      "min": 0,
-      "max": 32,
-      "step": 1,
-      "unit": "px",
-      "default": 0
-    },
-    {
-      "type": "checkbox",
-      "id": "inherit_color_scheme",
-      "label": "t:settings.inherit_color_scheme",
-      "default": true
-    },
-    {
-      "type": "color_scheme",
-      "id": "color_scheme",
-      "label": "t:settings.color_scheme",
-      "default": "scheme-1",
-      "visible_if": "{{ block.settings.inherit_color_scheme == false }}"
-    },
-    {
-      "type": "header",
-      "content": "t:content.padding"
-    },
-    {
-      "type": "range",
-      "id": "padding-block-start",
-      "label": "t:settings.top",
-      "min": 0,
-      "max": 100,
-      "step": 1,
-      "unit": "px",
-      "default": 0
-    },
-    {
-      "type": "range",
-      "id": "padding-block-end",
-      "label": "t:settings.bottom",
-      "min": 0,
-      "max": 100,
-      "step": 1,
-      "unit": "px",
-      "default": 0
-    },
-    {
-      "type": "range",
-      "id": "padding-inline-start",
-      "label": "t:settings.left",
-      "min": 0,
-      "max": 100,
-      "step": 1,
-      "unit": "px",
-      "default": 0
-    },
-    {
-      "type": "range",
-      "id": "padding-inline-end",
-      "label": "t:settings.right",
-      "min": 0,
-      "max": 100,
-      "step": 1,
-      "unit": "px",
-      "default": 0
+      "type": "text",
+      "id": "subheading",
+      "label": "Subheading",
+      "default": "Timeless silhouettes, modern elegance. Discover the new wave of luxury."
     }
   ],
   "presets": [
     {
-      "name": "t:names.product_recommendations",
-      "category": "t:categories.product",
-      "settings": {
-        "recommendation_type": "related",
-        "border_radius": 0,
-        "padding-inline-start": 0,
-        "padding-inline-end": 0
-      },
-      "blocks": {
-        "heading": {
-          "type": "text",
-          "settings": {
-            "text": "t:html_defaults.may_also_like"
-          }
-        },
-        "static-product-card": {
-          "type": "_product-card",
-          "static": true,
-          "settings": {
-            "product_card_gap": 4
-          },
-          "blocks": {
-            "product-card-gallery": {
-              "type": "_product-card-gallery",
-              "settings": {
-                "image_ratio": "adapt",
-                "border": "none",
-                "border_width": 1,
-                "border_opacity": 100,
-                "border_radius": 0,
-                "padding-block-start": 0,
-                "padding-block-end": 0,
-                "padding-inline-start": 0,
-                "padding-inline-end": 0
-              }
-            },
-            "product_title": {
-              "type": "product-title",
-              "name": "t:names.product_title",
-              "settings": {
-                "width": "fit-content",
-                "max_width": "normal",
-                "alignment": "left",
-                "type_preset": "rte",
-                "font": "var(--font-body--family)",
-                "font_size": "1rem",
-                "line_height": "normal",
-                "letter_spacing": "normal",
-                "case": "none",
-                "wrap": "pretty",
-                "color": "var(--color-foreground)",
-                "background": false,
-                "background_color": "#00000026",
-                "corner_radius": 0,
-                "padding-block-start": 4,
-                "padding-block-end": 0,
-                "padding-inline-start": 0,
-                "padding-inline-end": 0
-              }
-            },
-            "price": {
-              "type": "price",
-              "name": "t:names.product_price",
-              "settings": {
-                "show_sale_price_first": true,
-                "show_installments": false,
-                "show_tax_info": false,
-                "type_preset": "h6",
-                "width": "100%",
-                "alignment": "left",
-                "font": "var(--font-body--family)",
-                "font_size": "1rem",
-                "line_height": "normal",
-                "letter_spacing": "normal",
-                "case": "none",
-                "color": "var(--color-foreground)",
-                "padding-block-start": 0,
-                "padding-block-end": 0,
-                "padding-inline-start": 0,
-                "padding-inline-end": 0
-              }
-            }
-          },
-          "block_order": ["product-card-gallery", "product_title", "price"]
-        }
-      },
-      "block_order": ["heading"]
+      "name": "Featured Luxury Products"
     }
   ]
 }
