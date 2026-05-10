@@ -2043,7 +2043,7 @@
                               "type": "icon",
                               "settings": {
                                 "icon": "eye",
-                                "image_upload": "shopify://shop_images/woman.png",
+                                "image_upload": "shopify://shop_images/shopping.png",
                                 "width": 58,
                                 "link": "",
                                 "open_in_new_tab": false
