@@ -3768,7 +3768,6 @@ slideshow-arrows .slideshow-control.slideshow-control--style-none {
 }
 
 .resource-list__carousel slideshow-slides {
-  background-color: red;
   gap: var(--resource-list-column-gap);
 
   /* Add padding to prevent hover animations from being clipped in slideshow
