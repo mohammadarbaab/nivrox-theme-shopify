@@ -1,19 +1,7 @@
-{%- if settings.transition_to_main_product -%}
-  <product-card-link
-    data-product-id="{{ product.id }}"
-    data-featured-media-url="{{ featured_media_url }}"
-    data-product-transition="{{ settings.transition_to_main_product }}"
-    {% if onboarding %}
-      data-placeholder="true"
-    {% endif %}
-  >
-{%- endif -%}
-
 <product-card
   class="product-card custom-product-card"
   data-product-id="{{ product.id }}"
   id="product-card-{{ block.id }}"
-  data-product-transition="{{ settings.transition_to_main_product }}"
   {{ block.shopify_attributes }}
 >
 
@@ -23,16 +11,14 @@
     <div class="custom-product-image-wrapper">
 
       <a
-        {% unless onboarding %}
-          href="{{ variant_to_link.url }}"
-        {% endunless %}
+        href="{{ product.url }}"
         class="custom-product-image-link"
       >
 
         {% if product.featured_image %}
           <img
             src="{{ product.featured_image | image_url: width: 600 }}"
-            alt="{{ product.title }}"
+            alt="{{ product.title | escape }}"
             class="custom-product-image"
             loading="lazy"
             width="600"
@@ -42,16 +28,24 @@
 
       </a>
 
-      <!-- ADD TO CART -->
-      {% comment %} {% if product.available %}
+      {% comment %} <!-- ADD TO CART -->
+      {% if product.available %}
         <div class="custom-add-to-cart">
+
           <form method="post" action="/cart/add">
-            <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">
+
+            <input
+              type="hidden"
+              name="id"
+              value="{{ product.selected_or_first_available_variant.id }}"
+            >
 
             <button type="submit" class="custom-add-btn">
               Add To Cart
             </button>
+
           </form>
+
         </div>
       {% endif %} {% endcomment %}
 
@@ -61,13 +55,15 @@
     <div class="custom-product-info">
 
       <h3 class="custom-product-title">
-        <a href="{{ variant_to_link.url }}">
+        <a href="{{ product.url }}">
           {{ product.title }}
         </a>
       </h3>
 
       <div class="custom-product-price">
+
         {% if product.compare_at_price > product.price %}
+
           <span class="compare-price">
             {{ product.compare_at_price | money }}
           </span>
@@ -83,6 +79,7 @@
           </span>
 
         {% endif %}
+
       </div>
 
     </div>
@@ -91,43 +88,36 @@
 
 </product-card>
 
-{%- if settings.transition_to_main_product -%}
-  </product-card-link>
-{%- endif -%}
-
 {% stylesheet %}
 
-.custom-product-card-inner{
-  /* background:green; */
-  border-radius:20px;
-  overflow:hidden;
-  border:1px solid #eee;
-  /* transition:.4s; */
-  height:100%;
+.custom-product-card{
+  width:100%;;
 }
 
-
-.custom-product-card-inner:hover{
-  /* transform:translateY(-8px);
-  box-shadow:0 20px 40px rgba(0,0,0,.12); */
+.custom-product-card-inner{
+  background:blue;
+  border-radius:20px;
+  overflow:hidden;
+  /* border:1px solid #eee; */
+  height:100%;
 }
 
 .custom-product-image-wrapper{
   position:relative;
   overflow:hidden;
   aspect-ratio:3/4;
-  background:blue;
+  background:#F7F3EE;
+}
+
+.custom-product-image-link{
+  display:block;
 }
 
 .custom-product-image{
   width:100%;
   height:100%;
   object-fit:cover;
-  /* transition:.6s; */
-}
-
-.custom-product-card-inner:hover .custom-product-image{
-  /* transform:scale(1.08); */
+  display:block;
 }
 
 .custom-add-to-cart{
@@ -136,12 +126,6 @@
   right:0;
   bottom:0;
   padding:15px;
-  /* transform:translateY(100%);
-  transition:.4s; */
-}
-
-.custom-product-card-inner:hover .custom-add-to-cart{
-  /* transform:translateY(0); */
 }
 
 .custom-add-btn{
@@ -166,6 +150,7 @@
 .custom-product-title{
   font-size:18px;
   margin-bottom:10px;
+  line-height:1.4;
 }
 
 .custom-product-title a{
@@ -181,11 +166,13 @@
   display:flex;
   gap:10px;
   align-items:center;
+  flex-wrap:wrap;
 }
 
 .compare-price{
   text-decoration:line-through;
   color:#999;
+  font-size:14px;
 }
 
 .sale-price{
@@ -214,5 +201,6 @@
   }
 
 }
+
 
 {% endstylesheet %}

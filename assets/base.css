@@ -144,7 +144,6 @@ select {
   height: 100%;
   width: 100%;
   gap: var(--gap);
-  background-color: brown;
 }
 
 .collection-card__link,
@@ -154,10 +153,8 @@ select {
 
   /* allows focus outline to have radius in supported browsers */
   border-radius: var(--border-radius);
-  background-color: aquamarine;
 }
 
-.product-card,
 .collection-card,
 .resource-card,
 .predictive-search-results__card--product,
@@ -166,7 +163,7 @@ select {
   transition: transform var(--hover-transition-duration) var(--hover-transition-timing),
     box-shadow var(--hover-transition-duration) var(--hover-transition-timing);
   z-index: var(--layer-flat);
-  background-color: aqua;
+  
 }
 
 .product-card__link {
@@ -193,7 +190,6 @@ select {
   transition: none;
   will-change: auto;
 }
-
 
 @media (any-pointer: fine) and (prefers-reduced-motion: no-preference) {
   .card-hover-effect-lift .product-card:hover,
@@ -3772,6 +3768,7 @@ slideshow-arrows .slideshow-control.slideshow-control--style-none {
 }
 
 .resource-list__carousel slideshow-slides {
+  background-color: red;
   gap: var(--resource-list-column-gap);
 
   /* Add padding to prevent hover animations from being clipped in slideshow
@@ -4076,3 +4073,5 @@ text-component {
     font-size: max(1rem, 100%);
   }
 }
+
+
