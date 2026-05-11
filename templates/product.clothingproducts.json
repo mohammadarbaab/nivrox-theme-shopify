@@ -2340,6 +2340,20 @@
         "padding-block-end": 0
       }
     },
+    "divider_3Vj36r": {
+      "type": "divider",
+      "name": "t:names.divider_section",
+      "settings": {
+        "color_scheme": "",
+        "section_width": "full-width",
+        "thickness": 1,
+        "corner_radius": "square",
+        "width_percent": 100,
+        "alignment_horizontal": "center",
+        "padding-block-start": 16,
+        "padding-block-end": 16
+      }
+    },
     "section_6bQc8K": {
       "type": "section",
       "blocks": {
@@ -3236,6 +3250,7 @@
     "17781654023f2ee7e8",
     "main",
     "section_aWwMUM",
+    "divider_3Vj36r",
     "section_6bQc8K",
     "product_recommendations_qggXJq",
     "custom_footer_z7qah9",
