@@ -392,6 +392,28 @@
                   },
                   "blocks": {}
                 },
+                "price_tVjtKg": {
+                  "type": "price",
+                  "settings": {
+                    "show_sale_price_first": true,
+                    "show_installments": false,
+                    "show_tax_info": false,
+                    "type_preset": "custom",
+                    "width": "100%",
+                    "alignment": "left",
+                    "font": "var(--font-subheading--family)",
+                    "font_size": "1.25rem",
+                    "line_height": "normal",
+                    "letter_spacing": "normal",
+                    "case": "none",
+                    "color": "var(--color-foreground-heading)",
+                    "padding-block-start": 0,
+                    "padding-block-end": 0,
+                    "padding-inline-start": 0,
+                    "padding-inline-end": 0
+                  },
+                  "blocks": {}
+                },
                 "text_gHakbk": {
                   "type": "text",
                   "name": "t:names.text",
@@ -420,35 +442,14 @@
                 },
                 "judge_me_reviews_preview_badge_yrhqz4": {
                   "type": "shopify://apps/judge-me-reviews/blocks/preview_badge/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+                  "disabled": true,
                   "settings": {}
-                },
-                "price_tVjtKg": {
-                  "type": "price",
-                  "settings": {
-                    "show_sale_price_first": true,
-                    "show_installments": false,
-                    "show_tax_info": false,
-                    "type_preset": "custom",
-                    "width": "100%",
-                    "alignment": "left",
-                    "font": "var(--font-subheading--family)",
-                    "font_size": "1.25rem",
-                    "line_height": "normal",
-                    "letter_spacing": "normal",
-                    "case": "none",
-                    "color": "var(--color-foreground-heading)",
-                    "padding-block-start": 0,
-                    "padding-block-end": 0,
-                    "padding-inline-start": 0,
-                    "padding-inline-end": 0
-                  },
-                  "blocks": {}
                 },
                 "text_fMJV8p": {
                   "type": "text",
                   "name": "t:names.text",
                   "settings": {
-                    "text": "<p>Extra ₹100 OFF with code <strong>SAVE100</strong></p>",
+                    "text": "<p>Extra ₹100 OFF with code NIVROX<strong>100</strong></p>",
                     "width": "fit-content",
                     "max_width": "normal",
                     "alignment": "left",
@@ -473,9 +474,9 @@
               },
               "block_order": [
                 "text_xrnftG",
+                "price_tVjtKg",
                 "text_gHakbk",
                 "judge_me_reviews_preview_badge_yrhqz4",
-                "price_tVjtKg",
                 "text_fMJV8p"
               ]
             },

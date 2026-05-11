@@ -128,14 +128,14 @@
       "scheme-2": {
         "settings": {
           "background": "#ffffffc7",
-          "foreground_heading": "#000000",
+          "foreground_heading": "#e23030",
           "foreground": "#000000",
           "primary": "#f7f3ee",
           "primary_hover": "#ffffff",
           "border": "#fafafa",
           "shadow": "#000000",
           "primary_button_background": "#000000",
-          "primary_button_text": "#000000",
+          "primary_button_text": "#e23030",
           "primary_button_border": "#000000",
           "primary_button_hover_background": "#333333",
           "primary_button_hover_text": "#ffffff",
