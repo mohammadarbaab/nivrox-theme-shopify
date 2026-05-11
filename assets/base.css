@@ -2715,6 +2715,12 @@ product-price.text-block:is(.h1, .h2, .h3, .h4, .h5, .h6) > *:not(.tax-note) {
   align-items: center;
   justify-content: center;
 }
+price,
+.price,
+.price-item,
+.product-price {
+    color: #ff0000 !important;
+}
 
 /* Quantity selector */
 .quantity-selector {
