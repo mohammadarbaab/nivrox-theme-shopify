@@ -11,10 +11,7 @@
   name="view-transition"
   content="same-origin"
 >
-<meta
-  name="theme-color"
-  content=""
->
+<meta name="theme-color" content="#000000">
 
 {%- liquid
   assign og_title = page_title | default: shop.name
@@ -55,7 +52,7 @@
 {%- if page_image -%}
   <meta
     property="og:image"
-    content="http:{{ page_image | image_url }}"
+    content="https:{{ page_image | image_url }}"
   >
   <meta
     property="og:image:secure_url"
@@ -116,10 +113,9 @@
   rel="canonical"
   href="{{ canonical_url }}"
 >
+<meta name="robots" content="index,follow">
 
-{% if page_description %}
-  <meta
-    name="description"
-    content="{{ page_description | escape }}"
-  >
-{% endif %}
+<meta
+  name="description"
+  content="{% if page_description %}{{ page_description | escape }}{% else %}Shop premium Korean fashion clothing in India including oversized T-shirts, Korean shirts, Gurkha trousers and streetwear outfits.{% endif %}"
+>

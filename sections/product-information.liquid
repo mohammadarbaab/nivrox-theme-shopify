@@ -3,7 +3,22 @@
 <script type="application/ld+json">
   {{ closest.product | structured_data }}
 </script>
-
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Do you offer Cash on Delivery?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, Cash on Delivery is available across India."
+      }
+    }
+  ]
+}
+</script>
 {% capture media_gallery %}
   {%- content_for 'block',
     type: '_product-media-gallery',
@@ -23,6 +38,12 @@
 {% capture additional_blocks %}
   {% content_for 'blocks' %}
 {% endcapture %}
+<nav class="breadcrumb" aria-label="breadcrumbs">
+  <a href="/">Home</a> /
+  <a href="/collections/all">Shop</a> /
+  <span>{{ closest.product.title }}</span>
+</nav>
+
 
 {% if section.settings.enable_sticky_add_to_cart %}
   {% liquid
