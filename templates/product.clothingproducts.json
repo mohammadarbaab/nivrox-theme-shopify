@@ -487,7 +487,7 @@
                   "type": "text",
                   "name": "t:names.text",
                   "settings": {
-                    "text": "<p>Extra ₹100 OFF with code NIVROX<strong>100</strong></p>",
+                    "text": "<p>Extra ₹100 OFF with code <strong>NIVROX100</strong></p>",
                     "width": "fit-content",
                     "max_width": "normal",
                     "alignment": "left",
