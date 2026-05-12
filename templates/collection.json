@@ -98,6 +98,20 @@
         "padding-block-end": 48
       }
     },
+    "divider_fQa6Xk": {
+      "type": "divider",
+      "name": "t:names.divider_section",
+      "settings": {
+        "color_scheme": "",
+        "section_width": "full-width",
+        "thickness": 1,
+        "corner_radius": "square",
+        "width_percent": 100,
+        "alignment_horizontal": "center",
+        "padding-block-start": 16,
+        "padding-block-end": 16
+      }
+    },
     "main": {
       "type": "main-collection",
       "blocks": {
@@ -297,6 +311,7 @@
   },
   "order": [
     "section",
+    "divider_fQa6Xk",
     "main",
     "divider_3nxQcE",
     "custom_footer_JQz7zg",
