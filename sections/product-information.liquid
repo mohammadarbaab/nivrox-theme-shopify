@@ -38,11 +38,7 @@
 {% capture additional_blocks %}
   {% content_for 'blocks' %}
 {% endcapture %}
-<nav class="breadcrumb" aria-label="breadcrumbs">
-  <a href="/">Home</a> /
-  <a href="/collections/all">Shop</a> /
-  <span>{{ closest.product.title }}</span>
-</nav>
+
 
 
 {% if section.settings.enable_sticky_add_to_cart %}
