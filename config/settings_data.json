@@ -90,7 +90,7 @@
         "settings": {
           "background": "#f7f3ee",
           "foreground_heading": "#000000",
-          "foreground": "#d43939cf",
+          "foreground": "#050505cf",
           "primary": "#ffffffcf",
           "primary_hover": "#000000",
           "border": "#d8d2c8",
