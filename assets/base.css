@@ -2716,7 +2716,11 @@ product-price.text-block:is(.h1, .h2, .h3, .h4, .h5, .h6) > *:not(.tax-note) {
   justify-content: center;
 }
 
-
+.header-logo__image-container span,
+.header-logo__image-container {
+    color: #7A1F2B !important; /* Red color */
+    font-weight: 600;           /* Optional: thoda bold */
+}
 price,
 .price,
 .price-item,
