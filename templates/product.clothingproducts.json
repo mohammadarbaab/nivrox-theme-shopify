@@ -1438,6 +1438,84 @@
         "padding-block-end": 0
       }
     },
+    "video_crousel_WaqTh4": {
+      "type": "video-crousel",
+      "blocks": {
+        "video_t3pHA7": {
+          "type": "video",
+          "settings": {
+            "html5_video": "shopify://files/videos/Model_adjusts_shirt_collar_detail_202605130218.mp4",
+            "product": "",
+            "collection": "",
+            "video_metafield": ""
+          }
+        },
+        "video_LqJirT": {
+          "type": "video",
+          "settings": {
+            "product": "",
+            "collection": "",
+            "video_metafield": ""
+          }
+        },
+        "video_4xwd8X": {
+          "type": "video",
+          "settings": {
+            "product": "",
+            "collection": "",
+            "video_metafield": ""
+          }
+        },
+        "video_jH4nRf": {
+          "type": "video",
+          "settings": {
+            "product": "",
+            "collection": "",
+            "video_metafield": ""
+          }
+        },
+        "video_jQwatx": {
+          "type": "video",
+          "settings": {
+            "product": "",
+            "collection": "",
+            "video_metafield": ""
+          }
+        }
+      },
+      "block_order": [
+        "video_t3pHA7",
+        "video_LqJirT",
+        "video_4xwd8X",
+        "video_jH4nRf",
+        "video_jQwatx"
+      ],
+      "name": "Video carousel",
+      "settings": {
+        "slide_width": 300,
+        "image_crop": "none",
+        "aspect_ratio": "9:16",
+        "autoplay": 8,
+        "gap": 10,
+        "show_arrows": false,
+        "text_size": 100,
+        "text_alignment": "left",
+        "text_color": "#121212",
+        "border_color": "#121212",
+        "background_color": "",
+        "border_radius": 10,
+        "base_width": 100,
+        "max_width": "",
+        "inner_padding": 40,
+        "outer_margin": 0,
+        "custom_css": "",
+        "mobile_custom_css": "",
+        "anchor_id": "",
+        "override_theme_font": false,
+        "heading_font": "serif",
+        "main_font": "system_ui_n4"
+      }
+    },
     "section_aWwMUM": {
       "type": "section",
       "blocks": {
@@ -3290,6 +3368,7 @@
     "marquee_DqkANX",
     "17781654023f2ee7e8",
     "main",
+    "video_crousel_WaqTh4",
     "section_aWwMUM",
     "divider_3Vj36r",
     "section_6bQc8K",
