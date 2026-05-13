@@ -1499,7 +1499,7 @@
         "slide_width": 300,
         "image_crop": "none",
         "aspect_ratio": "9:16",
-        "autoplay": 8,
+        "autoplay": 5,
         "gap": 10,
         "show_arrows": false,
         "text_size": 100,
